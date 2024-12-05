@@ -14,6 +14,9 @@
 		C83640162D01C9E7007D8554 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C83640152D01C9E7007D8554 /* Assets.xcassets */; };
 		C83640192D01C9E7007D8554 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C83640172D01C9E7007D8554 /* LaunchScreen.storyboard */; };
 		C836401C2D01C9E7007D8554 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C836401B2D01C9E7007D8554 /* main.m */; };
+		C83640242D01DC07007D8554 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C83640232D01DC07007D8554 /* HomeViewController.m */; };
+		C83640272D01EDA2007D8554 /* muyu.png in Resources */ = {isa = PBXBuildFile; fileRef = C83640262D01EDA2007D8554 /* muyu.png */; };
+		C836402A2D01F248007D8554 /* muyu0_0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C83640292D01F248007D8554 /* muyu0_0.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,10 @@
 		C83640182D01C9E7007D8554 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C836401A2D01C9E7007D8554 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C836401B2D01C9E7007D8554 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C83640222D01DC07007D8554 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		C83640232D01DC07007D8554 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		C83640262D01EDA2007D8554 /* muyu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = muyu.png; sourceTree = "<group>"; };
+		C83640292D01F248007D8554 /* muyu0_0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = muyu0_0.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +68,8 @@
 		C83640082D01C9E6007D8554 /* muyu */ = {
 			isa = PBXGroup;
 			children = (
+				C83640282D01F248007D8554 /* audio */,
+				C83640252D01EDA2007D8554 /* img */,
 				C83640092D01C9E6007D8554 /* AppDelegate.h */,
 				C836400A2D01C9E6007D8554 /* AppDelegate.m */,
 				C836400C2D01C9E6007D8554 /* SceneDelegate.h */,
@@ -72,8 +81,26 @@
 				C83640172D01C9E7007D8554 /* LaunchScreen.storyboard */,
 				C836401A2D01C9E7007D8554 /* Info.plist */,
 				C836401B2D01C9E7007D8554 /* main.m */,
+				C83640222D01DC07007D8554 /* HomeViewController.h */,
+				C83640232D01DC07007D8554 /* HomeViewController.m */,
 			);
 			path = muyu;
+			sourceTree = "<group>";
+		};
+		C83640252D01EDA2007D8554 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				C83640262D01EDA2007D8554 /* muyu.png */,
+			);
+			path = img;
+			sourceTree = "<group>";
+		};
+		C83640282D01F248007D8554 /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				C83640292D01F248007D8554 /* muyu0_0.wav */,
+			);
+			path = audio;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +163,8 @@
 				C83640192D01C9E7007D8554 /* LaunchScreen.storyboard in Resources */,
 				C83640162D01C9E7007D8554 /* Assets.xcassets in Resources */,
 				C83640142D01C9E6007D8554 /* Main.storyboard in Resources */,
+				C83640272D01EDA2007D8554 /* muyu.png in Resources */,
+				C836402A2D01F248007D8554 /* muyu0_0.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +178,7 @@
 				C83640112D01C9E6007D8554 /* ViewController.m in Sources */,
 				C836400B2D01C9E6007D8554 /* AppDelegate.m in Sources */,
 				C836401C2D01C9E7007D8554 /* main.m in Sources */,
+				C83640242D01DC07007D8554 /* HomeViewController.m in Sources */,
 				C836400E2D01C9E6007D8554 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,7 +257,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -282,7 +312,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -309,6 +339,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -341,6 +372,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
