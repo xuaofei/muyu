@@ -1,24 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZbE-4k-8ai">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="btnFullAreaAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B86-Fg-2cF"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="muyu.png" translatesAutoresizingMaskIntoConstraints="NO" id="tot-Je-E73">
+                                <rect key="frame" x="106.66666666666669" y="496" width="180" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="CR0-Rt-V66"/>
+                                    <constraint firstAttribute="height" constant="180" id="lBI-2I-KXC"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="敲击次数" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIQ-tC-DaI">
+                                <rect key="frame" x="43" y="89" width="306" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="7Hs-tP-2NS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7d-o3-R4k">
+                                <rect key="frame" x="43" y="112" width="306" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="bIg-3e-ehQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tot-Je-E73" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1uk-nx-88L"/>
+                            <constraint firstItem="ZbE-4k-8ai" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="2F9-4Y-us4"/>
+                            <constraint firstItem="h7d-o3-R4k" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="53" id="6nR-Kc-S22"/>
+                            <constraint firstItem="dIQ-tC-DaI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="43" id="N4T-6e-95c"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dIQ-tC-DaI" secondAttribute="trailing" constant="44" id="O1M-ov-h4c"/>
+                            <constraint firstAttribute="bottom" secondItem="ZbE-4k-8ai" secondAttribute="bottom" id="OOC-7v-kSX"/>
+                            <constraint firstItem="ZbE-4k-8ai" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="WrQ-0x-bcz"/>
+                            <constraint firstItem="dIQ-tC-DaI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="ecX-56-OdS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h7d-o3-R4k" secondAttribute="trailing" constant="44" id="h3X-0J-tMe"/>
+                            <constraint firstItem="h7d-o3-R4k" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="43" id="mO0-6q-ePv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tot-Je-E73" secondAttribute="bottom" constant="142" id="sOh-EX-Skl"/>
+                            <constraint firstItem="ZbE-4k-8ai" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sck-n3-SOy"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="btnFullArea" destination="ZbE-4k-8ai" id="wSR-N8-xl3"/>
+                        <outlet property="imgMuyu" destination="tot-Je-E73" id="SgB-dj-o0c"/>
+                        <outlet property="labKnockCount" destination="h7d-o3-R4k" id="B20-0A-ARa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="127.48091603053435" y="-2.1126760563380285"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="muyu.png" width="2448" height="2448"/>
+    </resources>
 </document>
