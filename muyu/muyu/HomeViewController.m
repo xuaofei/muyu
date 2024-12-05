@@ -54,10 +54,13 @@
 - (IBAction)btnFullAreaAction:(id)sender {
     NSLog(@"btnFullAreaAction");
     
-    if (self.muyuKnocking) {
-        return;
-    }
+//    if (self.muyuKnocking) {
+//        return;
+//    }
     self.muyuKnocking = YES;
+    
+    [self.view.layer removeAllAnimations];
+    self.imgMuyu.transform = CGAffineTransformMakeScale(1.0f, 1.0f);
     
     [UIView animateWithDuration:0.1f animations:^{
         self.imgMuyu.transform = CGAffineTransformMakeScale(0.75f, 0.75f);
