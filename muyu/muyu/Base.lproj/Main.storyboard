@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,13 +24,6 @@
                                     <action selector="btnFullAreaAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B86-Fg-2cF"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="muyu.png" translatesAutoresizingMaskIntoConstraints="NO" id="tot-Je-E73">
-                                <rect key="frame" x="106.66666666666669" y="496" width="180" height="180"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="180" id="CR0-Rt-V66"/>
-                                    <constraint firstAttribute="height" constant="180" id="lBI-2I-KXC"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="敲击次数" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIQ-tC-DaI">
                                 <rect key="frame" x="43" y="89" width="306" height="41"/>
                                 <constraints>
@@ -48,6 +42,13 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="muyu.png" translatesAutoresizingMaskIntoConstraints="NO" id="tot-Je-E73">
+                                <rect key="frame" x="86" y="480" width="220" height="220"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="CR0-Rt-V66"/>
+                                    <constraint firstAttribute="height" constant="220" id="lBI-2I-KXC"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -62,7 +63,7 @@
                             <constraint firstItem="dIQ-tC-DaI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="ecX-56-OdS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h7d-o3-R4k" secondAttribute="trailing" constant="44" id="h3X-0J-tMe"/>
                             <constraint firstItem="h7d-o3-R4k" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="43" id="mO0-6q-ePv"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tot-Je-E73" secondAttribute="bottom" constant="142" id="sOh-EX-Skl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tot-Je-E73" secondAttribute="bottom" constant="118" id="sOh-EX-Skl"/>
                             <constraint firstItem="ZbE-4k-8ai" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sck-n3-SOy"/>
                         </constraints>
                     </view>

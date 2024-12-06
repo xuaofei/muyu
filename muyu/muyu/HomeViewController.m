@@ -5,8 +5,8 @@
 //  Created by xuaofei on 2024/12/5.
 //
 
+#import "Define.h"
 #import "HomeViewController.h"
-
 #import <AVFoundation/AVFoundation.h>
 
 @interface HomeViewController ()<AVAudioPlayerDelegate>
@@ -38,7 +38,7 @@
         NSError *error = nil;
         self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:fileURL error:&error];
         self.audioPlayer.delegate = self; // 可选：设置代理
-
+        
         if (error) {
             NSLog(@"初始化播放器失败: %@", error.localizedDescription);
         } else {
@@ -54,27 +54,38 @@
 - (IBAction)btnFullAreaAction:(id)sender {
     NSLog(@"btnFullAreaAction");
     
-//    if (self.muyuKnocking) {
-//        return;
-//    }
+    [self playAudio];
+    self.muyuKnockCount++;
+    self.labKnockCount.text = [NSString stringWithFormat:@"%lu",(unsigned long)self.muyuKnockCount];
+    
+    if (self.muyuKnocking) {
+        // 如果动画正在进行，立即停止并重置
+        [self.imgMuyu.layer removeAllAnimations];
+        self.imgMuyu.transform = CGAffineTransformIdentity; // 恢复到初始状态
+        self.muyuKnocking = NO; // 重置标志位
+    }
+    
+    // 开始新的动画
     self.muyuKnocking = YES;
-    
-    [self.view.layer removeAllAnimations];
-    self.imgMuyu.transform = CGAffineTransformMakeScale(1.0f, 1.0f);
-    
-    [UIView animateWithDuration:0.1f animations:^{
-        self.imgMuyu.transform = CGAffineTransformMakeScale(0.75f, 0.75f);
+    [UIView animateWithDuration:MUYU_ANIMATE_DURATION
+                          delay:0
+                        options:UIViewAnimationOptionBeginFromCurrentState
+                     animations:^{
+        self.imgMuyu.transform = CGAffineTransformMakeScale(0.8, 0.8);
     } completion:^(BOOL finished) {
-        [self playAudio];
         
-        [UIView animateWithDuration:0.1f animations:^{
-            self.imgMuyu.transform = CGAffineTransformMakeScale(1.0f, 1.0f);
-        } completion:^(BOOL finished) {
-            self.muyuKnocking = NO;
-            
-            self.muyuKnockCount++;
-            self.labKnockCount.text = [NSString stringWithFormat:@"%lu",(unsigned long)self.muyuKnockCount];
-        }];
+        if (finished) {
+            [UIView animateWithDuration:MUYU_ANIMATE_DURATION
+                                  delay:0
+                                options:UIViewAnimationOptionBeginFromCurrentState
+                             animations:^{
+                self.imgMuyu.transform = CGAffineTransformIdentity;
+            } completion:^(BOOL finished) {
+                if (finished) {
+                    self.muyuKnocking = NO; // 动画完成后重置标志位
+                }
+            }];
+        }
     }];
 }
 
@@ -103,13 +114,13 @@
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

@@ -36,6 +36,7 @@
 		C83640232D01DC07007D8554 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		C83640262D01EDA2007D8554 /* muyu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = muyu.png; sourceTree = "<group>"; };
 		C83640292D01F248007D8554 /* muyu0_0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = muyu0_0.wav; sourceTree = "<group>"; };
+		C8DB50472D03322A00347196 /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +84,7 @@
 				C836401B2D01C9E7007D8554 /* main.m */,
 				C83640222D01DC07007D8554 /* HomeViewController.h */,
 				C83640232D01DC07007D8554 /* HomeViewController.m */,
+				C8DB50472D03322A00347196 /* Define.h */,
 			);
 			path = muyu;
 			sourceTree = "<group>";
@@ -334,6 +336,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = D6ZGP9Y2YZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = muyu/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "木鱼-阿弥陀佛";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -367,6 +370,7 @@
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = D6ZGP9Y2YZ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = muyu/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "木鱼-阿弥陀佛";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
