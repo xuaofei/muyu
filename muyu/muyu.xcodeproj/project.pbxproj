@@ -18,6 +18,8 @@
 		C83640272D01EDA2007D8554 /* muyu.png in Resources */ = {isa = PBXBuildFile; fileRef = C83640262D01EDA2007D8554 /* muyu.png */; };
 		C836402A2D01F248007D8554 /* muyu0_0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C83640292D01F248007D8554 /* muyu0_0.wav */; };
 		C8DB504A2D0446D100347196 /* KeyChainHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C8DB50492D0446D100347196 /* KeyChainHelper.m */; };
+		C8DB504C2D0460C800347196 /* LaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = C8DB504B2D0460C800347196 /* LaunchScreen.png */; };
+		C8DB504F2D04634200347196 /* LaunchScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8DB504E2D04634200347196 /* LaunchScreenViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,9 @@
 		C8DB50472D03322A00347196 /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
 		C8DB50482D0446D100347196 /* KeyChainHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyChainHelper.h; sourceTree = "<group>"; };
 		C8DB50492D0446D100347196 /* KeyChainHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyChainHelper.m; sourceTree = "<group>"; };
+		C8DB504B2D0460C800347196 /* LaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchScreen.png; sourceTree = "<group>"; };
+		C8DB504D2D04634200347196 /* LaunchScreenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaunchScreenViewController.h; sourceTree = "<group>"; };
+		C8DB504E2D04634200347196 /* LaunchScreenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaunchScreenViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +95,8 @@
 				C8DB50472D03322A00347196 /* Define.h */,
 				C8DB50482D0446D100347196 /* KeyChainHelper.h */,
 				C8DB50492D0446D100347196 /* KeyChainHelper.m */,
+				C8DB504D2D04634200347196 /* LaunchScreenViewController.h */,
+				C8DB504E2D04634200347196 /* LaunchScreenViewController.m */,
 			);
 			path = muyu;
 			sourceTree = "<group>";
@@ -97,6 +104,7 @@
 		C83640252D01EDA2007D8554 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				C8DB504B2D0460C800347196 /* LaunchScreen.png */,
 				C83640262D01EDA2007D8554 /* muyu.png */,
 			);
 			path = img;
@@ -167,6 +175,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8DB504C2D0460C800347196 /* LaunchScreen.png in Resources */,
 				C83640192D01C9E7007D8554 /* LaunchScreen.storyboard in Resources */,
 				C83640162D01C9E7007D8554 /* Assets.xcassets in Resources */,
 				C83640142D01C9E6007D8554 /* Main.storyboard in Resources */,
@@ -183,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C83640112D01C9E6007D8554 /* ViewController.m in Sources */,
+				C8DB504F2D04634200347196 /* LaunchScreenViewController.m in Sources */,
 				C8DB504A2D0446D100347196 /* KeyChainHelper.m in Sources */,
 				C836400B2D01C9E6007D8554 /* AppDelegate.m in Sources */,
 				C836401C2D01C9E7007D8554 /* main.m in Sources */,
