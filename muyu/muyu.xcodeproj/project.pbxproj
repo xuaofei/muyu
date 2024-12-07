@@ -17,6 +17,7 @@
 		C83640242D01DC07007D8554 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C83640232D01DC07007D8554 /* HomeViewController.m */; };
 		C83640272D01EDA2007D8554 /* muyu.png in Resources */ = {isa = PBXBuildFile; fileRef = C83640262D01EDA2007D8554 /* muyu.png */; };
 		C836402A2D01F248007D8554 /* muyu0_0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C83640292D01F248007D8554 /* muyu0_0.wav */; };
+		C8DB504A2D0446D100347196 /* KeyChainHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C8DB50492D0446D100347196 /* KeyChainHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		C83640262D01EDA2007D8554 /* muyu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = muyu.png; sourceTree = "<group>"; };
 		C83640292D01F248007D8554 /* muyu0_0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = muyu0_0.wav; sourceTree = "<group>"; };
 		C8DB50472D03322A00347196 /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
+		C8DB50482D0446D100347196 /* KeyChainHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyChainHelper.h; sourceTree = "<group>"; };
+		C8DB50492D0446D100347196 /* KeyChainHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyChainHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 				C83640222D01DC07007D8554 /* HomeViewController.h */,
 				C83640232D01DC07007D8554 /* HomeViewController.m */,
 				C8DB50472D03322A00347196 /* Define.h */,
+				C8DB50482D0446D100347196 /* KeyChainHelper.h */,
+				C8DB50492D0446D100347196 /* KeyChainHelper.m */,
 			);
 			path = muyu;
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C83640112D01C9E6007D8554 /* ViewController.m in Sources */,
+				C8DB504A2D0446D100347196 /* KeyChainHelper.m in Sources */,
 				C836400B2D01C9E6007D8554 /* AppDelegate.m in Sources */,
 				C836401C2D01C9E7007D8554 /* main.m in Sources */,
 				C83640242D01DC07007D8554 /* HomeViewController.m in Sources */,
@@ -340,8 +346,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -374,8 +380,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
