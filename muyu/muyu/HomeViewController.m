@@ -61,6 +61,11 @@
     NSLog(@"NSUIntegerMax:%lu", NSUIntegerMax);
 }
 
+- (IBAction)btnSetupAction:(id)sender {
+    NSLog(@"btnSetupAction");
+}
+
+
 - (IBAction)btnFullAreaAction:(id)sender {
     NSLog(@"btnFullAreaAction");
     

@@ -52,6 +52,13 @@
                                     <action selector="btnFullAreaAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B86-Fg-2cF"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="muyu.png" translatesAutoresizingMaskIntoConstraints="NO" id="tot-Je-E73">
+                                <rect key="frame" x="86.666666666666686" y="480" width="220" height="220"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="CR0-Rt-V66"/>
+                                    <constraint firstAttribute="height" constant="220" id="lBI-2I-KXC"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="敲击次数" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIQ-tC-DaI">
                                 <rect key="frame" x="43" y="89" width="306" height="41"/>
                                 <constraints>
@@ -70,24 +77,31 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="muyu.png" translatesAutoresizingMaskIntoConstraints="NO" id="tot-Je-E73">
-                                <rect key="frame" x="86.666666666666686" y="480" width="220" height="220"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="77a-dT-vKc">
+                                <rect key="frame" x="32" y="95" width="45" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="220" id="CR0-Rt-V66"/>
-                                    <constraint firstAttribute="height" constant="220" id="lBI-2I-KXC"/>
+                                    <constraint firstAttribute="height" constant="45" id="aEs-cT-VMy"/>
+                                    <constraint firstAttribute="width" constant="45" id="sev-DM-Lmu"/>
                                 </constraints>
-                            </imageView>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="setup-fill.png"/>
+                                <connections>
+                                    <action selector="btnSetupAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vl6-z7-l9h"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tot-Je-E73" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1uk-nx-88L"/>
                             <constraint firstItem="ZbE-4k-8ai" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="2F9-4Y-us4"/>
+                            <constraint firstItem="77a-dT-vKc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="2K1-Pa-JBY"/>
                             <constraint firstItem="h7d-o3-R4k" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="53" id="6nR-Kc-S22"/>
                             <constraint firstItem="dIQ-tC-DaI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="43" id="N4T-6e-95c"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dIQ-tC-DaI" secondAttribute="trailing" constant="44" id="O1M-ov-h4c"/>
                             <constraint firstAttribute="bottom" secondItem="ZbE-4k-8ai" secondAttribute="bottom" id="OOC-7v-kSX"/>
                             <constraint firstItem="ZbE-4k-8ai" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="WrQ-0x-bcz"/>
+                            <constraint firstItem="77a-dT-vKc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="36" id="acJ-bX-XOc"/>
                             <constraint firstItem="dIQ-tC-DaI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="ecX-56-OdS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h7d-o3-R4k" secondAttribute="trailing" constant="44" id="h3X-0J-tMe"/>
                             <constraint firstItem="h7d-o3-R4k" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="43" id="mO0-6q-ePv"/>
@@ -95,6 +109,16 @@
                             <constraint firstItem="ZbE-4k-8ai" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sck-n3-SOy"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="hOP-r8-wEI">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="rwK-Gf-TSa">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="NC2-g9-lSr">
+                                <rect key="frame" x="16" y="5" width="87" height="34.333333333333336"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="btnFullArea" destination="ZbE-4k-8ai" id="wSR-N8-xl3"/>
                         <outlet property="imgMuyu" destination="tot-Je-E73" id="SgB-dj-o0c"/>
@@ -103,11 +127,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="127.48091603053435" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="742.74809160305335" y="-2.1126760563380285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dOe-2U-JTU">
+            <objects>
+                <navigationController storyboardIdentifier="NavigationController" navigationBarHidden="YES" id="KVe-9C-UE7" customClass="NavigationController" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6mH-Ct-Q97">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="0cg-dV-Dmb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aho-ak-q6V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-39" y="-2"/>
         </scene>
     </scenes>
     <resources>
         <image name="LaunchScreen" width="128" height="128"/>
         <image name="muyu.png" width="2448" height="2448"/>
+        <image name="setup-fill.png" width="32" height="32"/>
     </resources>
 </document>

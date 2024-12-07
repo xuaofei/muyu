@@ -23,7 +23,7 @@
         UIWindow *window = self.window;
         
         UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"HomeViewController"];
+        UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"NavigationController"];
         window.rootViewController = vc;
     });
 }

@@ -20,6 +20,8 @@
 		C8DB504A2D0446D100347196 /* KeyChainHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C8DB50492D0446D100347196 /* KeyChainHelper.m */; };
 		C8DB504C2D0460C800347196 /* LaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = C8DB504B2D0460C800347196 /* LaunchScreen.png */; };
 		C8DB504F2D04634200347196 /* LaunchScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8DB504E2D04634200347196 /* LaunchScreenViewController.m */; };
+		C8DB50522D046CDC00347196 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8DB50512D046CDC00347196 /* NavigationController.m */; };
+		C8DB50562D047AB300347196 /* setup-fill@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8DB50552D047AB300347196 /* setup-fill@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,9 @@
 		C8DB504B2D0460C800347196 /* LaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchScreen.png; sourceTree = "<group>"; };
 		C8DB504D2D04634200347196 /* LaunchScreenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaunchScreenViewController.h; sourceTree = "<group>"; };
 		C8DB504E2D04634200347196 /* LaunchScreenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaunchScreenViewController.m; sourceTree = "<group>"; };
+		C8DB50502D046CDC00347196 /* NavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
+		C8DB50512D046CDC00347196 /* NavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
+		C8DB50552D047AB300347196 /* setup-fill@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "setup-fill@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +102,8 @@
 				C8DB50492D0446D100347196 /* KeyChainHelper.m */,
 				C8DB504D2D04634200347196 /* LaunchScreenViewController.h */,
 				C8DB504E2D04634200347196 /* LaunchScreenViewController.m */,
+				C8DB50502D046CDC00347196 /* NavigationController.h */,
+				C8DB50512D046CDC00347196 /* NavigationController.m */,
 			);
 			path = muyu;
 			sourceTree = "<group>";
@@ -104,6 +111,7 @@
 		C83640252D01EDA2007D8554 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				C8DB50552D047AB300347196 /* setup-fill@2x.png */,
 				C8DB504B2D0460C800347196 /* LaunchScreen.png */,
 				C83640262D01EDA2007D8554 /* muyu.png */,
 			);
@@ -176,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8DB504C2D0460C800347196 /* LaunchScreen.png in Resources */,
+				C8DB50562D047AB300347196 /* setup-fill@2x.png in Resources */,
 				C83640192D01C9E7007D8554 /* LaunchScreen.storyboard in Resources */,
 				C83640162D01C9E7007D8554 /* Assets.xcassets in Resources */,
 				C83640142D01C9E6007D8554 /* Main.storyboard in Resources */,
@@ -196,6 +205,7 @@
 				C8DB504A2D0446D100347196 /* KeyChainHelper.m in Sources */,
 				C836400B2D01C9E6007D8554 /* AppDelegate.m in Sources */,
 				C836401C2D01C9E7007D8554 /* main.m in Sources */,
+				C8DB50522D046CDC00347196 /* NavigationController.m in Sources */,
 				C83640242D01DC07007D8554 /* HomeViewController.m in Sources */,
 				C836400E2D01C9E6007D8554 /* SceneDelegate.m in Sources */,
 			);
