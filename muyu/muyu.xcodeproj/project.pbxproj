@@ -17,6 +17,11 @@
 		C83640242D01DC07007D8554 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C83640232D01DC07007D8554 /* HomeViewController.m */; };
 		C83640272D01EDA2007D8554 /* muyu.png in Resources */ = {isa = PBXBuildFile; fileRef = C83640262D01EDA2007D8554 /* muyu.png */; };
 		C836402A2D01F248007D8554 /* muyu0_0.wav in Resources */ = {isa = PBXBuildFile; fileRef = C83640292D01F248007D8554 /* muyu0_0.wav */; };
+		C8847D0F2D047D4F00C4B7D3 /* SetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8847D0E2D047D4F00C4B7D3 /* SetupViewController.m */; };
+		C8847D112D047FC600C4B7D3 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8847D102D047FC600C4B7D3 /* back@2x.png */; };
+		C8847D1F2D0496F800C4B7D3 /* SetupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8847D1D2D0496F800C4B7D3 /* SetupTableViewCell.m */; };
+		C8847D202D0496F800C4B7D3 /* SetupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8847D1E2D0496F800C4B7D3 /* SetupTableViewCell.xib */; };
+		C8847D232D049DF500C4B7D3 /* SetupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8847D222D049DF500C4B7D3 /* SetupManager.m */; };
 		C8DB504A2D0446D100347196 /* KeyChainHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C8DB50492D0446D100347196 /* KeyChainHelper.m */; };
 		C8DB504C2D0460C800347196 /* LaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = C8DB504B2D0460C800347196 /* LaunchScreen.png */; };
 		C8DB504F2D04634200347196 /* LaunchScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8DB504E2D04634200347196 /* LaunchScreenViewController.m */; };
@@ -41,6 +46,14 @@
 		C83640232D01DC07007D8554 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		C83640262D01EDA2007D8554 /* muyu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = muyu.png; sourceTree = "<group>"; };
 		C83640292D01F248007D8554 /* muyu0_0.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = muyu0_0.wav; sourceTree = "<group>"; };
+		C8847D0D2D047D4F00C4B7D3 /* SetupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetupViewController.h; sourceTree = "<group>"; };
+		C8847D0E2D047D4F00C4B7D3 /* SetupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetupViewController.m; sourceTree = "<group>"; };
+		C8847D102D047FC600C4B7D3 /* back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back@2x.png"; sourceTree = "<group>"; };
+		C8847D1C2D0496F800C4B7D3 /* SetupTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetupTableViewCell.h; sourceTree = "<group>"; };
+		C8847D1D2D0496F800C4B7D3 /* SetupTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetupTableViewCell.m; sourceTree = "<group>"; };
+		C8847D1E2D0496F800C4B7D3 /* SetupTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetupTableViewCell.xib; sourceTree = "<group>"; };
+		C8847D212D049DF500C4B7D3 /* SetupManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetupManager.h; sourceTree = "<group>"; };
+		C8847D222D049DF500C4B7D3 /* SetupManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetupManager.m; sourceTree = "<group>"; };
 		C8DB50472D03322A00347196 /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
 		C8DB50482D0446D100347196 /* KeyChainHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyChainHelper.h; sourceTree = "<group>"; };
 		C8DB50492D0446D100347196 /* KeyChainHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyChainHelper.m; sourceTree = "<group>"; };
@@ -104,6 +117,13 @@
 				C8DB504E2D04634200347196 /* LaunchScreenViewController.m */,
 				C8DB50502D046CDC00347196 /* NavigationController.h */,
 				C8DB50512D046CDC00347196 /* NavigationController.m */,
+				C8847D0D2D047D4F00C4B7D3 /* SetupViewController.h */,
+				C8847D0E2D047D4F00C4B7D3 /* SetupViewController.m */,
+				C8847D1C2D0496F800C4B7D3 /* SetupTableViewCell.h */,
+				C8847D1D2D0496F800C4B7D3 /* SetupTableViewCell.m */,
+				C8847D1E2D0496F800C4B7D3 /* SetupTableViewCell.xib */,
+				C8847D212D049DF500C4B7D3 /* SetupManager.h */,
+				C8847D222D049DF500C4B7D3 /* SetupManager.m */,
 			);
 			path = muyu;
 			sourceTree = "<group>";
@@ -111,6 +131,7 @@
 		C83640252D01EDA2007D8554 /* img */ = {
 			isa = PBXGroup;
 			children = (
+				C8847D102D047FC600C4B7D3 /* back@2x.png */,
 				C8DB50552D047AB300347196 /* setup-fill@2x.png */,
 				C8DB504B2D0460C800347196 /* LaunchScreen.png */,
 				C83640262D01EDA2007D8554 /* muyu.png */,
@@ -184,7 +205,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8DB504C2D0460C800347196 /* LaunchScreen.png in Resources */,
+				C8847D112D047FC600C4B7D3 /* back@2x.png in Resources */,
 				C8DB50562D047AB300347196 /* setup-fill@2x.png in Resources */,
+				C8847D202D0496F800C4B7D3 /* SetupTableViewCell.xib in Resources */,
 				C83640192D01C9E7007D8554 /* LaunchScreen.storyboard in Resources */,
 				C83640162D01C9E7007D8554 /* Assets.xcassets in Resources */,
 				C83640142D01C9E6007D8554 /* Main.storyboard in Resources */,
@@ -203,11 +226,14 @@
 				C83640112D01C9E6007D8554 /* ViewController.m in Sources */,
 				C8DB504F2D04634200347196 /* LaunchScreenViewController.m in Sources */,
 				C8DB504A2D0446D100347196 /* KeyChainHelper.m in Sources */,
+				C8847D232D049DF500C4B7D3 /* SetupManager.m in Sources */,
 				C836400B2D01C9E6007D8554 /* AppDelegate.m in Sources */,
 				C836401C2D01C9E7007D8554 /* main.m in Sources */,
 				C8DB50522D046CDC00347196 /* NavigationController.m in Sources */,
 				C83640242D01DC07007D8554 /* HomeViewController.m in Sources */,
+				C8847D0F2D047D4F00C4B7D3 /* SetupViewController.m in Sources */,
 				C836400E2D01C9E6007D8554 /* SceneDelegate.m in Sources */,
+				C8847D1F2D0496F800C4B7D3 /* SetupTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +311,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -340,7 +366,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -368,7 +394,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -402,7 +428,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

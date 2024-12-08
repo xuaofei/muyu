@@ -8,11 +8,14 @@
 #import "Define.h"
 #import "HomeViewController.h"
 #import "KeyChainHelper.h"
+#import "SetupManager.h"
+
 #import <AVFoundation/AVFoundation.h>
 
 @interface HomeViewController ()<AVAudioPlayerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *btnFullArea;
 @property (weak, nonatomic) IBOutlet UIImageView *imgMuyu;
+@property (weak, nonatomic) IBOutlet UILabel *labKnockTitle;
 @property (weak, nonatomic) IBOutlet UILabel *labKnockCount;
 
 
@@ -52,10 +55,17 @@
     self.muyuKnockTotal = [[KeyChainHelper readFromKeychainWithKey:MUYU_KNOCK_TOTAL] integerValue];
     self.labKnockCount.text = [NSString stringWithFormat:@"%lu",(unsigned long)self.muyuKnockTotal];
     
+    [self applySetupChanged];
+    
     // 监听失去焦点（即应用不再活跃）
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(applicationWillResignActive:)
                                                  name:UIApplicationWillResignActiveNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(setupChange:)
+                                                 name:SETUP_CHANGED
                                                object:nil];
     
     NSLog(@"NSUIntegerMax:%lu", NSUIntegerMax);
@@ -63,14 +73,29 @@
 
 - (IBAction)btnSetupAction:(id)sender {
     NSLog(@"btnSetupAction");
+    
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"SetupViewController"];
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
 - (IBAction)btnFullAreaAction:(id)sender {
     NSLog(@"btnFullAreaAction");
     
-    [self playAudio];
-    [self showBubble];
+    if ([[SetupManager sharedInstance] getSoundEnable]) {
+        [self playAudio];
+    }
+    
+    if ([[SetupManager sharedInstance] getVibrateEnable]) {
+        [self generateVibrate];
+    }
+    
+    if ([[SetupManager sharedInstance] getBubbleEnable]) {
+        [self showBubble];
+    }
+    
     self.muyuKnockTotal++;
     self.labKnockCount.text = [NSString stringWithFormat:@"%lu",(unsigned long)self.muyuKnockTotal];
     
@@ -149,6 +174,12 @@
     [self.view addSubview:bubble];
 }
 
+- (void)generateVibrate {
+    UIImpactFeedbackGenerator *generator = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleMedium];
+    [generator prepare];
+    [generator impactOccurred];
+}
+
 - (void)playAudio {
     if (!self.audioPlayer.isPlaying) {
         [self.audioPlayer play];
@@ -182,15 +213,15 @@
     NSLog(@"Application will resign active (失去焦点)");
 }
 
+- (void)setupChange:(NSNotification *)notification {
+    NSString *type = notification.object;
+    
+    [self applySetupChanged];
+}
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+- (void)applySetupChanged {
+    self.labKnockTitle.hidden = ![[SetupManager sharedInstance] getShowKnockTotalEnable];
+    self.labKnockCount.hidden = ![[SetupManager sharedInstance] getShowKnockTotalEnable];
+}
 
 @end
