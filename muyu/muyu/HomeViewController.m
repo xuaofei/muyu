@@ -9,6 +9,8 @@
 #import "HomeViewController.h"
 #import "KeyChainHelper.h"
 #import "SetupManager.h"
+#import "IAPManager.h"
+
 
 #import <AVFoundation/AVFoundation.h>
 
@@ -56,6 +58,9 @@
     self.labKnockCount.text = [NSString stringWithFormat:@"%lu",(unsigned long)self.muyuKnockTotal];
     
     [self applySetupChanged];
+    
+    
+    [[IAPManager sharedManager] fetchProductsWithIdentifiers:@[@"com.example.app.product1", @"com.example.app.product2"]];
     
     // 监听失去焦点（即应用不再活跃）
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -128,6 +133,42 @@
             }];
         }
     }];
+}
+
+- (void)purchaseButtonTapped:(UIButton *)sender {
+//    SKProduct *product = ... // 从 `availableProducts` 中选择商品
+//    [[IAPManager sharedManager] purchaseProduct:product];
+    
+    NSURL *receiptURL = [[NSBundle mainBundle] appStoreReceiptURL];
+    NSData *receiptData = [NSData dataWithContentsOfURL:receiptURL];
+    if (!receiptData) {
+        NSLog(@"未找到收据");
+        // 提示用户恢复购买或重新购买
+        return;
+    }
+    
+    NSString *receiptString = [receiptData base64EncodedStringWithOptions:0];
+    NSDictionary *parameters = @{@"receipt-data": receiptString};
+    // Apple 验证服务器 URL
+    // sandbox_url = "https://sandbox.itunes.apple.com/verifyReceipt"
+    // production_url = "https://buy.itunes.apple.com/verifyReceipt"
+    NSURL *url = [NSURL URLWithString:@"https://sandbox.itunes.apple.com/verifyReceipt"]; // 或生产环境URL
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = @"POST";
+    request.HTTPBody = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"请求错误: %@", error.localizedDescription);
+            return;
+        }
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        NSLog(@"验证结果: %@", json);
+    }];
+    [task resume];
+
 }
 
 

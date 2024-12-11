@@ -22,6 +22,8 @@
 		C8847D1F2D0496F800C4B7D3 /* SetupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8847D1D2D0496F800C4B7D3 /* SetupTableViewCell.m */; };
 		C8847D202D0496F800C4B7D3 /* SetupTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8847D1E2D0496F800C4B7D3 /* SetupTableViewCell.xib */; };
 		C8847D232D049DF500C4B7D3 /* SetupManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8847D222D049DF500C4B7D3 /* SetupManager.m */; };
+		C8A7AAEF2D09C0980032B2E8 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8A7AAEE2D09C0980032B2E8 /* StoreKit.framework */; };
+		C8A7AAF22D09C15A0032B2E8 /* IAPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A7AAF12D09C15A0032B2E8 /* IAPManager.m */; };
 		C8DB504A2D0446D100347196 /* KeyChainHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C8DB50492D0446D100347196 /* KeyChainHelper.m */; };
 		C8DB504C2D0460C800347196 /* LaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = C8DB504B2D0460C800347196 /* LaunchScreen.png */; };
 		C8DB504F2D04634200347196 /* LaunchScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8DB504E2D04634200347196 /* LaunchScreenViewController.m */; };
@@ -54,6 +56,9 @@
 		C8847D1E2D0496F800C4B7D3 /* SetupTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetupTableViewCell.xib; sourceTree = "<group>"; };
 		C8847D212D049DF500C4B7D3 /* SetupManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetupManager.h; sourceTree = "<group>"; };
 		C8847D222D049DF500C4B7D3 /* SetupManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetupManager.m; sourceTree = "<group>"; };
+		C8A7AAEE2D09C0980032B2E8 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		C8A7AAF02D09C15A0032B2E8 /* IAPManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IAPManager.h; sourceTree = "<group>"; };
+		C8A7AAF12D09C15A0032B2E8 /* IAPManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IAPManager.m; sourceTree = "<group>"; };
 		C8DB50472D03322A00347196 /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
 		C8DB50482D0446D100347196 /* KeyChainHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyChainHelper.h; sourceTree = "<group>"; };
 		C8DB50492D0446D100347196 /* KeyChainHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyChainHelper.m; sourceTree = "<group>"; };
@@ -70,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8A7AAEF2D09C0980032B2E8 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +87,7 @@
 			children = (
 				C83640082D01C9E6007D8554 /* muyu */,
 				C83640072D01C9E6007D8554 /* Products */,
+				C8A7AAED2D09C0980032B2E8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,6 +131,8 @@
 				C8847D1E2D0496F800C4B7D3 /* SetupTableViewCell.xib */,
 				C8847D212D049DF500C4B7D3 /* SetupManager.h */,
 				C8847D222D049DF500C4B7D3 /* SetupManager.m */,
+				C8A7AAF02D09C15A0032B2E8 /* IAPManager.h */,
+				C8A7AAF12D09C15A0032B2E8 /* IAPManager.m */,
 			);
 			path = muyu;
 			sourceTree = "<group>";
@@ -145,6 +154,14 @@
 				C83640292D01F248007D8554 /* muyu0_0.wav */,
 			);
 			path = audio;
+			sourceTree = "<group>";
+		};
+		C8A7AAED2D09C0980032B2E8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C8A7AAEE2D09C0980032B2E8 /* StoreKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,6 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8A7AAF22D09C15A0032B2E8 /* IAPManager.m in Sources */,
 				C83640112D01C9E6007D8554 /* ViewController.m in Sources */,
 				C8DB504F2D04634200347196 /* LaunchScreenViewController.m in Sources */,
 				C8DB504A2D0446D100347196 /* KeyChainHelper.m in Sources */,
