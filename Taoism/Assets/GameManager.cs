@@ -44,7 +44,5 @@ public class GameManager : MonoBehaviour
         Debug.Log("xaflog enter ChangeScreen 0：" + Thread.CurrentThread.ManagedThreadId);
         Screen.SetResolution(size, size, false);
         Debug.Log("xaflog enter ChangeScreen 1：" + Thread.CurrentThread.ManagedThreadId);
-
-        CustomCursorController.Instance.changeCursorSize(size);
     }
 }
