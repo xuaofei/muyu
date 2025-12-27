@@ -168,3 +168,19 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+
+Packages/
+Spine Examples/
+Editor/
+*/Assets/Spine/Runtime/
+/Taoism/Library
+*.dll
+/Taoism/.idea/
+/Taoism/.vscode/
+/Taoism/Assets/Settings/
+/Taoism/ProjectSettings/
+/Taoism/Temp/
+/Taoism/obj/
+/Taoism/Assets/
+/Taoism/UserSettings/
