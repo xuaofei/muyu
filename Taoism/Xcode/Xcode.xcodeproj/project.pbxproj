@@ -1,0 +1,667 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4ABA46AB926F1E817F5491EB /* libmonobdwgc-2.0.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04F74974BC5711715287ADAF /* libmonobdwgc-2.0.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		69EF42318399F3E3A344C524 /* libMonoPosixHelper.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F4584395A5BE794BD12D2D91 /* libMonoPosixHelper.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		72E84D3CA339CA16DB7151ED /* LibUniWinC.bundle in CopyPlugIns */ = {isa = PBXBuildFile; fileRef = 1BA349DAA2AD3666D2FA5E2F /* LibUniWinC.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		750575B4214B38CE004B1B34 /* UnityPlayer.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 750575B3214B38CE004B1B34 /* UnityPlayer.dylib */; };
+		750575B5214B3DF2004B1B34 /* UnityPlayer.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 750575B3214B38CE004B1B34 /* UnityPlayer.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		752CA83E2149E6C400295EFC /* Main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 752CA83D2149E6C400295EFC /* Main.mm */; };
+		75D2DE1F2175685A0038651C /* unity default resources in Resources */ = {isa = PBXBuildFile; fileRef = 75D2DE1E2175685A0038651C /* unity default resources */; };
+		75E7179121715210002B2479 /* DefaultPreferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75E7178E21715210002B2479 /* DefaultPreferences.plist */; };
+		75E7179221715210002B2479 /* Data in Resources */ = {isa = PBXBuildFile; fileRef = 75E7178F21715210002B2479 /* Data */; };
+		75E7179321715210002B2479 /* PlayerIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 75E7179021715210002B2479 /* PlayerIcon.icns */; };
+		93104A17B0951CB741A28151 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A1274879AEE3D7FB6B360768 /* PrivacyInfo.xcprivacy */; };
+		96E14115B848A169FAC00FC9 /* MonoBleedingEdge in CopyFiles */ = {isa = PBXBuildFile; fileRef = 428A4AF5AAFB4CB2F6307D1D /* MonoBleedingEdge */; };
+		A6504E13BF1D3D626836E8D5 /* libmono-native.dylib in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 157B4DA893470EF3B00C4F23 /* libmono-native.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C8246F352EFAE308007FF0AA /* NotifyListener.m in Sources */ = {isa = PBXBuildFile; fileRef = C8246F342EFAE308007FF0AA /* NotifyListener.m */; };
+		C8246F382EFAE4E3007FF0AA /* ScreenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8246F372EFAE4E3007FF0AA /* ScreenManager.m */; };
+		C8246F3C2EFAEB42007FF0AA /* unityPlugin.bundle in CopyPlugIns */ = {isa = PBXBuildFile; fileRef = C8246F2E2EFAE2AF007FF0AA /* unityPlugin.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C86318CA2EF82DF90061EFAE /* LaunchAgentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C86318C92EF82DF90061EFAE /* LaunchAgentManager.m */; };
+		C8A930402EEC5E6E0043EA1A /* LaunchChildManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A9303F2EEC5E6E0043EA1A /* LaunchChildManager.m */; };
+		C8C991B12EC38CAF0014DEE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8C991B02EC38CAF0014DEE5 /* Foundation.framework */; };
+		C8C991B32EC38EC10014DEE5 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8C991B22EC38EC10014DEE5 /* AppKit.framework */; };
+		C8C991B62EC393B30014DEE5 /* TCPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C991B52EC393B30014DEE5 /* TCPServer.m */; };
+		C8C991B92EC4BBAC0014DEE5 /* TrayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C991B82EC4BBAC0014DEE5 /* TrayManager.m */; };
+		C8D7A4332EDF314700228D1B /* SystemThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8D7A4322EDF314700228D1B /* SystemThemeManager.m */; };
+		C8D7A4362EDF364100228D1B /* muyuTray_white@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D7A4342EDF364100228D1B /* muyuTray_white@3x.png */; };
+		C8D7A4372EDF364100228D1B /* muyuTray_black@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D7A4352EDF364100228D1B /* muyuTray_black@3x.png */; };
+		C8E3B0102EFEAD0D006F02AF /* SendMsg3OC.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E3B00F2EFEAD0D006F02AF /* SendMsg3OC.m */; };
+		C8E3B0132EFEB6C7006F02AF /* CursorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E3B0122EFEB6C7006F02AF /* CursorManager.m */; };
+		C8E3B01A2EFEC39D006F02AF /* NSObject+hook.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E3B0192EFEC39D006F02AF /* NSObject+hook.m */; };
+		C8E3B01D2EFECFAB006F02AF /* pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = C8E3B01B2EFECFAB006F02AF /* pressed.png */; };
+		C8E3B01E2EFECFAB006F02AF /* normal.png in Resources */ = {isa = PBXBuildFile; fileRef = C8E3B01C2EFECFAB006F02AF /* normal.png */; };
+		C8E9F7FD2EEC6EEE009BE387 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E9F7FC2EEC6EEE009BE387 /* AppDelegate.m */; };
+		CDD5792C240E027400DEA632 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = CDD5792B240E027400DEA632 /* MainMenu.nib */; };
+		D0C9443E9715337BDE5FA30A /* lib_burst_generated.bundle in CopyPlugIns */ = {isa = PBXBuildFile; fileRef = 49124819ABDADA41D5A99A8A /* lib_burst_generated.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C8246F3D2EFAEB57007FF0AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 752CA8202149E6C100295EFC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C8246F2D2EFAE2AF007FF0AA;
+			remoteInfo = unityPlugin;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		01A34E1FB659849610BA12EC /* CopyPlugIns */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C8246F3C2EFAEB42007FF0AA /* unityPlugin.bundle in CopyPlugIns */,
+				72E84D3CA339CA16DB7151ED /* LibUniWinC.bundle in CopyPlugIns */,
+				D0C9443E9715337BDE5FA30A /* lib_burst_generated.bundle in CopyPlugIns */,
+			);
+			name = CopyPlugIns;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		172E4808AC2D3FE044FBD98C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents;
+			dstSubfolderSpec = 1;
+			files = (
+				96E14115B848A169FAC00FC9 /* MonoBleedingEdge in CopyFiles */,
+			);
+			name = CopyFiles;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		750575B6214B3DF2004B1B34 /* Embed Libraries */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				750575B5214B3DF2004B1B34 /* UnityPlayer.dylib in Embed Libraries */,
+			);
+			name = "Embed Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F43944548489813E5B27EF54 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4ABA46AB926F1E817F5491EB /* libmonobdwgc-2.0.dylib in Embed Frameworks */,
+				69EF42318399F3E3A344C524 /* libMonoPosixHelper.dylib in Embed Frameworks */,
+				A6504E13BF1D3D626836E8D5 /* libmono-native.dylib in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		04F74974BC5711715287ADAF /* libmonobdwgc-2.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libmonobdwgc-2.0.dylib"; path = "Taoism/Frameworks/libmonobdwgc-2.0.dylib"; sourceTree = SOURCE_ROOT; };
+		157B4DA893470EF3B00C4F23 /* libmono-native.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libmono-native.dylib"; path = "Taoism/Frameworks/libmono-native.dylib"; sourceTree = SOURCE_ROOT; };
+		1BA349DAA2AD3666D2FA5E2F /* LibUniWinC.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = LibUniWinC.bundle; path = Taoism/PlugIns/LibUniWinC.bundle; sourceTree = SOURCE_ROOT; };
+		428A4AF5AAFB4CB2F6307D1D /* MonoBleedingEdge */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MonoBleedingEdge; path = Taoism/MonoBleedingEdge; sourceTree = SOURCE_ROOT; };
+		49124819ABDADA41D5A99A8A /* lib_burst_generated.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = lib_burst_generated.bundle; path = Taoism/PlugIns/lib_burst_generated.bundle; sourceTree = SOURCE_ROOT; };
+		750575B3214B38CE004B1B34 /* UnityPlayer.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = UnityPlayer.dylib; path = Taoism/Frameworks/UnityPlayer.dylib; sourceTree = "<group>"; };
+		752CA8282149E6C100295EFC /* Taoism.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taoism.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		752CA83C2149E6C400295EFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		752CA83D2149E6C400295EFC /* Main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Main.mm; sourceTree = "<group>"; };
+		75D2DE1E2175685A0038651C /* unity default resources */ = {isa = PBXFileReference; lastKnownFileType = text; name = "unity default resources"; path = "Taoism/Resources/unity default resources"; sourceTree = "<group>"; };
+		75E7178E21715210002B2479 /* DefaultPreferences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = DefaultPreferences.plist; path = Taoism/Resources/DefaultPreferences.plist; sourceTree = "<group>"; };
+		75E7178F21715210002B2479 /* Data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Data; path = Taoism/Resources/Data; sourceTree = "<group>"; };
+		75E7179021715210002B2479 /* PlayerIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = PlayerIcon.icns; path = Taoism/Resources/PlayerIcon.icns; sourceTree = "<group>"; };
+		A1274879AEE3D7FB6B360768 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = PrivacyInfo.xcprivacy; name = PrivacyInfo.xcprivacy; path = Taoism/PrivacyInfo.xcprivacy; sourceTree = SOURCE_ROOT; };
+		C8246F2E2EFAE2AF007FF0AA /* unityPlugin.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = unityPlugin.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8246F332EFAE308007FF0AA /* NotifyListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotifyListener.h; sourceTree = "<group>"; };
+		C8246F342EFAE308007FF0AA /* NotifyListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotifyListener.m; sourceTree = "<group>"; };
+		C8246F362EFAE4E3007FF0AA /* ScreenManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenManager.h; sourceTree = "<group>"; };
+		C8246F372EFAE4E3007FF0AA /* ScreenManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenManager.m; sourceTree = "<group>"; };
+		C86318C82EF82DF90061EFAE /* LaunchAgentManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaunchAgentManager.h; sourceTree = "<group>"; };
+		C86318C92EF82DF90061EFAE /* LaunchAgentManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaunchAgentManager.m; sourceTree = "<group>"; };
+		C8A9303E2EEC5E6E0043EA1A /* LaunchChildManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaunchChildManager.h; sourceTree = "<group>"; };
+		C8A9303F2EEC5E6E0043EA1A /* LaunchChildManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaunchChildManager.m; sourceTree = "<group>"; };
+		C8C991B02EC38CAF0014DEE5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C8C991B22EC38EC10014DEE5 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		C8C991B42EC393B30014DEE5 /* TCPServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCPServer.h; sourceTree = "<group>"; };
+		C8C991B52EC393B30014DEE5 /* TCPServer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCPServer.m; sourceTree = "<group>"; };
+		C8C991B72EC4BBAC0014DEE5 /* TrayManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrayManager.h; sourceTree = "<group>"; };
+		C8C991B82EC4BBAC0014DEE5 /* TrayManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrayManager.m; sourceTree = "<group>"; };
+		C8D7A4112ED8AC1600228D1B /* define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = define.h; sourceTree = "<group>"; };
+		C8D7A4312EDF314700228D1B /* SystemThemeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystemThemeManager.h; sourceTree = "<group>"; };
+		C8D7A4322EDF314700228D1B /* SystemThemeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SystemThemeManager.m; sourceTree = "<group>"; };
+		C8D7A4342EDF364100228D1B /* muyuTray_white@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "muyuTray_white@3x.png"; sourceTree = "<group>"; };
+		C8D7A4352EDF364100228D1B /* muyuTray_black@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "muyuTray_black@3x.png"; sourceTree = "<group>"; };
+		C8E3B00E2EFEAD0D006F02AF /* SendMsg3OC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SendMsg3OC.h; sourceTree = "<group>"; };
+		C8E3B00F2EFEAD0D006F02AF /* SendMsg3OC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SendMsg3OC.m; sourceTree = "<group>"; };
+		C8E3B0112EFEB6C7006F02AF /* CursorManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CursorManager.h; sourceTree = "<group>"; };
+		C8E3B0122EFEB6C7006F02AF /* CursorManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CursorManager.m; sourceTree = "<group>"; };
+		C8E3B0182EFEC39D006F02AF /* NSObject+hook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+hook.h"; sourceTree = "<group>"; };
+		C8E3B0192EFEC39D006F02AF /* NSObject+hook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+hook.m"; sourceTree = "<group>"; };
+		C8E3B01B2EFECFAB006F02AF /* pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pressed.png; sourceTree = "<group>"; };
+		C8E3B01C2EFECFAB006F02AF /* normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = normal.png; sourceTree = "<group>"; };
+		C8E9F7FB2EEC6EEE009BE387 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C8E9F7FC2EEC6EEE009BE387 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CDD5792B240E027400DEA632 /* MainMenu.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = MainMenu.nib; path = Taoism/Resources/MainMenu.nib; sourceTree = "<group>"; };
+		CE9644B8B7B272E7EC61AE23 /* ApplePrivacyManifestsMerge.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = ApplePrivacyManifestsMerge.txt; path = Taoism/ApplePrivacyManifestsMerge.txt; sourceTree = SOURCE_ROOT; };
+		F4584395A5BE794BD12D2D91 /* libMonoPosixHelper.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libMonoPosixHelper.dylib; path = Taoism/Frameworks/libMonoPosixHelper.dylib; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		752CA8252149E6C100295EFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8C991B32EC38EC10014DEE5 /* AppKit.framework in Frameworks */,
+				750575B4214B38CE004B1B34 /* UnityPlayer.dylib in Frameworks */,
+				C8C991B12EC38CAF0014DEE5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8246F2B2EFAE2AF007FF0AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		750575B2214B38CE004B1B34 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C8C991B22EC38EC10014DEE5 /* AppKit.framework */,
+				C8C991B02EC38CAF0014DEE5 /* Foundation.framework */,
+				750575B3214B38CE004B1B34 /* UnityPlayer.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		752CA81F2149E6C100295EFC = {
+			isa = PBXGroup;
+			children = (
+				C8246F322EFAE2E9007FF0AA /* unityPlugin */,
+				C8C991AD2EC38C780014DEE5 /* res */,
+				75E7179421715230002B2479 /* Resources */,
+				750575B2214B38CE004B1B34 /* Frameworks */,
+				752CA82A2149E6C100295EFC /* Taoism */,
+				752CA8292149E6C100295EFC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		752CA8292149E6C100295EFC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				752CA8282149E6C100295EFC /* Taoism.app */,
+				C8246F2E2EFAE2AF007FF0AA /* unityPlugin.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		752CA82A2149E6C100295EFC /* Taoism */ = {
+			isa = PBXGroup;
+			children = (
+				C8E9F7FB2EEC6EEE009BE387 /* AppDelegate.h */,
+				C8E9F7FC2EEC6EEE009BE387 /* AppDelegate.m */,
+				752CA83C2149E6C400295EFC /* Info.plist */,
+				752CA83D2149E6C400295EFC /* Main.mm */,
+				E5084319AAF32F34645D6C55 /* PlugIns */,
+				A257429EA77FD4839F29A8D2 /* Frameworks */,
+				428A4AF5AAFB4CB2F6307D1D /* MonoBleedingEdge */,
+				A1274879AEE3D7FB6B360768 /* PrivacyInfo.xcprivacy */,
+				CE9644B8B7B272E7EC61AE23 /* ApplePrivacyManifestsMerge.txt */,
+				C8D7A4112ED8AC1600228D1B /* define.h */,
+				C8C991B42EC393B30014DEE5 /* TCPServer.h */,
+				C8C991B52EC393B30014DEE5 /* TCPServer.m */,
+				C8C991B72EC4BBAC0014DEE5 /* TrayManager.h */,
+				C8C991B82EC4BBAC0014DEE5 /* TrayManager.m */,
+				C8D7A4312EDF314700228D1B /* SystemThemeManager.h */,
+				C8D7A4322EDF314700228D1B /* SystemThemeManager.m */,
+				C8A9303E2EEC5E6E0043EA1A /* LaunchChildManager.h */,
+				C8A9303F2EEC5E6E0043EA1A /* LaunchChildManager.m */,
+				C86318C82EF82DF90061EFAE /* LaunchAgentManager.h */,
+				C86318C92EF82DF90061EFAE /* LaunchAgentManager.m */,
+			);
+			path = Taoism;
+			sourceTree = "<group>";
+		};
+		75E7179421715230002B2479 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CDD5792B240E027400DEA632 /* MainMenu.nib */,
+				75E7178F21715210002B2479 /* Data */,
+				75E7178E21715210002B2479 /* DefaultPreferences.plist */,
+				75E7179021715210002B2479 /* PlayerIcon.icns */,
+				75D2DE1E2175685A0038651C /* unity default resources */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		A257429EA77FD4839F29A8D2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				04F74974BC5711715287ADAF /* libmonobdwgc-2.0.dylib */,
+				F4584395A5BE794BD12D2D91 /* libMonoPosixHelper.dylib */,
+				157B4DA893470EF3B00C4F23 /* libmono-native.dylib */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		C8246F322EFAE2E9007FF0AA /* unityPlugin */ = {
+			isa = PBXGroup;
+			children = (
+				C8246F362EFAE4E3007FF0AA /* ScreenManager.h */,
+				C8246F372EFAE4E3007FF0AA /* ScreenManager.m */,
+				C8246F332EFAE308007FF0AA /* NotifyListener.h */,
+				C8246F342EFAE308007FF0AA /* NotifyListener.m */,
+				C8E3B00E2EFEAD0D006F02AF /* SendMsg3OC.h */,
+				C8E3B00F2EFEAD0D006F02AF /* SendMsg3OC.m */,
+				C8E3B0112EFEB6C7006F02AF /* CursorManager.h */,
+				C8E3B0122EFEB6C7006F02AF /* CursorManager.m */,
+				C8E3B0182EFEC39D006F02AF /* NSObject+hook.h */,
+				C8E3B0192EFEC39D006F02AF /* NSObject+hook.m */,
+			);
+			path = unityPlugin;
+			sourceTree = "<group>";
+		};
+		C8C991AD2EC38C780014DEE5 /* res */ = {
+			isa = PBXGroup;
+			children = (
+				C8E3B01C2EFECFAB006F02AF /* normal.png */,
+				C8E3B01B2EFECFAB006F02AF /* pressed.png */,
+				C8D7A4352EDF364100228D1B /* muyuTray_black@3x.png */,
+				C8D7A4342EDF364100228D1B /* muyuTray_white@3x.png */,
+			);
+			name = res;
+			path = Taoism/res;
+			sourceTree = "<group>";
+		};
+		E5084319AAF32F34645D6C55 /* PlugIns */ = {
+			isa = PBXGroup;
+			children = (
+				1BA349DAA2AD3666D2FA5E2F /* LibUniWinC.bundle */,
+				49124819ABDADA41D5A99A8A /* lib_burst_generated.bundle */,
+			);
+			path = PlugIns;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		752CA8272149E6C100295EFC /* Taoism */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 752CA8422149E6C400295EFC /* Build configuration list for PBXNativeTarget "Taoism" */;
+			buildPhases = (
+				752CA8242149E6C100295EFC /* Sources */,
+				752CA8252149E6C100295EFC /* Frameworks */,
+				752CA8262149E6C100295EFC /* Resources */,
+				750575B6214B3DF2004B1B34 /* Embed Libraries */,
+				01A34E1FB659849610BA12EC /* CopyPlugIns */,
+				F43944548489813E5B27EF54 /* Embed Frameworks */,
+				172E4808AC2D3FE044FBD98C /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C8246F3E2EFAEB57007FF0AA /* PBXTargetDependency */,
+			);
+			name = Taoism;
+			productName = Taoism;
+			productReference = 752CA8282149E6C100295EFC /* Taoism.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C8246F2D2EFAE2AF007FF0AA /* unityPlugin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8246F312EFAE2AF007FF0AA /* Build configuration list for PBXNativeTarget "unityPlugin" */;
+			buildPhases = (
+				C8246F2A2EFAE2AF007FF0AA /* Sources */,
+				C8246F2B2EFAE2AF007FF0AA /* Frameworks */,
+				C8246F2C2EFAE2AF007FF0AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = unityPlugin;
+			productName = unityPlugin;
+			productReference = C8246F2E2EFAE2AF007FF0AA /* unityPlugin.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		752CA8202149E6C100295EFC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Unity Technologies";
+				TargetAttributes = {
+					752CA8272149E6C100295EFC = {
+						CreatedOnToolsVersion = 9.4.1;
+						UnityMainTarget = 1;
+					};
+					C8246F2D2EFAE2AF007FF0AA = {
+						CreatedOnToolsVersion = 15.2;
+					};
+				};
+			};
+			buildConfigurationList = 752CA8232149E6C100295EFC /* Build configuration list for PBXProject "Xcode" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 752CA81F2149E6C100295EFC;
+			productRefGroup = 752CA8292149E6C100295EFC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				752CA8272149E6C100295EFC /* Taoism */,
+				C8246F2D2EFAE2AF007FF0AA /* unityPlugin */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		752CA8262149E6C100295EFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75E7179121715210002B2479 /* DefaultPreferences.plist in Resources */,
+				CDD5792C240E027400DEA632 /* MainMenu.nib in Resources */,
+				C8D7A4362EDF364100228D1B /* muyuTray_white@3x.png in Resources */,
+				75E7179221715210002B2479 /* Data in Resources */,
+				75E7179321715210002B2479 /* PlayerIcon.icns in Resources */,
+				75D2DE1F2175685A0038651C /* unity default resources in Resources */,
+				C8E3B01E2EFECFAB006F02AF /* normal.png in Resources */,
+				93104A17B0951CB741A28151 /* PrivacyInfo.xcprivacy in Resources */,
+				C8D7A4372EDF364100228D1B /* muyuTray_black@3x.png in Resources */,
+				C8E3B01D2EFECFAB006F02AF /* pressed.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8246F2C2EFAE2AF007FF0AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		752CA8242149E6C100295EFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8C991B62EC393B30014DEE5 /* TCPServer.m in Sources */,
+				752CA83E2149E6C400295EFC /* Main.mm in Sources */,
+				C8D7A4332EDF314700228D1B /* SystemThemeManager.m in Sources */,
+				C86318CA2EF82DF90061EFAE /* LaunchAgentManager.m in Sources */,
+				C8C991B92EC4BBAC0014DEE5 /* TrayManager.m in Sources */,
+				C8A930402EEC5E6E0043EA1A /* LaunchChildManager.m in Sources */,
+				C8E9F7FD2EEC6EEE009BE387 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8246F2A2EFAE2AF007FF0AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8246F352EFAE308007FF0AA /* NotifyListener.m in Sources */,
+				C8E3B0102EFEAD0D006F02AF /* SendMsg3OC.m in Sources */,
+				C8246F382EFAE4E3007FF0AA /* ScreenManager.m in Sources */,
+				C8E3B01A2EFEC39D006F02AF /* NSObject+hook.m in Sources */,
+				C8E3B0132EFEB6C7006F02AF /* CursorManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C8246F3E2EFAEB57007FF0AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C8246F2D2EFAE2AF007FF0AA /* unityPlugin */;
+			targetProxy = C8246F3D2EFAEB57007FF0AA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		752CA8402149E6C400295EFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		752CA8412149E6C400295EFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		752CA8432149E6C400295EFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Taoism/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DefaultCompany.Taoism;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				UNITY_RUNTIME_VERSION = 2022.3.62f1;
+				UNITY_SCRIPTING_IL2CPP = 0;
+				VALID_ARCHS = "arm64 x86_64";
+			};
+			name = Debug;
+		};
+		752CA8442149E6C400295EFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Taoism/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DefaultCompany.Taoism;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				UNITY_RUNTIME_VERSION = 2022.3.62f1;
+				UNITY_SCRIPTING_IL2CPP = 0;
+				VALID_ARCHS = "arm64 x86_64";
+			};
+			name = Release;
+		};
+		C8246F2F2EFAE2AF007FF0AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Unity Technologies. All rights reserved.";
+				INFOPLIST_KEY_NSPrincipalClass = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.6;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DefaultCompany.unityPlugin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		C8246F302EFAE2AF007FF0AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Unity Technologies. All rights reserved.";
+				INFOPLIST_KEY_NSPrincipalClass = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 13.6;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DefaultCompany.unityPlugin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		752CA8232149E6C100295EFC /* Build configuration list for PBXProject "Xcode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				752CA8402149E6C400295EFC /* Debug */,
+				752CA8412149E6C400295EFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		752CA8422149E6C400295EFC /* Build configuration list for PBXNativeTarget "Taoism" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				752CA8432149E6C400295EFC /* Debug */,
+				752CA8442149E6C400295EFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8246F312EFAE2AF007FF0AA /* Build configuration list for PBXNativeTarget "unityPlugin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8246F2F2EFAE2AF007FF0AA /* Debug */,
+				C8246F302EFAE2AF007FF0AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 752CA8202149E6C100295EFC /* Project object */;
+}
