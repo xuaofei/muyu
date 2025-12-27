@@ -1,0 +1,47 @@
+foxiang.png
+size:1774,1831
+filter:Linear,Linear
+pma:true
+b1
+bounds:93,1795,34,131
+offsets:0,1,34,134
+rotate:90
+b2
+bounds:2,1801,28,89
+offsets:1,64,29,153
+rotate:90
+卐
+bounds:687,701,672,700
+offsets:1,1,674,702
+rotate:90
+图层 24
+bounds:2,1004,683,660
+offsets:43,90,777,822
+图层 25
+bounds:1259,1375,454,513
+offsets:1,1,456,515
+rotate:90
+图层 3 拷贝
+bounds:679,1666,219,163
+offsets:1,1,221,165
+图层 3 拷贝 2
+bounds:458,1666,219,163
+offsets:1,1,221,165
+图层 43
+bounds:226,1727,230,102
+offsets:41,3,398,111
+图层 44
+bounds:2,2,697,963
+offsets:1,1,699,965
+rotate:90
+未标题-1rer
+bounds:900,1521,357,308
+offsets:7,6,373,321
+
+foxiang_2.png
+size:1924,1084
+filter:Linear,Linear
+pma:true
+图层 1
+bounds:2,2,1920,1080
+offsets:1,1,1922,1082

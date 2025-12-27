@@ -1,0 +1,14 @@
+muyu.png
+size:437,437
+filter:Linear,Linear
+pma:true
+muyu_12
+bounds:2,38,246,184
+offsets:1,1,248,186
+muyu_14
+bounds:2,224,247,211
+offsets:1,1,249,213
+muyu_20
+bounds:251,189,246,184
+offsets:1,1,248,186
+rotate:90

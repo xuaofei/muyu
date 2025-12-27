@@ -1,0 +1,136 @@
+
+using Spine;
+using Spine.Unity;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MuyuController : MonoBehaviour
+{
+    SkeletonAnimation skeletonAnimation;
+    public string idleAnimationName = "idle"; // 初始待机动画名称
+    public string playAnimationName = "action"; // 点击后要播放的动画名称
+    public bool loopAnimation = false; // 点击后的动画是否循环播放
+
+    public Texture2D normalCursor;
+    public Texture2D tapCursor;
+
+    private bool isCompleted = true; // 标记是否已被点击，防止重复触发
+
+    private string muyuAnimationName = "animation";
+    private string muyuAudioName = "muyu0_1";
+
+    private AudioSource audioSource;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        skeletonAnimation = GetComponent<SkeletonAnimation>();
+        if (skeletonAnimation == null)
+        {
+
+        }
+        // skeletonAnimation.timeScale = 0.2f;
+        TrackEntry trackEntry = skeletonAnimation.AnimationState.SetAnimation(0, muyuAnimationName, false);
+        skeletonAnimation.timeScale = 0.0f;
+        // trackEntry.TimeScale = 0.2f;
+
+        skeletonAnimation.AnimationState.Complete += OnAnimationComplete;
+
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.outputAudioMixerGroup = GameManager.Instance.mainMixer.FindMatchingGroups("Master")[0];
+
+        Vector2 hotspot = new Vector2(32, 10);
+        Cursor.SetCursor(normalCursor, hotspot, CursorMode.Auto);
+        // Cursor.visible = true;
+        Debug.Log("TaoismController");
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        // 检测鼠标左键点击
+        // if (Input.GetMouseButtonDown(0) && isCompleted)
+        // {
+        //     // 如果你添加了2D碰撞器并使用OnMouseDown，则不需要这里的全局点击检测
+        //     // 这里的代码会响应屏幕任意位置的点击
+        //     PlayAnimationOnClick();
+        // }
+    }
+
+
+    public void ShowMuyu1()
+    {
+        muyuAnimationName = "animation";
+        muyuAudioName = "muyu0_0";
+        TrackEntry trackEntry = skeletonAnimation.AnimationState.SetAnimation(0, muyuAnimationName, false);
+    }
+
+    public void ShowMuyu2()
+    {
+        muyuAnimationName = "animation2";
+        muyuAudioName = "muyu0_1";
+        TrackEntry trackEntry = skeletonAnimation.AnimationState.SetAnimation(0, muyuAnimationName, false);
+    }
+    public void ShowMuyu3()
+    {
+        muyuAnimationName = "animation3";
+        TrackEntry trackEntry = skeletonAnimation.AnimationState.SetAnimation(0, muyuAnimationName, false);
+    }
+
+    void OnAnimationComplete(TrackEntry entry)
+    {
+        Debug.LogWarning("OnAnimationComplete");
+        skeletonAnimation.AnimationState.SetAnimation(0, muyuAnimationName, false);
+        skeletonAnimation.timeScale = 0.0f;
+        isCompleted = true; // 标记已点击
+    }
+
+    // 点击后播放动画的方法
+    public void PlayAnimationOnClick()
+    {
+        if (skeletonAnimation != null && isCompleted)
+        {
+            isCompleted = false; // 标记已点击
+            skeletonAnimation.timeScale = 1f; // 恢复时间缩放以继续播放
+            // 播放指定的动画
+            // skeletonAnimation.AnimationState.SetAnimation(0, "animation", false);
+        }
+    }
+
+    private void OnMouseUp()
+    {
+        Debug.Log("直接点击到了: " + gameObject.name);
+        // PlayAnimationOnClick();
+        // PlaySoundByName("muyu0_1");
+        // 这里可以写点击后的处理逻辑，如销毁物体、播放动画等
+
+        Vector2 hotspot = new Vector2(32, 10);
+        Cursor.SetCursor(normalCursor, hotspot, CursorMode.Auto);
+    }
+
+    private void OnMouseDown()
+    {
+        Vector2 hotspot = new Vector2(32, 10);
+        Cursor.SetCursor(tapCursor, hotspot, CursorMode.Auto);
+        // Debug.Log("直接点击到了: " + gameObject.name);
+        PlayAnimationOnClick();
+        PlaySoundByName();
+        // 这里可以写点击后的处理逻辑，如销毁物体、播放动画等
+    }
+    
+    public void PlaySoundByName()
+    {
+        // 从Resources文件夹加载音频
+        AudioClip clip = Resources.Load<AudioClip>(muyuAudioName);
+        if (clip != null)
+        {
+            audioSource.clip = clip;
+            audioSource.Play();
+        }
+        else
+        {
+            Debug.LogError("音频文件未找到: " + muyuAudioName);
+        }
+    }
+}

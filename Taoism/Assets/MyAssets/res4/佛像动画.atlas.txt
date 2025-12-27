@@ -1,0 +1,41 @@
+佛像动画.png
+size:1568,1430
+filter:Linear,Linear
+pma:true
+b1
+bounds:749,70,34,131
+offsets:0,1,34,134
+rotate:90
+b2
+bounds:749,40,28,89
+offsets:1,64,29,153
+rotate:90
+卐
+bounds:701,756,672,700
+offsets:1,1,674,702
+rotate:90
+图层 24
+bounds:882,94,683,660
+offsets:43,90,777,822
+图层 25
+bounds:2,9,454,513
+offsets:1,1,456,515
+rotate:90
+图层 3 拷贝
+bounds:1403,1209,219,163
+offsets:1,1,221,165
+rotate:90
+图层 3 拷贝 2
+bounds:701,535,219,163
+offsets:1,1,221,165
+rotate:90
+图层 43
+bounds:517,2,230,102
+offsets:41,3,398,111
+图层 44
+bounds:2,465,697,963
+offsets:1,1,699,965
+未标题-1rer
+bounds:517,106,357,308
+offsets:7,6,373,321
+rotate:90
