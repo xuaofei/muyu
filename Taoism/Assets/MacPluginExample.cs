@@ -5,7 +5,7 @@ using UnityEngine;
 public class MacPluginExample : MonoBehaviour
 {
     // 使用平台编译指令，确保只在macOS平台编译和调用此代码
-#if UNITY_STANDALONE_OSX
+#if !UNITY_EDITOR && UNITY_STANDALONE_OSX
     [DllImport("unityPlugin")]
     private static extern void StartNotifyListener();
     [DllImport("unityPlugin")]
@@ -20,13 +20,6 @@ public class MacPluginExample : MonoBehaviour
         
         Debug.Log("xaflog MacPluginExampleMacPluginExample");
     }
-
-    void Update()
-    {
-        //CallNativeFunction();
-    }
-
-
 
     public void CallNativeFunction()
     {

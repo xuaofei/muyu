@@ -34,7 +34,7 @@ public class MuyuController : MonoBehaviour
 
     public static MuyuController Instance { get; private set; }
 
-#if UNITY_STANDALONE_OSX
+#if !UNITY_EDITOR && UNITY_STANDALONE_OSX
     [DllImport("unityPlugin")]
     private static extern void MouseUp();
     [DllImport("unityPlugin")]
@@ -141,7 +141,7 @@ public class MuyuController : MonoBehaviour
 
 
 
-                // isKnockCompleted = true;
+                 isKnockCompleted = true;
             }
         }
 
@@ -238,7 +238,7 @@ public class MuyuController : MonoBehaviour
 
     private void OnMouseUp()
     {
-#if UNITY_STANDALONE_OSX
+#if !UNITY_EDITOR && UNITY_STANDALONE_OSX
         MouseUp();
 #endif
         //CustomCursorController.Instance.OnCursorUp();
@@ -258,18 +258,21 @@ public class MuyuController : MonoBehaviour
 
     private void OnMouseDown()
     {
-#if UNITY_STANDALONE_OSX
-        MouseDown();
-#endif
+
 
         //CustomCursorController.Instance.OnCursorDown();
 
-        // if (!isKnockCompleted)
-        // {
-        //     return;
-        // }
+        if (!isKnockCompleted)
+        {
+            return;
+        }
 
-        // isKnockCompleted = false;
+
+#if !UNITY_EDITOR && UNITY_STANDALONE_OSX
+        MouseDown();
+#endif
+
+        isKnockCompleted = false;
 
         if (knockRemainingTime <= 0.0f)
         {
