@@ -10,17 +10,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-#if defined (__cplusplus)
-extern "C" {
-#endif
-    void StartScreenManager(void);
-#if defined (__cplusplus)
-}
-#endif
-
-
-
-
 @interface ScreenManager : NSObject
 + (instancetype)shared;
 @end

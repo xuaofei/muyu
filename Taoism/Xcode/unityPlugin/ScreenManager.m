@@ -11,19 +11,6 @@
 #import "CursorManager.h"
 #import <AppKit/AppKit.h>
 
-#if defined (__cplusplus)
-extern "C" {
-#endif
-    void StartScreenManager(void) {
-        [ScreenManager shared];
-//        NSLog(@"xaflog call StartScreenManager");
-    }
-#if defined (__cplusplus)
-}
-#endif
-
-
-
 @implementation ScreenManager
 + (instancetype)shared {
     static ScreenManager *ins = nil;
@@ -128,8 +115,6 @@ extern "C" {
         
         NSArray<NSWindow *> *windows = [[NSApplication sharedApplication] windows];
         if (windows.count) {
-//            NSScreen *screen = windows[0].screen;
-            
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self resizeWindow:windows[0] toSize:CGSizeMake(screenSize, screenSize)];
                 [[CursorManager shared] changeCursorSize];

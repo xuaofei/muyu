@@ -13,8 +13,6 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        Screen.SetResolution(900, 900, false);
-        
         // 确保实例唯一性
         if (Instance == null)
         {
@@ -32,17 +30,6 @@ public class GameManager : MonoBehaviour
         mainCameraOrthographicSize = mainCamera.orthographicSize;
         Application.targetFrameRate = 30;
         Debug.Log("targetFrameRate:" + Application.targetFrameRate);
-        Debug.Log(Application.persistentDataPath);
-
-        LoggerManager.Instance.InfoLog($"");
-        LoggerManager.Instance.InfoLog($"");
         LoggerManager.Instance.InfoLog($"Taoism start");
-    }
-
-    public void ChangeScreen(int size)
-    {
-        Debug.Log("xaflog enter ChangeScreen 0：" + Thread.CurrentThread.ManagedThreadId);
-        Screen.SetResolution(size, size, false);
-        Debug.Log("xaflog enter ChangeScreen 1：" + Thread.CurrentThread.ManagedThreadId);
     }
 }

@@ -24,7 +24,8 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     NSLog(@"启动OC TCP服务端...");
     
-    [[TCPServer shared] startServerOnPort:NETWORK_PORT];
+//    [[TCPServer shared] startServerOnPort:NETWORK_PORT];
+    
     [[TrayManager shared] showTray];
     [[LaunchChildManager shared] launchSelfWithChildParameter];
     

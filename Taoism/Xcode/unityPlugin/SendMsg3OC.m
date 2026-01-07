@@ -8,12 +8,16 @@
 
 #import "SendMsg3OC.h"
 #import "CursorManager.h"
+#import "ScreenManager.h"
+#import "NSView+hook.h"
 
 #if defined (__cplusplus)
 extern "C" {
 #endif
     void UnityStartd(void) {
+        [ScreenManager shared];
         [CursorManager shared];
+        
         NSLog(@"xaflog [CursorManager shared]");
     }
     
