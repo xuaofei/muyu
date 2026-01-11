@@ -1,7 +1,6 @@
 using Spine;
 using Spine.Unity;
 using System.Collections;
-using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
@@ -13,6 +12,15 @@ public class MuyuController : MonoBehaviour
 
     public Texture2D currentNormalCursor;
     public Texture2D currentTapCursor;
+
+    public Texture2D normalCursor250;
+    public Texture2D tapCursor250;
+
+    public Texture2D normalCursor350;
+    public Texture2D tapCursor350;
+
+    public Texture2D normalCursor450;
+    public Texture2D tapCursor450;
 
     private bool isKnockCompleted = true;
 
@@ -63,7 +71,7 @@ public class MuyuController : MonoBehaviour
         if (hasFocus)
         {
             Debug.Log("xaflog 游戏窗口获得焦点，恢复正常运行。");
-            // changeCursorSize(Screen.width);
+             changeCursorSize(Screen.width);
             // 这里可以恢复游戏逻辑、声音等
             // Time.timeScale = 1f;
         }
@@ -188,7 +196,20 @@ public class MuyuController : MonoBehaviour
 
         normalHotspot = new Vector2(cursorUpWidth / 2, cursorUpHeight / 2);
         tapHotspot = new Vector2(cursorDownWidth / 2, cursorDownHeight / 4);
-        Cursor.SetCursor(currentNormalCursor, normalHotspot, CursorMode.Auto);
+        //Cursor.SetCursor(currentNormalCursor, normalHotspot, CursorMode.Auto);
+
+        if (Screen.width == 500)
+        {
+            Cursor.SetCursor(normalCursor250, normalHotspot, CursorMode.Auto);
+        }
+        else if (Screen.width == 700)
+        {
+            Cursor.SetCursor(normalCursor350, normalHotspot, CursorMode.Auto);
+        }
+        else if (Screen.width == 900)
+        {
+            Cursor.SetCursor(normalCursor450, normalHotspot, CursorMode.Auto);
+        }
 
         Debug.Log("Start cursorUpWidth: " + cursorUpWidth);
         Debug.Log("Start cursorUpHeight: " + cursorUpHeight);
@@ -241,6 +262,20 @@ public class MuyuController : MonoBehaviour
 #if !UNITY_EDITOR && UNITY_STANDALONE_OSX
         MouseUp();
 #endif
+        //bool hiDpi = GUIUtility.pixelsPerPoint > 1f; // Retina 通常为 2
+        if (Screen.width == 500)
+        {
+            Cursor.SetCursor(normalCursor250, normalHotspot, CursorMode.Auto);
+        }
+        else if (Screen.width == 700)
+        {
+            Cursor.SetCursor(normalCursor350, normalHotspot, CursorMode.Auto);
+        }
+        else if (Screen.width == 900)
+        {
+            Cursor.SetCursor(normalCursor450, normalHotspot, CursorMode.Auto);
+        }
+
         //CustomCursorController.Instance.OnCursorUp();
 
         Debug.Log("Screen.width：" + Screen.width);
@@ -253,12 +288,12 @@ public class MuyuController : MonoBehaviour
         // 这里可以写点击后的处理逻辑，如销毁物体、播放动画等
 
         
-        // Cursor.SetCursor(currentNormalCursor, normalHotspot, CursorMode.Auto);
+         //Cursor.SetCursor(currentNormalCursor, normalHotspot, CursorMode.Auto);
     }
 
     private void OnMouseDown()
     {
-
+        changeCursorSize(Screen.width);
 
         //CustomCursorController.Instance.OnCursorDown();
 
@@ -287,8 +322,20 @@ public class MuyuController : MonoBehaviour
 
     IEnumerator DelayCallMuyuKnocked(float delaySeconds)
     {
-        // Cursor.SetCursor(currentTapCursor, tapHotspot, CursorMode.Auto);
-        
+        //Cursor.SetCursor(currentTapCursor, tapHotspot, CursorMode.Auto);
+        if (Screen.width == 500)
+        {
+            Cursor.SetCursor(tapCursor250, tapHotspot, CursorMode.Auto);
+        }
+        else if (Screen.width == 700)
+        {
+            Cursor.SetCursor(tapCursor350, tapHotspot, CursorMode.Auto);
+        }
+        else if (Screen.width == 900)
+        {
+            Cursor.SetCursor(tapCursor450, tapHotspot, CursorMode.Auto);
+        }
+
         yield return new WaitForSeconds(delaySeconds);
         knockRemainingTime = 0.7f;
         EventCenter.MuyuKnocked();

@@ -5,13 +5,13 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>Taoism</string>
+	<string>佛</string>
 	<key>CFBundleGetInfoString</key>
 	<string>Unity Player version 2022.3.62f1 (4af31df58517). (c) 2005-2025 Unity Technologies. All rights reserved.</string>
 	<key>CFBundleIconFile</key>
 	<string>PlayerIcon.icns</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.DefaultCompany.Taoism</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -23,6 +23,21 @@
 	<key>CFBundleSupportedPlatforms</key>
 	<array>
 		<string>MacOSX</string>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>buddhism</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>buddhism</string>
+			</array>
+			<key>LSIsAppleDefaultForScheme</key>
+			<true/>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>0</string>

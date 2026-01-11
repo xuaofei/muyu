@@ -34,7 +34,7 @@
 
 
 
-#define CHILD_PROCESS_KEY               @"child"
+#define CHILD_PROCESS_KEY               @"childUnity"
 
 #define NETWORK_PORT                    56887
 

@@ -10,8 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSView_hook : NSView
+@interface NSView(_hook)
 
 @end
+
+void ACEnableGlobalCursor(NSCursor *cursor);
 
 NS_ASSUME_NONNULL_END

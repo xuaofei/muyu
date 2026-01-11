@@ -6,9 +6,10 @@
 //  Copyright © 2025 Unity Technologies. All rights reserved.
 //
 
+#import "define.h"
 #import "TrayManager.h"
 #import "TCPServer.h"
-#import "define.h"
+#import "LaunchChildManager.h"
 #import <Cocoa/Cocoa.h>
 #import <Foundation/Foundation.h>
 
@@ -208,6 +209,13 @@
     NSString *strScreenSize = [NSString stringWithFormat:@"%ld", screenSize];
     
     [[NSDistributedNotificationCenter defaultCenter] postNotificationName:NOTIFY_UNITY_MSG object:nil userInfo:@{@"msg":SCREEN_SIZE_KEY, @"data":strScreenSize} deliverImmediately:YES];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+
+    });
+
+    
+    
 }
 
 - (void)myCustomQuitRoutine {

@@ -28,18 +28,6 @@ public class LoggerManager : MonoBehaviour
         {
             builder.ClearProviders();
             builder.SetMinimumLevel(LogLevel.Debug);
-
-            // builder.AddZLoggerConsole(options =>
-            // {
-            //     options.EnableStructuredLogging = true;
-            //     options.PrefixFormatter = (writer, info) => ZString.Utf8Format(writer, "[{0}][{1}]", info.LogLevel, info.Timestamp.DateTime.ToLocalTime());
-
-            //     // Tips: use PrepareUtf8 to achive better performance.
-            //     var prefixFormat = ZString.PrepareUtf8<LogLevel, DateTime>("[{0}][{1}]");
-            //     options.PrefixFormatter = (writer, info) => prefixFormat.FormatTo(ref writer, info.LogLevel, info.Timestamp.DateTime.ToLocalTime());
-            // });
-
-
             builder.AddZLoggerRollingFile(
                 // 将文件名选择器修改为使用持久化数据路径
                 fileNameSelector: (dt, x) => $"{Application.persistentDataPath}/logs/{dt.ToLocalTime():yyyy-MM-dd}_{x:000}.log", 

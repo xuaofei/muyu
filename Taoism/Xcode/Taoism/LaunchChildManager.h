@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LaunchChildManager : NSObject
 + (instancetype)shared;
 
+- (void)launchSelfWithScheme;
 - (void)launchSelfWithChildParameter;
 - (void)exitChildProcess;
 @end

@@ -1,6 +1,7 @@
 // Copyright © 2018 Unity Technologies. All rights reserved.
 #import "define.h"
 #import "AppDelegate.h"
+#import "PathHelper.h"
 #import <Cocoa/Cocoa.h>
 
 int PlayerMain(int argc, const char *argv[]);
@@ -12,17 +13,53 @@ extern void unity_asan_configure();
 }
 #endif
 
+static int gLockFD = -1;
+// 托盘程序的单例控制
+static BOOL AcquireSingleTrayInstanceLock(void) {
+    NSString *bundleID = NSBundle.mainBundle.bundleIdentifier ?: @"app";
+    NSString *lockPath = [[PathHelper appSupportDirPath]
+                          stringByAppendingPathComponent:[bundleID stringByAppendingString:@".Traylock"]];
+    gLockFD = open(lockPath.fileSystemRepresentation, O_CREAT | O_RDWR, 0600);
+    if (gLockFD < 0) return YES;                 // 兜底：拿不到锁文件就继续跑
+    return (flock(gLockFD, LOCK_EX | LOCK_NB) == 0);
+}
 
+// Unity程序的单例控制
+static BOOL AcquireSingleUnityInstanceLock(void) {
+    NSString *bundleID = NSBundle.mainBundle.bundleIdentifier ?: @"app";
+    NSString *lockPath = [[PathHelper appSupportDirPath]
+                          stringByAppendingPathComponent:[bundleID stringByAppendingString:@".Unitylock"]];
+    gLockFD = open(lockPath.fileSystemRepresentation, O_CREAT | O_RDWR, 0600);
+    if (gLockFD < 0) return YES;                 // 兜底：拿不到锁文件就继续跑
+    return (flock(gLockFD, LOCK_EX | LOCK_NB) == 0);
+}
+
+
+BOOL isNeedLaunchChildProcess(void){
+    NSString *path = [[PathHelper appSupportDirPath] stringByAppendingPathComponent:CHILD_PROCESS_KEY];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    if(!data) {
+        return NO;
+    }
+    
+    [[NSFileManager defaultManager] removeItemAtPath:[PathHelper appSupportDirPath] error:nil];
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    BOOL mode = [dic[@"mode"] isEqualToString:@"unity"];
+    BOOL timeValid = [NSDate date].timeIntervalSince1970 - [dic[@"ts"] doubleValue] < 5;
+    
+    return mode && timeValid;
+}
 
 BOOL isChildProcess() {
-    NSProcessInfo *processInfo = [NSProcessInfo processInfo];
-    NSArray *arguments = [processInfo arguments];
+    [NSProcessInfo.processInfo.environment enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *value, BOOL *stop) {
+        NSLog(@"environment：%@: %@", key, value);
+    }];
     
-    if (arguments.count >= 2) {
-        NSString *param = arguments[1];
-        if ([param isEqualToString:CHILD_PROCESS_KEY]) {
-            return YES;
-        }
+    //    NSLog(@"environment:%@", NSProcessInfo.processInfo.environment);
+    NSString *v = NSProcessInfo.processInfo.environment[CHILD_PROCESS_KEY];
+    if ([v isEqualToString:@"1"]) {
+        NSLog(@"isChildProcess");
+        return YES;
     }
     
     return NO;
@@ -47,7 +84,14 @@ int main(int argc, const char *argv[])
     signal(SIGINT, SIG_DFL);
     signal(SIGTERM, SIG_DFL);
     
-    if (isChildProcess()) {
+    NSLog(@"Taoism started:%d", getpid());
+    NSLog(@"appSupportDirPath:%@", [PathHelper appSupportDirPath]);
+    
+    if (isNeedLaunchChildProcess()) {
+        if (!AcquireSingleUnityInstanceLock()) {
+            NSLog(@"AcquireSingleUnityInstanceLock process will exit");
+            return 0;
+        }
 #if UNITY_ASAN
         unity_asan_configure();
 #endif
@@ -55,6 +99,11 @@ int main(int argc, const char *argv[])
         
         // 4. 启动应用的主事件循环
         return PlayerMain(argc, argv);
+    }
+    
+    if (!AcquireSingleTrayInstanceLock()) {
+        NSLog(@"AcquireSingleTrayInstanceLock process will exit");
+        return 0;
     }
     
     NSApplication *sharedApplication = [NSApplication sharedApplication];

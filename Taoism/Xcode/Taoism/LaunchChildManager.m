@@ -7,8 +7,9 @@
 //  Copyright © 2025 Unity Technologies. All rights reserved.
 //
 
-#import "LaunchChildManager.h"
 #import "define.h"
+#import "LaunchChildManager.h"
+#import "PathHelper.h"
 #import <AppKit/AppKit.h>
 
 void processWillExit(void) {
@@ -42,7 +43,33 @@ void processWillExit(void) {
     return self;
 }
 
+- (void)launchSelfWithScheme {
+    NSString *param = [NSString stringWithFormat:@"buddhism://%@=1",CHILD_PROCESS_KEY];
+    NSURL *url = [NSURL URLWithString:param];
+    NSWorkspaceOpenConfiguration *config = [NSWorkspaceOpenConfiguration configuration];
+    
+    [[NSWorkspace sharedWorkspace] openURL:url configuration:config completionHandler:^(NSRunningApplication * _Nullable app, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"启动失败: %@", error.localizedDescription);
+        } else {
+            NSLog(@"新实例启动成功");
+            self.app = app;
+            
+            [self.app addObserver:self
+                       forKeyPath:@"isTerminated"
+                          options:NSKeyValueObservingOptionNew
+                          context:NULL]; // 上下文可用来区分不同的观察
+        }
+    }];
+}
+
 - (void)launchSelfWithChildParameter {
+    NSDictionary *req = @{@"mode":@"unity",
+                          @"ts": @([NSDate date].timeIntervalSince1970)};
+    NSData *data = [NSJSONSerialization dataWithJSONObject:req options:0 error:nil];
+    NSString *path = [[PathHelper appSupportDirPath] stringByAppendingPathComponent:CHILD_PROCESS_KEY];
+    [data writeToFile:path options:NSDataWritingAtomic error:nil];
+    
     // 获取当前应用的路径
     NSString *appPath = [[NSBundle mainBundle] bundlePath];
     
@@ -51,7 +78,10 @@ void processWillExit(void) {
     NSURL *appURL = [NSURL fileURLWithPath:appPath];
     
     NSWorkspaceOpenConfiguration *config = [NSWorkspaceOpenConfiguration configuration];
-    config.arguments = @[CHILD_PROCESS_KEY]; // 传递参数
+    config.environment = @{ CHILD_PROCESS_KEY: @"1" };
+    //    NSMutableDictionary *environment = [config.environment copy];
+    //    [environment setObject:@"1" forKey:CHILD_PROCESS_KEY];
+    //    config.environment = environment;
     config.createsNewApplicationInstance = YES; // 创建新实例
     
     [workspace openApplicationAtURL:appURL
@@ -64,9 +94,9 @@ void processWillExit(void) {
             self.app = app;
             
             [self.app addObserver:self
-                  forKeyPath:@"isTerminated"
-                     options:NSKeyValueObservingOptionNew
-                     context:NULL]; // 上下文可用来区分不同的观察
+                       forKeyPath:@"isTerminated"
+                          options:NSKeyValueObservingOptionNew
+                          context:NULL]; // 上下文可用来区分不同的观察
         }
     }];
 }
@@ -89,7 +119,7 @@ void processWillExit(void) {
         if (isTerminated) {
             NSLog(@"监控到应用程序已退出");
             // 在这里处理应用退出后的逻辑，例如清理资源、更新UI等
-
+            
             // 重要：应用退出后，移除观察者，避免向已释放的观察者发送消息导致崩溃
             [object removeObserver:self forKeyPath:@"isTerminated"];
             self.app = nil;
@@ -103,6 +133,4 @@ void processWillExit(void) {
         [self.app removeObserver:self forKeyPath:@"isTerminated"];
     }
 }
-
-
 @end

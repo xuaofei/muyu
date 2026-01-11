@@ -11,6 +11,7 @@
 #import <AppKit/AppKit.h>
 @interface CursorManager()
 @property (nonatomic, strong) NSCursor *normalCursor;
+@property (nonatomic, strong) NSCursor *normalCursor1;
 @property (nonatomic, strong) NSCursor *pressedCursor;
 @end
 
@@ -41,16 +42,39 @@
 }
 
 - (void)mouseUp {
-    [NSCursor pop];
-    [self.normalCursor set];
+//    NSArray<NSWindow *> *windows = [[NSApplication sharedApplication] windows];
+//    if (0 == windows.count) {
+//        return;
+//    }
+//    NSWindow *win = windows[0];
+//    [win invalidateCursorRectsForView:win.contentView];
+
     
-    NSLog(@"xaflog mouseUp");
+//    return;
+//    [self.pressedCursor pop];
+    [self.normalCursor set];
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [self.normalCursor set];
+//    });
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [self.normalCursor set];
+//    });
+    
+    
+    NSLog(@"xaflog mouseUp normalCursor");
+}
+
+- (void)mouseUp1 {
+    [self.normalCursor1 set];
+    NSLog(@"xaflog mouseUp normalCursor");
 }
 
 - (void)mouseDown {
-    [self.pressedCursor push];
+//    return;
+//    [self.normalCursor set];
+    [self.pressedCursor set];
     
-    NSLog(@"xaflog mouseDown");
+    NSLog(@"xaflog mouseDown pressedCursor");
 }
 
 - (void)changeCursorSize {
@@ -84,15 +108,43 @@
         cursorDownHeight = 38;
     }
     
-    NSImage *currentNormalImage = [self resizedImage:normalImage toSize:NSMakeSize(cursorUpWidth, cursorUpHeight)];
-    NSImage *currentPressedImage = [self resizedImage:pressedImage toSize:NSMakeSize(cursorDownWidth, cursorDownHeight)];
+    NSImage *currentNormalImage = [self resizedImage:normalImage toSize:NSMakeSize(cursorUpWidth/2, cursorUpHeight/2)];
+    NSImage *currentPressedImage = [self resizedImage:pressedImage toSize:NSMakeSize(cursorDownWidth/2, cursorDownHeight/2)];
+    
+    {
+        
+        NSString *file = [NSString stringWithFormat:@"/tmp/normalImage_%d.png", (int)CGRectGetWidth(win.frame)];
+        
+        NSURL *url = [NSURL fileURLWithPath:file];
+        NSBitmapImageRep *rep = [[NSBitmapImageRep alloc] initWithData:currentNormalImage.TIFFRepresentation];
+        NSData *pngData = [rep representationUsingType:NSBitmapImageFileTypePNG properties:@{}];
+        NSError *err = nil;
+        BOOL ok = [pngData writeToURL:url options:NSDataWritingAtomic error:&err];
+    }
+
+    {
+        NSString *file = [NSString stringWithFormat:@"/tmp/pressedImage_%d.png", (int)CGRectGetWidth(win.frame)];
+        NSURL *url = [NSURL fileURLWithPath:file];
+        NSBitmapImageRep *rep = [[NSBitmapImageRep alloc] initWithData:currentPressedImage.TIFFRepresentation];
+        NSData *pngData = [rep representationUsingType:NSBitmapImageFileTypePNG properties:@{}];
+        NSError *err = nil;
+        BOOL ok = [pngData writeToURL:url options:NSDataWritingAtomic error:&err];
+    }
+    
     
     NSPoint normalHotSpot = NSMakePoint(cursorUpWidth / 2, cursorUpHeight / 2);
     NSPoint pressedHotSpot = NSMakePoint(cursorDownWidth / 2, cursorDownHeight / 4);
     self.normalCursor = [[NSCursor alloc] initWithImage:currentNormalImage hotSpot:normalHotSpot];
+    self.normalCursor1 = [[NSCursor alloc] initWithImage:currentNormalImage hotSpot:pressedHotSpot];
     self.pressedCursor = [[NSCursor alloc] initWithImage:currentPressedImage hotSpot:pressedHotSpot];
     
-    [self.normalCursor set];
+    dispatch_async(dispatch_get_main_queue(), ^{
+//        [self.normalCursor set];
+    });
+    
+    NSLog(@"xaflog mouseUp normalCursor");
+    
+    NSLog(@"xaflog changeCursorSize");
 }
 
 - (NSImage *)resizedImage:(NSImage *)image toSize:(NSSize)newSize {

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "752CA8272149E6C100295EFC"
-               BuildableName = "Taoism.app"
+               BuildableName = "&#x4f5b;.app"
                BlueprintName = "Taoism"
                ReferencedContainer = "container:Xcode.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "752CA8272149E6C100295EFC"
-            BuildableName = "Taoism.app"
+            BuildableName = "&#x4f5b;.app"
             BlueprintName = "Taoism"
             ReferencedContainer = "container:Xcode.xcodeproj">
          </BuildableReference>
@@ -63,7 +63,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "752CA8272149E6C100295EFC"
-            BuildableName = "Taoism.app"
+            BuildableName = "&#x4f5b;.app"
             BlueprintName = "Taoism"
             ReferencedContainer = "container:Xcode.xcodeproj">
          </BuildableReference>

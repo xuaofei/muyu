@@ -3,10 +3,17 @@ using Spine;
 using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class FoguangController : MonoBehaviour
 {
+
+#if !UNITY_EDITOR && UNITY_STANDALONE_OSX
+    [DllImport("unityPlugin")]
+    private static extern void MouseUp();
+#endif
+
     SkeletonAnimation skeletonAnimation;
     private string animationNameGuang01 = "guang01";
     private string animationNameGuang02 = "guang02";
@@ -103,4 +110,22 @@ public class FoguangController : MonoBehaviour
         isKnockCompleted = true;
         Debug.Log("FoguangController KnockCompleted");
     }
+
+    private void OnMouseUp()
+    {
+        Debug.Log("FoguangController OnMouseUp");
+#if !UNITY_EDITOR && UNITY_STANDALONE_OSX
+        //MouseUp();
+#endif
+        //EventCenter.MuyuKnocked();
+        //EventCenter.KnockCompleted();
+    }
+
+    private void OnMouseDown()
+    {
+#if !UNITY_EDITOR && UNITY_STANDALONE_OSX
+        //MouseUp();
+#endif
+    }
+
 }

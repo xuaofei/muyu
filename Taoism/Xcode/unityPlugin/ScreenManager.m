@@ -32,10 +32,6 @@
                        name:NOTIFY_UNITY_MSG
                      object:nil];
         
-        
-        
-        
-        
         NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
         
         // 监听屏幕连接通知
