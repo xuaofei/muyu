@@ -12,8 +12,13 @@
 #import "PathHelper.h"
 #import <AppKit/AppKit.h>
 
+@import MMWormhole;
+
 void processWillExit(void) {
-    [[LaunchChildManager shared] exitChildProcess];
+    MMWormhole *wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:APP_GROUP
+                                                         optionalDirectory:@"wormhole"];
+    [wormhole passMessageObject:@{} identifier:NOTIFY_EXIT_SUB_APP];
+    
 }
 
 

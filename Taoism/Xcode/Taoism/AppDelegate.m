@@ -10,7 +10,6 @@
 #import "TrayManager.h"
 #import "TCPServer.h"
 #import "LaunchChildManager.h"
-#import "SystemThemeManager.h"
 #import "ScreenManager.h"
 #import "LaunchChildManager.h"
 #import "LaunchAgentManager.h"

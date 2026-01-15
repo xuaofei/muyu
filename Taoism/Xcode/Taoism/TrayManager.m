@@ -12,10 +12,13 @@
 #import "LaunchChildManager.h"
 #import <Cocoa/Cocoa.h>
 #import <Foundation/Foundation.h>
+@import MMWormhole;
 
 @interface TrayManager()
 @property(nonatomic, retain) NSStatusItem *statusItem;
 @property(nonatomic, assign) float backingScaleFactor;
+
+@property(nonatomic, retain) MMWormhole *wormhole;
 @end
 
 @implementation TrayManager
@@ -33,6 +36,9 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:APP_GROUP
+                                                             optionalDirectory:@"wormhole"];
+        
         // 设置默认大小
         NSInteger screenSize = [[NSUserDefaults standardUserDefaults] integerForKey:SCREEN_SIZE_KEY];
         if (0 == screenSize) {
@@ -41,21 +47,43 @@
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clientConnectNetwork) name:NOTIFY_CLIENT_CONNECT_NETWORK object:nil];
         
-        NSDistributedNotificationCenter *center = [NSDistributedNotificationCenter defaultCenter];
+        [self.wormhole listenForMessageWithIdentifier:NOTIFY_WINDOWS_SCREEN_CHANGED
+                                             listener:^(id userInfo) {
+            NSInteger screenSize = [[NSUserDefaults standardUserDefaults] integerForKey:SCREEN_SIZE_KEY];
+            
+            
+//            NSLog(@"收到分布式通知: %@", notification.name);
+//            NSDictionary *userInfo = notification.userInfo;
+            NSString *backingScaleFactor = userInfo[@"backingScaleFactor"];
+            self.backingScaleFactor = [backingScaleFactor floatValue];
+            
+            if (self.backingScaleFactor == 1.0) {
+                NSLog(@"附加信息: %@", userInfo);
+                screenSize /= 2;
+            }
+            
+            [[TrayManager shared] changeScreenSize:screenSize];
+        }];
         
-        // 添加观察者
-        [center addObserver:self
-                   selector:@selector(handleReceivedNotification:)
-                       name:NOTIFY_WINDOWS_SCREEN_CHANGED
-                     object:nil]; // 监听的对象，设为 nil 则监听所有对象
-        
-        
-        [center addObserver:self
-                   selector:@selector(ocReceivedNotification:)
-                       name:NOTIFY_OC_MSG
-                     object:nil];
-        
-        
+        [self.wormhole listenForMessageWithIdentifier:NOTIFY_UNITY_2_OC_MSG
+                                             listener:^(id userInfo) {
+
+            NSString *msg = [userInfo objectForKey:@"msg"];
+            NSString *data = [userInfo objectForKey:@"data"];
+            
+            NSLog(@"xaflog msg:%@", msg);
+            NSLog(@"xaflog data:%@", data);
+            
+            if ([msg isEqualToString:MSG_UNITY_START]) {
+                NSInteger screenSize = [[NSUserDefaults standardUserDefaults] integerForKey:SCREEN_SIZE_KEY];
+                
+                NSString *strScreenSize = [NSString stringWithFormat:@"%ld", screenSize];
+                
+                
+                NSDictionary *data = @{@"msg":SCREEN_SIZE_KEY, @"data":strScreenSize};
+                [self.wormhole passMessageObject:data identifier:NOTIFY_OC_2_UNITY_MSG];
+            }
+        }];
     }
     
     return self;
@@ -174,13 +202,13 @@
     [self sendMessage2Unity2:screenSize];
     return;
     
-    NSString *data = [NSString stringWithFormat:@"%ld", (long)screenSize];
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        NSDictionary *dic = @{@"version":@"1.0",
-                              @"screenSize":data};
-        
-        [self sendMessage2Unity:dic];
-    });
+//    NSString *data = [NSString stringWithFormat:@"%ld", (long)screenSize];
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//        NSDictionary *dic = @{@"version":@"1.0",
+//                              @"screenSize":data};
+//        
+//        [self sendMessage2Unity:dic];
+//    });
 }
 
 - (void)sendMessage2Unity:(NSDictionary*)data
@@ -208,14 +236,8 @@
 - (void)sendMessage2Unity2:(NSInteger)screenSize {
     NSString *strScreenSize = [NSString stringWithFormat:@"%ld", screenSize];
     
-    [[NSDistributedNotificationCenter defaultCenter] postNotificationName:NOTIFY_UNITY_MSG object:nil userInfo:@{@"msg":SCREEN_SIZE_KEY, @"data":strScreenSize} deliverImmediately:YES];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-
-    });
-
-    
-    
+    NSDictionary *data = @{@"msg":SCREEN_SIZE_KEY, @"data":strScreenSize};
+    [self.wormhole passMessageObject:data identifier:NOTIFY_OC_2_UNITY_MSG];
 }
 
 - (void)myCustomQuitRoutine {
@@ -237,43 +259,5 @@
         [[TrayManager shared] changeScreenSize:screenSize];
     });
     
-}
-
-- (void)handleReceivedNotification:(NSNotification *)notification {
-    NSInteger screenSize = [[NSUserDefaults standardUserDefaults] integerForKey:SCREEN_SIZE_KEY];
-    
-    
-    NSLog(@"收到分布式通知: %@", notification.name);
-    NSDictionary *userInfo = notification.userInfo;
-    NSString *backingScaleFactor = userInfo[@"backingScaleFactor"];
-    self.backingScaleFactor = [backingScaleFactor floatValue];
-    
-    if (self.backingScaleFactor == 1.0) {
-        NSLog(@"附加信息: %@", userInfo);
-        screenSize /= 2;
-    }
-    
-    [[TrayManager shared] changeScreenSize:screenSize];
-}
-
-- (void)ocReceivedNotification:(NSNotification *)notification {
-    NSDictionary *userInfo = notification.userInfo;
-    NSString *msg = [userInfo objectForKey:@"msg"];
-    NSString *data = [userInfo objectForKey:@"data"];
-    
-    NSLog(@"xaflog msg:%@", msg);
-    NSLog(@"xaflog data:%@", data);
-    
-    if ([msg isEqualToString:MSG_UNITY_START]) {
-        NSInteger screenSize = [[NSUserDefaults standardUserDefaults] integerForKey:SCREEN_SIZE_KEY];
-        
-        NSString *strScreenSize = [NSString stringWithFormat:@"%ld", screenSize];
-        
-        [[NSDistributedNotificationCenter defaultCenter] postNotificationName:NOTIFY_UNITY_MSG object:nil userInfo:@{@"msg":SCREEN_SIZE_KEY, @"data":strScreenSize}];
-    }
-    
-
-    
-//    [[TrayManager shared] changeScreenSize:screenSize];
 }
 @end

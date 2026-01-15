@@ -42,27 +42,12 @@ BOOL isNeedLaunchChildProcess(void){
         return NO;
     }
     
-    [[NSFileManager defaultManager] removeItemAtPath:[PathHelper appSupportDirPath] error:nil];
+    [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     BOOL mode = [dic[@"mode"] isEqualToString:@"unity"];
     BOOL timeValid = [NSDate date].timeIntervalSince1970 - [dic[@"ts"] doubleValue] < 5;
     
     return mode && timeValid;
-}
-
-BOOL isChildProcess() {
-    [NSProcessInfo.processInfo.environment enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *value, BOOL *stop) {
-        NSLog(@"environment：%@: %@", key, value);
-    }];
-    
-    //    NSLog(@"environment:%@", NSProcessInfo.processInfo.environment);
-    NSString *v = NSProcessInfo.processInfo.environment[CHILD_PROCESS_KEY];
-    if ([v isEqualToString:@"1"]) {
-        NSLog(@"isChildProcess");
-        return YES;
-    }
-    
-    return NO;
 }
 
 void commamdQExit() {
