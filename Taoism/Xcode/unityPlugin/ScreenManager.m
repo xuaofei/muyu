@@ -10,6 +10,11 @@
 #import "ScreenManager.h"
 #import "CursorManager.h"
 #import <AppKit/AppKit.h>
+@import MMWormhole;
+
+@interface ScreenManager()
+@property(nonatomic, retain) MMWormhole *wormhole;
+@end
 
 @implementation ScreenManager
 + (instancetype)shared {
@@ -26,11 +31,35 @@
     self = [super init];
     if (self) {
         
-        NSDistributedNotificationCenter *center = [NSDistributedNotificationCenter defaultCenter];
-        [center addObserver:self
-                   selector:@selector(unityReceivedNotification:)
-                       name:NOTIFY_UNITY_MSG
-                     object:nil];
+        self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:APP_GROUP
+                                                             optionalDirectory:@"wormhole"];
+        [self.wormhole listenForMessageWithIdentifier:NOTIFY_OC_2_UNITY_MSG
+                                             listener:^(id userInfo) {
+            NSString *msg = [userInfo objectForKey:@"msg"];
+            NSString *data = [userInfo objectForKey:@"data"];
+            
+            NSLog(@"xaflog unityReceivedNotification msg:%@", msg);
+            NSLog(@"xaflog unityReceivedNotification data:%@", data);
+            
+            if ([msg isEqualToString:SCREEN_SIZE_KEY]) {
+                NSInteger screenSize = [data integerValue];
+                
+                NSArray<NSWindow *> *windows = [[NSApplication sharedApplication] windows];
+                if (windows.count) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self resizeWindow:windows[0] toSize:CGSizeMake(screenSize, screenSize)];
+                        [[CursorManager shared] changeCursorSize];
+                    });
+                }
+            }
+        }];
+        
+        [self.wormhole listenForMessageWithIdentifier:NOTIFY_EXIT_SUB_APP
+                                             listener:^(id userInfo) {
+            
+            exit(0);
+        }];
+        
         
         NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
         
@@ -54,9 +83,10 @@
         
         
         dispatch_async(dispatch_get_main_queue(), ^{
-//            [self WindowDidChangeScreen:nil];
+            //            [self WindowDidChangeScreen:nil];
             
-            [[NSDistributedNotificationCenter defaultCenter] postNotificationName:NOTIFY_OC_MSG object:nil userInfo:@{@"msg":MSG_UNITY_START, @"data":@""} deliverImmediately:YES];
+            NSDictionary *data = @{@"msg":MSG_UNITY_START, @"data":@""};
+            [self.wormhole passMessageObject:data identifier:NOTIFY_UNITY_2_OC_MSG];
         });
         
         //        [self enumScreen];
@@ -87,7 +117,8 @@
             NSString *backingScaleFactor = [NSString stringWithFormat:@"%f", screen.backingScaleFactor];
             NSDictionary *data = @{@"backingScaleFactor":backingScaleFactor};
             
-            [[NSDistributedNotificationCenter defaultCenter] postNotificationName:NOTIFY_WINDOWS_SCREEN_CHANGED object:nil userInfo:data];
+            
+            [self.wormhole passMessageObject:nil identifier:NOTIFY_WINDOWS_SCREEN_CHANGED];
         }
     }
     //    NSScreen *screen = [[NSApplication sharedApplication] keyWindow].screen;
@@ -96,28 +127,6 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification {
     NSLog(@"xaflog applicationDidFinishLaunching");
-}
-
-- (void)unityReceivedNotification:(NSNotification *)notification {
-    NSDictionary *userInfo = notification.userInfo;
-    NSString *msg = [userInfo objectForKey:@"msg"];
-    NSString *data = [userInfo objectForKey:@"data"];
-    
-    NSLog(@"xaflog unityReceivedNotification msg:%@", msg);
-    NSLog(@"xaflog unityReceivedNotification data:%@", data);
-    
-    if ([msg isEqualToString:SCREEN_SIZE_KEY]) {
-        NSInteger screenSize = [data integerValue];
-        
-        NSArray<NSWindow *> *windows = [[NSApplication sharedApplication] windows];
-        if (windows.count) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self resizeWindow:windows[0] toSize:CGSizeMake(screenSize, screenSize)];
-                [[CursorManager shared] changeCursorSize];
-            });
-        }
-    }
-    
 }
 
 // 假设 window 是你需要调整的 NSWindow 实例
@@ -176,9 +185,7 @@
         NSString *backingScaleFactor = [NSString stringWithFormat:@"%f", screen.backingScaleFactor];
         NSDictionary *data = @{@"backingScaleFactor":backingScaleFactor};
         
-        [[NSDistributedNotificationCenter defaultCenter] postNotificationName:NOTIFY_WINDOWS_SCREEN_CHANGED object:nil userInfo:data];
-//        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFY_WINDOWS_SCREEN_CHANGED object:data];
-        
+        [self.wormhole passMessageObject:data identifier:NOTIFY_WINDOWS_SCREEN_CHANGED];
     }
     
     

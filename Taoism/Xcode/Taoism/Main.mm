@@ -19,6 +19,7 @@ static BOOL AcquireSingleTrayInstanceLock(void) {
     NSString *bundleID = NSBundle.mainBundle.bundleIdentifier ?: @"app";
     NSString *lockPath = [[PathHelper appSupportDirPath]
                           stringByAppendingPathComponent:[bundleID stringByAppendingString:@".Traylock"]];
+    NSLog(@"AcquireSingleTrayInstanceLock:%@", lockPath);
     gLockFD = open(lockPath.fileSystemRepresentation, O_CREAT | O_RDWR, 0600);
     if (gLockFD < 0) return YES;                 // 兜底：拿不到锁文件就继续跑
     return (flock(gLockFD, LOCK_EX | LOCK_NB) == 0);
@@ -29,6 +30,8 @@ static BOOL AcquireSingleUnityInstanceLock(void) {
     NSString *bundleID = NSBundle.mainBundle.bundleIdentifier ?: @"app";
     NSString *lockPath = [[PathHelper appSupportDirPath]
                           stringByAppendingPathComponent:[bundleID stringByAppendingString:@".Unitylock"]];
+    
+    NSLog(@"AcquireSingleUnityInstanceLock:%@", lockPath);
     gLockFD = open(lockPath.fileSystemRepresentation, O_CREAT | O_RDWR, 0600);
     if (gLockFD < 0) return YES;                 // 兜底：拿不到锁文件就继续跑
     return (flock(gLockFD, LOCK_EX | LOCK_NB) == 0);

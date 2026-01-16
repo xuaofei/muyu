@@ -29,7 +29,8 @@ public class GameManager : MonoBehaviour
     {
         mainCameraOrthographicSize = mainCamera.orthographicSize;
         Application.targetFrameRate = 30;
-        Debug.Log("targetFrameRate:" + Application.targetFrameRate);
-        LoggerManager.Instance.InfoLog($"Taoism start");
+        
+        LoggerManager.Instance.InfoLog("Taoism start");
+        LoggerManager.Instance.InfoLog("targetFrameRate:" + Application.targetFrameRate);
     }
 }
