@@ -14,7 +14,7 @@ public class LoggerManager : MonoBehaviour
     void Awake()
     {
         // 注册日志回调
-        Application.logMessageReceived += HandleLogMessage;
+        //Application.logMessageReceived += HandleLogMessage;
 
         // 单例保护：确保只有一个实例存在
         if (Instance != null && Instance != this)
@@ -67,7 +67,7 @@ public class LoggerManager : MonoBehaviour
         var callerLine = ExtractFirstUserFrame(stackTrace);
         // 你可以把 callerLine 写进文件/上报
         // callerLine 常见格式：MyClass:Foo() (at Assets/Scripts/MyClass.cs:42)
-        //UnityEngine.Debug.Log($"[{type}] {condition}\nCaller: {callerLine}");
+        //UnityEngine.LoggerManager.Instance.InfoLog($"[{type}] {condition}\nCaller: {callerLine}");
 
         InfoLog(callerLine + logString);
 
@@ -120,6 +120,8 @@ public class LoggerManager : MonoBehaviour
         // 组合最终的日志信息
         var logMessage = $"[{timestamp}] [Debug] [{System.IO.Path.GetFileName(sourceFilePath)}:{sourceLineNumber}] [{memberName}] {message}";
         Logger?.ZLogDebug(logMessage);
+
+        LoggerManager.Instance.InfoLog(logMessage);
     }
 
     public void ErrorLog(

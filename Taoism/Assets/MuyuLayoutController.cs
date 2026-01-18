@@ -44,11 +44,11 @@ public class MuyuLayoutController : MonoBehaviour
 
     public void MuyuKnocked()
     {
-        Debug.Log("MuyuLayoutController MuyuKnocked");
+        LoggerManager.Instance.InfoLog("MuyuLayoutController MuyuKnocked");
     }
 
     public void KnockCompleted()
     {
-        Debug.Log("MuyuLayoutController KnockCompleted");
+        LoggerManager.Instance.InfoLog("MuyuLayoutController KnockCompleted");
     }
 }

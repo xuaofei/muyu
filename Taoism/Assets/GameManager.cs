@@ -1,7 +1,5 @@
 using UnityEngine;
 using UnityEngine.Audio; // 需要引入此命名空间
-using System.Threading;
-using System.Threading.Tasks;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,7 +28,6 @@ public class GameManager : MonoBehaviour
         mainCameraOrthographicSize = mainCamera.orthographicSize;
         Application.targetFrameRate = 30;
         
-        LoggerManager.Instance.InfoLog("Taoism start");
-        LoggerManager.Instance.InfoLog("targetFrameRate:" + Application.targetFrameRate);
+        LoggerManager.Instance.InfoLog("Taoism start targetFrameRate:" + Application.targetFrameRate);
     }
 }

@@ -66,12 +66,12 @@ public class MuyuController : MonoBehaviour
     {
         if (hasFocus)
         {
-            Debug.Log("游戏窗口获得焦点，恢复正常运行。");
+            LoggerManager.Instance.InfoLog("游戏窗口获得焦点，恢复正常运行。");
              //changeCursorSize(Screen.width);
         }
         else
         {
-            Debug.Log("游戏窗口失去焦点，可以暂停游戏。");
+            LoggerManager.Instance.InfoLog("游戏窗口失去焦点，可以暂停游戏。");
         }
     }
 
@@ -117,7 +117,7 @@ public class MuyuController : MonoBehaviour
 
     public void changeCursorSize(int width)
     {
-        Debug.Log("Screen.width：" + width);
+        LoggerManager.Instance.InfoLog("Screen.width：" + width);
         if (width == 500)
         {
             cursorUpWidth = 9;
@@ -150,7 +150,7 @@ public class MuyuController : MonoBehaviour
         }
 
 
-        Debug.Log("Start tapHotspot: " + tapHotspot.ToString());
+        LoggerManager.Instance.InfoLog("Start tapHotspot: " + tapHotspot.ToString());
 
 
         if (Screen.width == 500)
@@ -166,10 +166,10 @@ public class MuyuController : MonoBehaviour
             Cursor.SetCursor(normalCursor450, normalHotspot, CursorMode.Auto);
         }
 
-        Debug.Log("Start cursorUpWidth: " + cursorUpWidth);
-        Debug.Log("Start cursorUpHeight: " + cursorUpHeight);
-        Debug.Log("Start cursorDownWidth: " + cursorDownWidth);
-        Debug.Log("Start cursorDownHeight: " + cursorDownHeight);
+        LoggerManager.Instance.InfoLog("Start cursorUpWidth: " + cursorUpWidth);
+        LoggerManager.Instance.InfoLog("Start cursorUpHeight: " + cursorUpHeight);
+        LoggerManager.Instance.InfoLog("Start cursorDownWidth: " + cursorDownWidth);
+        LoggerManager.Instance.InfoLog("Start cursorDownHeight: " + cursorDownHeight);
     }
 
     void OnAnimationComplete(TrackEntry entry)
@@ -232,11 +232,11 @@ public class MuyuController : MonoBehaviour
 
         //CustomCursorController.Instance.OnCursorUp();
 
-        Debug.Log("Screen.width：" + Screen.width);
-        Debug.Log("Screen.height：" + Screen.height);
+        LoggerManager.Instance.InfoLog("Screen.width：" + Screen.width);
+        LoggerManager.Instance.InfoLog("Screen.height：" + Screen.height);
 
 
-        Debug.Log("点击到了: " + gameObject.name);
+        LoggerManager.Instance.InfoLog("点击到了: " + gameObject.name);
     }
 
     private void OnMouseDown()
@@ -303,14 +303,14 @@ public class MuyuController : MonoBehaviour
 
     public void MuyuKnocked()
     {
-        Debug.Log("MuyuController MuyuKnocked");
+        LoggerManager.Instance.InfoLog("MuyuController MuyuKnocked");
         PlayAnimationOnClick();
         PlaySoundByName();
     }
 
     public void KnockCompleted()
     {
-        Debug.Log("MuyuController KnockCompleted");
+        LoggerManager.Instance.InfoLog("MuyuController KnockCompleted");
 
         float currentAnimationTime = trackEntryMuyu.TrackTime;
         // 1. 可选的清理操作：清除当前状态，避免切换残影

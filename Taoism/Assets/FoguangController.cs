@@ -37,8 +37,8 @@ public class FoguangController : MonoBehaviour
         // skeletonAnimation.timeScale = 0.0f;
         // trackEntry1.TimeScale = 0.2f;
         // totalDuration = trackEntryFoguang.AnimationEnd;
-        Debug.Log("TaoismController trackEntryFoguang：" + trackEntryFoguang.AnimationEnd);
-        // Debug.Log("TaoismController trackEntryMuyu：" + trackEntryMuyu.AnimationEnd);
+        LoggerManager.Instance.InfoLog("TaoismController trackEntryFoguang：" + trackEntryFoguang.AnimationEnd);
+        // LoggerManager.Instance.InfoLog("TaoismController trackEntryMuyu：" + trackEntryMuyu.AnimationEnd);
 
         skeletonAnimation.AnimationState.Complete += OnAnimationComplete;
     }
@@ -101,19 +101,19 @@ public class FoguangController : MonoBehaviour
     public void MuyuKnocked()
     {
         // 
-        Debug.Log("FoguangController MuyuKnocked");
+        LoggerManager.Instance.InfoLog("FoguangController MuyuKnocked");
         PlayAnimationOnClick();
     }
 
     public void KnockCompleted()
     {
         isKnockCompleted = true;
-        Debug.Log("FoguangController KnockCompleted");
+        LoggerManager.Instance.InfoLog("FoguangController KnockCompleted");
     }
 
     private void OnMouseUp()
     {
-        Debug.Log("FoguangController OnMouseUp");
+        LoggerManager.Instance.InfoLog("FoguangController OnMouseUp");
 #if !UNITY_EDITOR && UNITY_STANDALONE_OSX
         //MouseUp();
 #endif
