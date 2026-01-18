@@ -10,9 +10,6 @@ public class MuyuController : MonoBehaviour
     public Texture2D normalCursor;
     public Texture2D tapCursor;
 
-    public Texture2D currentNormalCursor;
-    public Texture2D currentTapCursor;
-
     public Texture2D normalCursor250;
     public Texture2D tapCursor250;
 
@@ -67,19 +64,14 @@ public class MuyuController : MonoBehaviour
 
     private void OnApplicationFocus(bool hasFocus)
     {
-        // hasFocus 为 true 表示应用获得了焦点；false 表示失去了焦点。
         if (hasFocus)
         {
-            Debug.Log("xaflog 游戏窗口获得焦点，恢复正常运行。");
-             changeCursorSize(Screen.width);
-            // 这里可以恢复游戏逻辑、声音等
-            // Time.timeScale = 1f;
+            Debug.Log("游戏窗口获得焦点，恢复正常运行。");
+             //changeCursorSize(Screen.width);
         }
         else
         {
-            Debug.Log("xaflog 游戏窗口失去焦点，可以暂停游戏。");
-            // 这里可以暂停游戏、静音等
-            // Time.timeScale = 0f;
+            Debug.Log("游戏窗口失去焦点，可以暂停游戏。");
         }
     }
 
@@ -90,51 +82,20 @@ public class MuyuController : MonoBehaviour
         EventCenter.OnKnockCompleted += KnockCompleted;
 
         skeletonAnimation = GetComponent<SkeletonAnimation>();
-        // skeletonAnimation.Initialize(true);
-
-        // skeletonAnimation.skeleton.SetToSetupPose();
-        // skeletonAnimation.AnimationState.ClearTracks();
 
         trackEntryMuyu = skeletonAnimation.AnimationState.SetAnimation(0, animationNameMuYu02, false);
         trackEntryMuyu.TimeScale = 0.0f;
         trackEntryMuyu.AnimationEnd = 2.2f;
-        // trackEntryFoxiang = skeletonAnimation.AnimationState.SetAnimation(1, animationNameFoXiang, false);
-        // trackEntryMuyu = skeletonAnimation.AnimationState.SetAnimation(2, animationNameMuYu01, false);
-        
-
-        // trackEntry1.AnimationEnd = 1.0f;
-        // skeletonAnimation.timeScale = 0.0f;
-        // trackEntry1.TimeScale = 0.2f;
-        // totalDuration = trackEntryFoguang.AnimationEnd;
-        Debug.Log("TaoismController trackEntryMuyu" + trackEntryMuyu.AnimationEnd);
-        // Debug.Log("TaoismController trackEntryMuyu：" + trackEntryMuyu.AnimationEnd);
 
         skeletonAnimation.AnimationState.Complete += OnAnimationComplete;
 
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.outputAudioMixerGroup = GameManager.Instance.mainMixer.FindMatchingGroups("Master")[0];
 
-        // cursorUpWidth = (int)(normalCursor.width * 0.3f);
-        // cursorUpHeight = (int)(normalCursor.height * 0.3f);
-        // cursorDownWidth = (int)(tapCursor.width * 0.3f);
-        // cursorDownHeight = (int)(tapCursor.height * 0.3f);
+#if !UNITY_EDITOR && UNITY_STANDALONE_OSX
+        UnityStartd();
+#endif
 
-        // cursorUpWidth = (int)(Screen.width * cursorUpWidthRatio);
-        // cursorUpHeight = (int)(Screen.height * cursorUpHeightRatio);
-        // cursorDownWidth = (int)(Screen.width * cursorDownWidthRatio);
-        // cursorDownHeight = (int)(Screen.height * cursorDownHeightRatio);
-
-        //CustomCursorController.Instance.changeCursorSize(Screen.width);
-        // changeCursorSize(Screen.width);  
-
-        // ... 此处可结合上文任一方法进行实际缩放操作，例如调用ScaleTextureGPU方法
-
-
-        Debug.Log("Start normalHotspot: " + normalHotspot);
-        Debug.Log("Start tapHotspot: " + tapHotspot);
-
-        //Cursor.visible = false;
-        Debug.Log("TaoismController");
     }
 
     // Update is called once per frame
@@ -152,19 +113,10 @@ public class MuyuController : MonoBehaviour
                  isKnockCompleted = true;
             }
         }
-
-        // 检测鼠标左键点击
-        // if (Input.GetMouseButtonDown(0) && isKnockCompleted)
-        // {
-        //     // 如果你添加了2D碰撞器并使用OnMouseDown，则不需要这里的全局点击检测
-        //     // 这里的代码会响应屏幕任意位置的点击
-        //     PlayAnimationOnClick();
-        // }
     }
 
     public void changeCursorSize(int width)
     {
-
         Debug.Log("Screen.width：" + width);
         if (width == 500)
         {
@@ -173,6 +125,8 @@ public class MuyuController : MonoBehaviour
             cursorDownWidth = 7;
             cursorDownHeight = 38;
 
+            normalHotspot = new Vector2(cursorUpWidth / 2, cursorUpHeight / 2);
+            tapHotspot = new Vector2(cursorDownWidth / 2, cursorDownHeight / 4);
         }
         else if (width == 700)
         {
@@ -180,23 +134,24 @@ public class MuyuController : MonoBehaviour
             cursorUpHeight = 48;
             cursorDownWidth = 10;
             cursorDownHeight = 52;
-            Debug.Log("Screen.width == 350");
+
+            normalHotspot = new Vector2(cursorUpWidth / 2, cursorUpHeight / 2);
+            tapHotspot = new Vector2(cursorDownWidth / 2, cursorDownHeight / 4);
         }
         else if (width == 900)
         {
             cursorUpWidth = 15;
             cursorUpHeight = 62;
-            cursorDownWidth = 13;
+            cursorDownWidth = 14;
             cursorDownHeight = 66;
-            Debug.Log("Screen.width == 450");
-        }
-        
-        currentNormalCursor = ScaleTextureGPU(normalCursor, cursorUpWidth, cursorUpHeight);
-        currentTapCursor = ScaleTextureGPU(tapCursor, cursorDownWidth, cursorDownHeight);
 
-        normalHotspot = new Vector2(cursorUpWidth / 2, cursorUpHeight / 2);
-        tapHotspot = new Vector2(cursorDownWidth / 2, cursorDownHeight / 4);
-        //Cursor.SetCursor(currentNormalCursor, normalHotspot, CursorMode.Auto);
+            normalHotspot = new Vector2(cursorUpWidth / 2, cursorUpHeight / 2);
+            tapHotspot = new Vector2(cursorDownWidth / 2 - 2, cursorDownHeight / 4);
+        }
+
+
+        Debug.Log("Start tapHotspot: " + tapHotspot.ToString());
+
 
         if (Screen.width == 500)
         {
@@ -225,7 +180,7 @@ public class MuyuController : MonoBehaviour
             trackEntryMuyu.TimeScale = 2f/0.7f;
             trackEntryMuyu.AnimationEnd = 2f;
             trackEntryMuyu.MixDuration = 0.2f;
-            Debug.LogWarning("OnAnimationComplete:" + entry.Animation.Name);
+            //Debug.LogWarning("OnAnimationComplete:" + entry.Animation.Name);
 
             isKnockCompleted = true; // 标记已点击
         }
@@ -262,7 +217,6 @@ public class MuyuController : MonoBehaviour
 #if !UNITY_EDITOR && UNITY_STANDALONE_OSX
         MouseUp();
 #endif
-        //bool hiDpi = GUIUtility.pixelsPerPoint > 1f; // Retina 通常为 2
         if (Screen.width == 500)
         {
             Cursor.SetCursor(normalCursor250, normalHotspot, CursorMode.Auto);
@@ -282,20 +236,12 @@ public class MuyuController : MonoBehaviour
         Debug.Log("Screen.height：" + Screen.height);
 
 
-        Debug.Log("xaflog 直接点击到了: " + gameObject.name);
-        // PlayAnimationOnClick();
-        // PlaySoundByName("muyu0_1");
-        // 这里可以写点击后的处理逻辑，如销毁物体、播放动画等
-
-        
-         //Cursor.SetCursor(currentNormalCursor, normalHotspot, CursorMode.Auto);
+        Debug.Log("点击到了: " + gameObject.name);
     }
 
     private void OnMouseDown()
     {
         changeCursorSize(Screen.width);
-
-        //CustomCursorController.Instance.OnCursorDown();
 
         if (!isKnockCompleted)
         {
@@ -321,8 +267,7 @@ public class MuyuController : MonoBehaviour
     }
 
     IEnumerator DelayCallMuyuKnocked(float delaySeconds)
-    {
-        //Cursor.SetCursor(currentTapCursor, tapHotspot, CursorMode.Auto);
+    { 
         if (Screen.width == 500)
         {
             Cursor.SetCursor(tapCursor250, tapHotspot, CursorMode.Auto);

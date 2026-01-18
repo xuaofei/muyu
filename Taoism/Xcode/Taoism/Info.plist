@@ -4,8 +4,10 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
+	<key>CFBundleDisplayName</key>
+	<string>Buddhism</string>
 	<key>CFBundleExecutable</key>
-	<string>佛</string>
+	<string>Buddhism</string>
 	<key>CFBundleGetInfoString</key>
 	<string>Unity Player version 2022.3.62f1 (4af31df58517). (c) 2005-2025 Unity Technologies. All rights reserved.</string>
 	<key>CFBundleIconFile</key>
@@ -15,7 +17,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>Taoism</string>
+	<string>Buddhism</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>

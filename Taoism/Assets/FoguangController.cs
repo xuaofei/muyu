@@ -73,7 +73,7 @@ public class FoguangController : MonoBehaviour
             trackEntryFoguang = skeletonAnimation.AnimationState.SetAnimation(0, entry.Animation.Name, false);
         }
 
-        Debug.LogWarning("OnAnimationComplete:" + entry.Animation.Name);
+        //Debug.LogWarning("OnAnimationComplete:" + entry.Animation.Name);
     }
 
     // 点击后播放动画的方法
