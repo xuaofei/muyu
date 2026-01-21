@@ -13,9 +13,6 @@ public class LoggerManager : MonoBehaviour
 
     void Awake()
     {
-        // 注册日志回调
-        //Application.logMessageReceived += HandleLogMessage;
-
         // 单例保护：确保只有一个实例存在
         if (Instance != null && Instance != this)
         {
@@ -41,48 +38,6 @@ public class LoggerManager : MonoBehaviour
 
         Logger = loggerFactory.CreateLogger<LoggerManager>();
     }
-
-    private string ExtractFirstUserFrame(string stackTrace)
-    {
-        if (string.IsNullOrWhiteSpace(stackTrace))
-            return "(no stacktrace - check StackTraceLogType/PlayerSettings)";
-        var lines = stackTrace.Split('\n');
-        foreach (var raw in lines)
-        {
-            var line = raw.Trim();
-            if (line.Length == 0) continue;
-            // 过滤 Unity 内部栈帧（按需增减）
-            if (line.Contains("UnityEngine.Debug") ||
-                line.Contains("UnityEngine.Logger") ||
-                line.Contains("UnityEngine.Application:CallLogCallback") ||
-                line.Contains("Application.CallLogCallback"))
-                continue;
-            return line;
-        }
-        return lines[0].Trim();
-    }
-
-    private void HandleLogMessage(string logString, string stackTrace, LogType type)
-    {
-        var callerLine = ExtractFirstUserFrame(stackTrace);
-        // 你可以把 callerLine 写进文件/上报
-        // callerLine 常见格式：MyClass:Foo() (at Assets/Scripts/MyClass.cs:42)
-        //UnityEngine.LoggerManager.Instance.InfoLog($"[{type}] {condition}\nCaller: {callerLine}");
-
-        InfoLog(callerLine + logString);
-
-        //if (type == LogType.Error || type == LogType.Exception)
-        //{
-        //    ErrorLog(stackTrace);
-        //}
-    }
-
-    void OnDestroy()
-    {
-        // 程序结束时，注销回调并关闭文件流
-        Application.logMessageReceived -= HandleLogMessage;
-    }
-
 
     void OnApplicationQuit()
     {
