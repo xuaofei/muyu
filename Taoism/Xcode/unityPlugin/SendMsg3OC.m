@@ -20,11 +20,11 @@ extern "C" {
     }
     
     void MouseUp(void) {
-        [[CursorManager shared] mouseUp];
+        //[[CursorManager shared] mouseUp];
     }
     
     void MouseDown(void){
-        [[CursorManager shared] mouseDown];
+        //[[CursorManager shared] mouseDown];
     }
 
 #if defined (__cplusplus)

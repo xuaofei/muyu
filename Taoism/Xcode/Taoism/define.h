@@ -24,15 +24,6 @@
 #define SCREEN_SIZE_MEDIUM              350
 #define SCREEN_SIZE_BIG                 450
 
-#define SCREEN_SIZE_SMALL_TITLE         @"小"
-#define SCREEN_SIZE_MEDIUM_TITLE        @"中"
-#define SCREEN_SIZE_BIG_TITLE           @"大"
-
-#define SCREEN_SIZE_SMALL_SELECT_TITLE  @"小          ✓"
-#define SCREEN_SIZE_MEDIUM_SELECT_TITLE @"中          ✓"
-#define SCREEN_SIZE_BIG_SELECT_TITLE    @"大          ✓"
-
-
 
 #define APP_GROUP                       @"group.com.teniux.mac.buddhism"
 #define CHILD_PROCESS_KEY               @"childUnity"

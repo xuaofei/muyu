@@ -24,15 +24,15 @@
 		C836471A2F129FA40090B2F6 /* PathHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C83647192F129FA40090B2F6 /* PathHelper.m */; };
 		C84ACA052F1BD67200F86D19 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C84ACA072F1BD67200F86D19 /* InfoPlist.strings */; };
 		C86318CA2EF82DF90061EFAE /* LaunchAgentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C86318C92EF82DF90061EFAE /* LaunchAgentManager.m */; };
+		C8652B6D2F20F8C600FEDA19 /* LocalizedStringManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8652B6C2F20F8C600FEDA19 /* LocalizedStringManager.m */; };
+		C8652B702F21014E00FEDA19 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C8652B722F21014E00FEDA19 /* Localizable.strings */; };
 		C8A930402EEC5E6E0043EA1A /* LaunchChildManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A9303F2EEC5E6E0043EA1A /* LaunchChildManager.m */; };
 		C8C1FD672F17C415009F6021 /* MMWormhole.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8C1FD652F17C38F009F6021 /* MMWormhole.framework */; };
 		C8C1FD682F17C415009F6021 /* MMWormhole.framework in Embed Libraries */ = {isa = PBXBuildFile; fileRef = C8C1FD652F17C38F009F6021 /* MMWormhole.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C8C991B12EC38CAF0014DEE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8C991B02EC38CAF0014DEE5 /* Foundation.framework */; };
 		C8C991B32EC38EC10014DEE5 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8C991B22EC38EC10014DEE5 /* AppKit.framework */; };
-		C8C991B62EC393B30014DEE5 /* TCPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C991B52EC393B30014DEE5 /* TCPServer.m */; };
 		C8C991B92EC4BBAC0014DEE5 /* TrayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8C991B82EC4BBAC0014DEE5 /* TrayManager.m */; };
 		C8D7A4362EDF364100228D1B /* muyuTray_white@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D7A4342EDF364100228D1B /* muyuTray_white@3x.png */; };
-		C8D7A4372EDF364100228D1B /* muyuTray_black@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8D7A4352EDF364100228D1B /* muyuTray_black@3x.png */; };
 		C8E3B01D2EFECFAB006F02AF /* pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = C8E3B01B2EFECFAB006F02AF /* pressed.png */; };
 		C8E3B01E2EFECFAB006F02AF /* normal.png in Resources */ = {isa = PBXBuildFile; fileRef = C8E3B01C2EFECFAB006F02AF /* normal.png */; };
 		C8E3B07A2F0EA3FA006F02AF /* ScreenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8246F372EFAE4E3007FF0AA /* ScreenManager.m */; };
@@ -40,7 +40,6 @@
 		C8E3B07C2F0EA400006F02AF /* CursorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E3B0122EFEB6C7006F02AF /* CursorManager.m */; };
 		C8E3B07F2F0EA644006F02AF /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E3B05A2F02C7E8006F02AF /* JRSwizzle.m */; };
 		C8E9F7FD2EEC6EEE009BE387 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E9F7FC2EEC6EEE009BE387 /* AppDelegate.m */; };
-		C8EB9E2E2F1142540091B883 /* NSView+hook.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E3B0232F00EAE8006F02AF /* NSView+hook.m */; };
 		CDD5792C240E027400DEA632 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = CDD5792B240E027400DEA632 /* MainMenu.nib */; };
 		D0C9443E9715337BDE5FA30A /* lib_burst_generated.bundle in CopyPlugIns */ = {isa = PBXBuildFile; fileRef = 49124819ABDADA41D5A99A8A /* lib_burst_generated.bundle */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -142,19 +141,20 @@
 		C84ACA082F1BD67400F86D19 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C86318C82EF82DF90061EFAE /* LaunchAgentManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaunchAgentManager.h; sourceTree = "<group>"; };
 		C86318C92EF82DF90061EFAE /* LaunchAgentManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaunchAgentManager.m; sourceTree = "<group>"; };
+		C8652B6B2F20F8C600FEDA19 /* LocalizedStringManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalizedStringManager.h; sourceTree = "<group>"; };
+		C8652B6C2F20F8C600FEDA19 /* LocalizedStringManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalizedStringManager.m; sourceTree = "<group>"; };
+		C8652B712F21014E00FEDA19 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C8652B732F21015000FEDA19 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		C89A0CF42F1216EA0014B04A /* TaoismRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaoismRelease.entitlements; sourceTree = "<group>"; };
 		C8A9303E2EEC5E6E0043EA1A /* LaunchChildManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaunchChildManager.h; sourceTree = "<group>"; };
 		C8A9303F2EEC5E6E0043EA1A /* LaunchChildManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaunchChildManager.m; sourceTree = "<group>"; };
 		C8C1FD652F17C38F009F6021 /* MMWormhole.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MMWormhole.framework; sourceTree = "<group>"; };
 		C8C991B02EC38CAF0014DEE5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C8C991B22EC38EC10014DEE5 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		C8C991B42EC393B30014DEE5 /* TCPServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCPServer.h; sourceTree = "<group>"; };
-		C8C991B52EC393B30014DEE5 /* TCPServer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCPServer.m; sourceTree = "<group>"; };
 		C8C991B72EC4BBAC0014DEE5 /* TrayManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrayManager.h; sourceTree = "<group>"; };
 		C8C991B82EC4BBAC0014DEE5 /* TrayManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrayManager.m; sourceTree = "<group>"; };
 		C8D7A4112ED8AC1600228D1B /* define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = define.h; sourceTree = "<group>"; };
 		C8D7A4342EDF364100228D1B /* muyuTray_white@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "muyuTray_white@3x.png"; sourceTree = "<group>"; };
-		C8D7A4352EDF364100228D1B /* muyuTray_black@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "muyuTray_black@3x.png"; sourceTree = "<group>"; };
 		C8E3B00E2EFEAD0D006F02AF /* SendMsg3OC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SendMsg3OC.h; sourceTree = "<group>"; };
 		C8E3B00F2EFEAD0D006F02AF /* SendMsg3OC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SendMsg3OC.m; sourceTree = "<group>"; };
 		C8E3B0112EFEB6C7006F02AF /* CursorManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CursorManager.h; sourceTree = "<group>"; };
@@ -248,8 +248,6 @@
 				A1274879AEE3D7FB6B360768 /* PrivacyInfo.xcprivacy */,
 				CE9644B8B7B272E7EC61AE23 /* ApplePrivacyManifestsMerge.txt */,
 				C8D7A4112ED8AC1600228D1B /* define.h */,
-				C8C991B42EC393B30014DEE5 /* TCPServer.h */,
-				C8C991B52EC393B30014DEE5 /* TCPServer.m */,
 				C8C991B72EC4BBAC0014DEE5 /* TrayManager.h */,
 				C8C991B82EC4BBAC0014DEE5 /* TrayManager.m */,
 				C8A9303E2EEC5E6E0043EA1A /* LaunchChildManager.h */,
@@ -258,6 +256,8 @@
 				C86318C92EF82DF90061EFAE /* LaunchAgentManager.m */,
 				C83647182F129FA40090B2F6 /* PathHelper.h */,
 				C83647192F129FA40090B2F6 /* PathHelper.m */,
+				C8652B6B2F20F8C600FEDA19 /* LocalizedStringManager.h */,
+				C8652B6C2F20F8C600FEDA19 /* LocalizedStringManager.m */,
 			);
 			path = Taoism;
 			sourceTree = "<group>";
@@ -311,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				C84ACA072F1BD67200F86D19 /* InfoPlist.strings */,
+				C8652B722F21014E00FEDA19 /* Localizable.strings */,
 			);
 			name = InfoPlist;
 			path = Taoism/InfoPlist;
@@ -321,7 +322,6 @@
 			children = (
 				C8E3B01C2EFECFAB006F02AF /* normal.png */,
 				C8E3B01B2EFECFAB006F02AF /* pressed.png */,
-				C8D7A4352EDF364100228D1B /* muyuTray_black@3x.png */,
 				C8D7A4342EDF364100228D1B /* muyuTray_white@3x.png */,
 			);
 			name = res;
@@ -425,6 +425,7 @@
 			files = (
 				75E7179121715210002B2479 /* DefaultPreferences.plist in Resources */,
 				C84ACA052F1BD67200F86D19 /* InfoPlist.strings in Resources */,
+				C8652B702F21014E00FEDA19 /* Localizable.strings in Resources */,
 				CDD5792C240E027400DEA632 /* MainMenu.nib in Resources */,
 				C8D7A4362EDF364100228D1B /* muyuTray_white@3x.png in Resources */,
 				75E7179221715210002B2479 /* Data in Resources */,
@@ -432,7 +433,6 @@
 				75D2DE1F2175685A0038651C /* unity default resources in Resources */,
 				C8E3B01E2EFECFAB006F02AF /* normal.png in Resources */,
 				93104A17B0951CB741A28151 /* PrivacyInfo.xcprivacy in Resources */,
-				C8D7A4372EDF364100228D1B /* muyuTray_black@3x.png in Resources */,
 				C8E3B01D2EFECFAB006F02AF /* pressed.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,11 +451,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8C991B62EC393B30014DEE5 /* TCPServer.m in Sources */,
 				752CA83E2149E6C400295EFC /* Main.mm in Sources */,
 				C86318CA2EF82DF90061EFAE /* LaunchAgentManager.m in Sources */,
-				C8EB9E2E2F1142540091B883 /* NSView+hook.m in Sources */,
 				C8C991B92EC4BBAC0014DEE5 /* TrayManager.m in Sources */,
+				C8652B6D2F20F8C600FEDA19 /* LocalizedStringManager.m in Sources */,
 				C836471A2F129FA40090B2F6 /* PathHelper.m in Sources */,
 				C8A930402EEC5E6E0043EA1A /* LaunchChildManager.m in Sources */,
 				C8E9F7FD2EEC6EEE009BE387 /* AppDelegate.m in Sources */,
@@ -491,6 +490,15 @@
 				C84ACA082F1BD67400F86D19 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C8652B722F21014E00FEDA19 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C8652B712F21014E00FEDA19 /* en */,
+				C8652B732F21015000FEDA19 /* zh-Hans */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -547,7 +555,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -598,7 +606,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -627,11 +635,12 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Taoism/MMWormhole.framework1/Versions/A",
-					"$(PROJECT_DIR)/Taoism/MMWormhole.framework1/Versions/Current",
-					"$(PROJECT_DIR)/Taoism/MMWormhole.framework1",
+					"$(PROJECT_DIR)/Taoism/MMWormhole.framework/Versions/A",
+					"$(PROJECT_DIR)/Taoism/MMWormhole.framework/Versions/Current",
+					"$(PROJECT_DIR)/Taoism/MMWormhole.framework",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.teniux.mac.buddhism;
 				PRODUCT_NAME = Buddhism;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -666,11 +675,12 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Taoism/MMWormhole.framework1/Versions/A",
-					"$(PROJECT_DIR)/Taoism/MMWormhole.framework1/Versions/Current",
-					"$(PROJECT_DIR)/Taoism/MMWormhole.framework1",
+					"$(PROJECT_DIR)/Taoism/MMWormhole.framework/Versions/A",
+					"$(PROJECT_DIR)/Taoism/MMWormhole.framework/Versions/Current",
+					"$(PROJECT_DIR)/Taoism/MMWormhole.framework",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.teniux.mac.buddhism;
 				PRODUCT_NAME = Buddhism;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -702,7 +712,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.teniux.mac.buddhism.unityPlugin;
@@ -737,7 +747,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.teniux.mac.buddhism.unityPlugin;

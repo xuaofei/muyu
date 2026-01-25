@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  Xcode
+
+  Created by xuaofei on 2026/1/21.
+  Copyright © 2026 Unity Technologies. All rights reserved.
+*/
+
+// 菜单栏
+"tray_screen_size_small_title" = "Small";
+"tray_screen_size_medium_title" = "Medium";
+"tray_screen_size_large_title" = "Large";
+"tray_screen_size_small_select_title" = "Small          ✓";
+"tray_screen_size_medium_select_title" = "Medium          ✓";
+"tray_screen_size_large_select_title" = "Large          ✓";
+"tray_exit_title" = "Exit";

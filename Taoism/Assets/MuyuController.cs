@@ -215,7 +215,7 @@ public class MuyuController : MonoBehaviour
     private void OnMouseUp()
     {
 #if !UNITY_EDITOR && UNITY_STANDALONE_OSX
-        MouseUp();
+        //MouseUp();
 #endif
         if (Screen.width == 500)
         {
@@ -250,7 +250,7 @@ public class MuyuController : MonoBehaviour
 
 
 #if !UNITY_EDITOR && UNITY_STANDALONE_OSX
-        MouseDown();
+        //MouseDown();
 #endif
 
         isKnockCompleted = false;

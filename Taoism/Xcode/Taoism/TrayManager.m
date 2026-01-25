@@ -8,8 +8,8 @@
 
 #import "define.h"
 #import "TrayManager.h"
-#import "TCPServer.h"
 #import "LaunchChildManager.h"
+#import "LocalizedStringManager.h"
 #import <Cocoa/Cocoa.h>
 #import <Foundation/Foundation.h>
 @import MMWormhole;
@@ -19,6 +19,15 @@
 @property(nonatomic, assign) float backingScaleFactor;
 
 @property(nonatomic, retain) MMWormhole *wormhole;
+
+@property(nonatomic, retain) NSString *smallTitle;
+@property(nonatomic, retain) NSString *mediumTitle;
+@property(nonatomic, retain) NSString *largeTitle;
+@property(nonatomic, retain) NSString *smallSelectTitle;
+@property(nonatomic, retain) NSString *mediumSelectTitle;
+@property(nonatomic, retain) NSString *largeSelectTitle;
+@property(nonatomic, retain) NSString *exitTitle;
+
 @end
 
 @implementation TrayManager
@@ -36,6 +45,14 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        self.smallTitle = [LocalizedStringManager localizedStringForKey:@"tray_screen_size_small_title"];
+        self.mediumTitle = [LocalizedStringManager localizedStringForKey:@"tray_screen_size_medium_title"];
+        self.largeTitle = [LocalizedStringManager localizedStringForKey:@"tray_screen_size_large_title"];
+        self.smallSelectTitle = [LocalizedStringManager localizedStringForKey:@"tray_screen_size_small_select_title"];
+        self.mediumSelectTitle = [LocalizedStringManager localizedStringForKey:@"tray_screen_size_medium_select_title"];
+        self.largeSelectTitle = [LocalizedStringManager localizedStringForKey:@"tray_screen_size_large_select_title"];
+        self.exitTitle = [LocalizedStringManager localizedStringForKey:@"tray_exit_title"];
+        
         self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:APP_GROUP
                                                              optionalDirectory:@"wormhole"];
         
@@ -62,7 +79,7 @@
                 screenSize /= 2;
             }
             
-            [[TrayManager shared] changeScreenSize:screenSize];
+//            [[TrayManager shared] changeScreenSize:screenSize];
         }];
         
         [self.wormhole listenForMessageWithIdentifier:NOTIFY_UNITY_2_OC_MSG
@@ -111,33 +128,37 @@
     // 3. 创建菜单
     NSMenu *menu = [[NSMenu alloc] init];
     
-    // 4. 向菜单中添加菜单项
-    NSMenuItem *menuItemSmall = [menu addItemWithTitle:SCREEN_SIZE_SMALL_SELECT_TITLE action: @selector(toSmallSize:) keyEquivalent: @""];
+    NSMenuItem *menuItemSmall = [menu addItemWithTitle:self.smallTitle action: @selector(toSmallSize:) keyEquivalent: @""];
     menuItemSmall.target = self;
-    NSMenuItem *menuItemMedium = [menu addItemWithTitle:SCREEN_SIZE_MEDIUM_TITLE action: @selector(toMediumSize:) keyEquivalent: @""];
+    
+    
+    NSMenuItem *menuItemMedium = [menu addItemWithTitle:self.mediumTitle action: @selector(toMediumSize:) keyEquivalent: @""];
     menuItemMedium.target = self;
-    NSMenuItem *menuItemBig = [menu addItemWithTitle:SCREEN_SIZE_BIG_TITLE action: @selector(toBigSize:) keyEquivalent: @""];
+    
+    
+    NSMenuItem *menuItemBig = [menu addItemWithTitle:self.largeTitle action: @selector(toBigSize:) keyEquivalent: @""];
     menuItemBig.target = self;
+    
     [menu addItem: [NSMenuItem separatorItem]]; // 添加一个分割线
-    NSMenuItem *menuItemExit = [menu addItemWithTitle: @"退出" action: @selector(quit:) keyEquivalent: @""];
+    NSMenuItem *menuItemExit = [menu addItemWithTitle:self.exitTitle action: @selector(quit:) keyEquivalent: @""];
     menuItemExit.target = self;
     
     NSInteger screenSize = [[NSUserDefaults standardUserDefaults] integerForKey:SCREEN_SIZE_KEY];
     
     if (screenSize == SCREEN_SIZE_SMALL) {
-        menuItemSmall.title = SCREEN_SIZE_SMALL_SELECT_TITLE;
-        menuItemMedium.title = SCREEN_SIZE_MEDIUM_TITLE;
-        menuItemBig.title = SCREEN_SIZE_BIG_TITLE;
+        menuItemSmall.title = self.smallSelectTitle;
+        menuItemMedium.title = self.mediumTitle;
+        menuItemBig.title = self.largeTitle;
         
     } else if (screenSize == SCREEN_SIZE_MEDIUM) {
-        menuItemSmall.title = SCREEN_SIZE_SMALL_TITLE;
-        menuItemMedium.title = SCREEN_SIZE_MEDIUM_SELECT_TITLE;
-        menuItemBig.title = SCREEN_SIZE_BIG_TITLE;
+        menuItemSmall.title = self.smallTitle;
+        menuItemMedium.title = self.mediumSelectTitle;
+        menuItemBig.title = self.largeTitle;
         
     } else if (screenSize == SCREEN_SIZE_BIG) {
-        menuItemSmall.title = SCREEN_SIZE_SMALL_TITLE;
-        menuItemMedium.title = SCREEN_SIZE_MEDIUM_TITLE;
-        menuItemBig.title = SCREEN_SIZE_BIG_SELECT_TITLE;
+        menuItemSmall.title = self.smallTitle;
+        menuItemMedium.title = self.mediumTitle;
+        menuItemBig.title = self.largeSelectTitle;
     }
     self.statusItem.menu = menu;
 }
@@ -150,9 +171,9 @@
     NSMenuItem *menuItemMedium = self.statusItem.menu.itemArray[1];
     NSMenuItem *menuItemBig = self.statusItem.menu.itemArray[2];
     
-    menuItemSmall.title = SCREEN_SIZE_SMALL_SELECT_TITLE;
-    menuItemMedium.title = SCREEN_SIZE_MEDIUM_TITLE;
-    menuItemBig.title = SCREEN_SIZE_BIG_TITLE;
+    menuItemSmall.title = self.smallSelectTitle;
+    menuItemMedium.title = self.mediumTitle;
+    menuItemBig.title = self.largeTitle;
     
     [self changeScreenSize:SCREEN_SIZE_SMALL];
 }
@@ -165,9 +186,9 @@
     NSMenuItem *menuItemMedium = self.statusItem.menu.itemArray[1];
     NSMenuItem *menuItemBig = self.statusItem.menu.itemArray[2];
     
-    menuItemSmall.title = SCREEN_SIZE_SMALL_TITLE;
-    menuItemMedium.title = SCREEN_SIZE_MEDIUM_SELECT_TITLE;
-    menuItemBig.title = SCREEN_SIZE_BIG_TITLE;
+    menuItemSmall.title = self.smallTitle;
+    menuItemMedium.title = self.mediumSelectTitle;
+    menuItemBig.title = self.largeTitle;
     
     [self changeScreenSize:SCREEN_SIZE_MEDIUM];
 }
@@ -180,9 +201,9 @@
     NSMenuItem *menuItemMedium = self.statusItem.menu.itemArray[1];
     NSMenuItem *menuItemBig = self.statusItem.menu.itemArray[2];
     
-    menuItemSmall.title = SCREEN_SIZE_SMALL_TITLE;
-    menuItemMedium.title = SCREEN_SIZE_MEDIUM_TITLE;
-    menuItemBig.title = SCREEN_SIZE_BIG_SELECT_TITLE;
+    menuItemSmall.title = self.smallTitle;
+    menuItemMedium.title = self.mediumTitle;
+    menuItemBig.title = self.largeSelectTitle;
     
     [self changeScreenSize:SCREEN_SIZE_BIG];
 }
@@ -225,8 +246,6 @@
             NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
             NSLog(@"JSON output:\n%@", jsonString);
             
-            
-            [[TCPServer shared] sendMessage:jsonString];
         }
     } else {
         // Fallback on earlier versions

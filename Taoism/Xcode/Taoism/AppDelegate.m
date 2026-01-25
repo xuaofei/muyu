@@ -8,7 +8,6 @@
 #import "define.h"
 #import "AppDelegate.h"
 #import "TrayManager.h"
-#import "TCPServer.h"
 #import "LaunchChildManager.h"
 #import "ScreenManager.h"
 #import "LaunchChildManager.h"
@@ -23,11 +22,8 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     NSLog(@"启动OC TCP服务端...");
     
-//    [[TCPServer shared] startServerOnPort:NETWORK_PORT];
-    
     [[TrayManager shared] showTray];
     [[LaunchChildManager shared] launchSelfWithChildParameter];
-//    [[LaunchChildManager shared] launchSelfWithScheme];
     
     [LaunchAgentManager addAppToLaunchAgents];
 }
