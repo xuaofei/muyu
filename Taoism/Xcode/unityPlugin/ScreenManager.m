@@ -8,7 +8,7 @@
 
 #import "define.h"
 #import "ScreenManager.h"
-#import "CursorManager.h"
+//#import "CursorManager.h"
 #import <AppKit/AppKit.h>
 @import MMWormhole;
 
@@ -48,7 +48,7 @@
                 if (windows.count) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [self resizeWindow:windows[0] toSize:CGSizeMake(screenSize, screenSize)];
-                        [[CursorManager shared] changeCursorSize];
+//                        [[CursorManager shared] changeCursorSize];
                     });
                 }
             }

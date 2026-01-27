@@ -27,6 +27,7 @@
 		C8652B6D2F20F8C600FEDA19 /* LocalizedStringManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8652B6C2F20F8C600FEDA19 /* LocalizedStringManager.m */; };
 		C8652B702F21014E00FEDA19 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C8652B722F21014E00FEDA19 /* Localizable.strings */; };
 		C8A930402EEC5E6E0043EA1A /* LaunchChildManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A9303F2EEC5E6E0043EA1A /* LaunchChildManager.m */; };
+		C8ADC6142F29021A0020B4F8 /* SendMsg2Unity.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ADC6132F29021A0020B4F8 /* SendMsg2Unity.m */; };
 		C8C1FD672F17C415009F6021 /* MMWormhole.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8C1FD652F17C38F009F6021 /* MMWormhole.framework */; };
 		C8C1FD682F17C415009F6021 /* MMWormhole.framework in Embed Libraries */ = {isa = PBXBuildFile; fileRef = C8C1FD652F17C38F009F6021 /* MMWormhole.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C8C991B12EC38CAF0014DEE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8C991B02EC38CAF0014DEE5 /* Foundation.framework */; };
@@ -36,8 +37,7 @@
 		C8E3B01D2EFECFAB006F02AF /* pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = C8E3B01B2EFECFAB006F02AF /* pressed.png */; };
 		C8E3B01E2EFECFAB006F02AF /* normal.png in Resources */ = {isa = PBXBuildFile; fileRef = C8E3B01C2EFECFAB006F02AF /* normal.png */; };
 		C8E3B07A2F0EA3FA006F02AF /* ScreenManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8246F372EFAE4E3007FF0AA /* ScreenManager.m */; };
-		C8E3B07B2F0EA3FD006F02AF /* SendMsg3OC.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E3B00F2EFEAD0D006F02AF /* SendMsg3OC.m */; };
-		C8E3B07C2F0EA400006F02AF /* CursorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E3B0122EFEB6C7006F02AF /* CursorManager.m */; };
+		C8E3B07B2F0EA3FD006F02AF /* SendMsg2OC.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E3B00F2EFEAD0D006F02AF /* SendMsg2OC.m */; };
 		C8E3B07F2F0EA644006F02AF /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E3B05A2F02C7E8006F02AF /* JRSwizzle.m */; };
 		C8E9F7FD2EEC6EEE009BE387 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C8E9F7FC2EEC6EEE009BE387 /* AppDelegate.m */; };
 		CDD5792C240E027400DEA632 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = CDD5792B240E027400DEA632 /* MainMenu.nib */; };
@@ -148,6 +148,9 @@
 		C89A0CF42F1216EA0014B04A /* TaoismRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaoismRelease.entitlements; sourceTree = "<group>"; };
 		C8A9303E2EEC5E6E0043EA1A /* LaunchChildManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaunchChildManager.h; sourceTree = "<group>"; };
 		C8A9303F2EEC5E6E0043EA1A /* LaunchChildManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaunchChildManager.m; sourceTree = "<group>"; };
+		C8ADC6122F29021A0020B4F8 /* SendMsg2Unity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SendMsg2Unity.h; sourceTree = "<group>"; };
+		C8ADC6132F29021A0020B4F8 /* SendMsg2Unity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SendMsg2Unity.m; sourceTree = "<group>"; };
+		C8ADC6152F2902810020B4F8 /* UnityPluginDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnityPluginDefine.h; sourceTree = "<group>"; };
 		C8C1FD652F17C38F009F6021 /* MMWormhole.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MMWormhole.framework; sourceTree = "<group>"; };
 		C8C991B02EC38CAF0014DEE5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C8C991B22EC38EC10014DEE5 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -155,8 +158,8 @@
 		C8C991B82EC4BBAC0014DEE5 /* TrayManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrayManager.m; sourceTree = "<group>"; };
 		C8D7A4112ED8AC1600228D1B /* define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = define.h; sourceTree = "<group>"; };
 		C8D7A4342EDF364100228D1B /* muyuTray_white@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "muyuTray_white@3x.png"; sourceTree = "<group>"; };
-		C8E3B00E2EFEAD0D006F02AF /* SendMsg3OC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SendMsg3OC.h; sourceTree = "<group>"; };
-		C8E3B00F2EFEAD0D006F02AF /* SendMsg3OC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SendMsg3OC.m; sourceTree = "<group>"; };
+		C8E3B00E2EFEAD0D006F02AF /* SendMsg2OC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SendMsg2OC.h; sourceTree = "<group>"; };
+		C8E3B00F2EFEAD0D006F02AF /* SendMsg2OC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SendMsg2OC.m; sourceTree = "<group>"; };
 		C8E3B0112EFEB6C7006F02AF /* CursorManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CursorManager.h; sourceTree = "<group>"; };
 		C8E3B0122EFEB6C7006F02AF /* CursorManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CursorManager.m; sourceTree = "<group>"; };
 		C8E3B0182EFEC39D006F02AF /* NSObject+hook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+hook.h"; sourceTree = "<group>"; };
@@ -287,12 +290,15 @@
 		C8246F322EFAE2E9007FF0AA /* unityPlugin */ = {
 			isa = PBXGroup;
 			children = (
+				C8ADC6152F2902810020B4F8 /* UnityPluginDefine.h */,
 				C8E3B05B2F02C7E8006F02AF /* JRSwizzle.h */,
 				C8E3B05A2F02C7E8006F02AF /* JRSwizzle.m */,
 				C8246F362EFAE4E3007FF0AA /* ScreenManager.h */,
 				C8246F372EFAE4E3007FF0AA /* ScreenManager.m */,
-				C8E3B00E2EFEAD0D006F02AF /* SendMsg3OC.h */,
-				C8E3B00F2EFEAD0D006F02AF /* SendMsg3OC.m */,
+				C8E3B00E2EFEAD0D006F02AF /* SendMsg2OC.h */,
+				C8E3B00F2EFEAD0D006F02AF /* SendMsg2OC.m */,
+				C8ADC6122F29021A0020B4F8 /* SendMsg2Unity.h */,
+				C8ADC6132F29021A0020B4F8 /* SendMsg2Unity.m */,
 				C8E3B0112EFEB6C7006F02AF /* CursorManager.h */,
 				C8E3B0122EFEB6C7006F02AF /* CursorManager.m */,
 				C8E3B0182EFEC39D006F02AF /* NSObject+hook.h */,
@@ -466,9 +472,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8E3B07B2F0EA3FD006F02AF /* SendMsg3OC.m in Sources */,
+				C8E3B07B2F0EA3FD006F02AF /* SendMsg2OC.m in Sources */,
 				C8E3B07A2F0EA3FA006F02AF /* ScreenManager.m in Sources */,
-				C8E3B07C2F0EA400006F02AF /* CursorManager.m in Sources */,
+				C8ADC6142F29021A0020B4F8 /* SendMsg2Unity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

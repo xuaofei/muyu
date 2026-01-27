@@ -57,7 +57,7 @@
 }
 
 - (void)hook_resetCursorRects {
-    [self hook_resetCursorRects];
+    return [self hook_resetCursorRects];
     NSLog(@"xaflog hook_resetCursorRects");
     
     static NSCursor* normalCursor = nil;
