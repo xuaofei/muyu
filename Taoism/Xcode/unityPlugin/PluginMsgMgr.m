@@ -36,7 +36,7 @@
         
         if ([msg isEqualToString:WINDOW_SIZE_KEY]) {
             NSString *data = [userInfo objectForKey:@"data"];
-            NSLog(@"xaflog unityReceivedNotification data:%@", data);
+            NSLog(@"xaflog PluginMsg:%@ data:%@", WINDOW_SIZE_KEY, data);
             
             NSInteger screenSize = [data integerValue];
             [[ScreenManager shared] resizeWindow:CGSizeMake(screenSize, screenSize)];
