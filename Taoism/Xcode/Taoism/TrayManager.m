@@ -8,17 +8,15 @@
 
 #import "define.h"
 #import "TrayManager.h"
+#import "TrayMsgMgr.h"
 #import "LaunchChildManager.h"
 #import "LocalizedStringManager.h"
 #import <Cocoa/Cocoa.h>
 #import <Foundation/Foundation.h>
-@import MMWormhole;
 
 @interface TrayManager()
 @property(nonatomic, retain) NSStatusItem *statusItem;
 @property(nonatomic, assign) float backingScaleFactor;
-
-@property(nonatomic, retain) MMWormhole *wormhole;
 
 @property(nonatomic, retain) NSString *smallTitle;
 @property(nonatomic, retain) NSString *mediumTitle;
@@ -53,54 +51,12 @@
         self.largeSelectTitle = [LocalizedStringManager localizedStringForKey:@"tray_screen_size_large_select_title"];
         self.exitTitle = [LocalizedStringManager localizedStringForKey:@"tray_exit_title"];
         
-        self.wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:APP_GROUP
-                                                             optionalDirectory:@"wormhole"];
-        
         // 设置默认大小
-        NSInteger screenSize = [[NSUserDefaults standardUserDefaults] integerForKey:SCREEN_SIZE_KEY];
+        NSInteger screenSize = [[NSUserDefaults standardUserDefaults] integerForKey:WINDOW_SIZE_KEY];
         if (0 == screenSize) {
-            [[NSUserDefaults standardUserDefaults] setInteger:SCREEN_SIZE_MEDIUM forKey:SCREEN_SIZE_KEY];
+            [[NSUserDefaults standardUserDefaults] setInteger:WINDOW_SIZE_MEDIUM forKey:WINDOW_SIZE_KEY];
         }
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(clientConnectNetwork) name:NOTIFY_CLIENT_CONNECT_NETWORK object:nil];
-        
-        [self.wormhole listenForMessageWithIdentifier:NOTIFY_WINDOWS_SCREEN_CHANGED
-                                             listener:^(id userInfo) {
-            NSInteger screenSize = [[NSUserDefaults standardUserDefaults] integerForKey:SCREEN_SIZE_KEY];
-            
-            
-//            NSLog(@"收到分布式通知: %@", notification.name);
-//            NSDictionary *userInfo = notification.userInfo;
-            NSString *backingScaleFactor = userInfo[@"backingScaleFactor"];
-            self.backingScaleFactor = [backingScaleFactor floatValue];
-            
-            if (self.backingScaleFactor == 1.0) {
-                NSLog(@"附加信息: %@", userInfo);
-                screenSize /= 2;
-            }
-            
-//            [[TrayManager shared] changeScreenSize:screenSize];
-        }];
-        
-        [self.wormhole listenForMessageWithIdentifier:NOTIFY_UNITY_2_OC_MSG
-                                             listener:^(id userInfo) {
 
-            NSString *msg = [userInfo objectForKey:@"msg"];
-            NSString *data = [userInfo objectForKey:@"data"];
-            
-            NSLog(@"xaflog msg:%@", msg);
-            NSLog(@"xaflog data:%@", data);
-            
-            if ([msg isEqualToString:MSG_UNITY_START]) {
-                NSInteger screenSize = [[NSUserDefaults standardUserDefaults] integerForKey:SCREEN_SIZE_KEY];
-                
-                NSString *strScreenSize = [NSString stringWithFormat:@"%ld", screenSize];
-                
-                
-                NSDictionary *data = @{@"msg":SCREEN_SIZE_KEY, @"data":strScreenSize};
-                [self.wormhole passMessageObject:data identifier:NOTIFY_OC_2_UNITY_MSG];
-            }
-        }];
     }
     
     return self;
@@ -143,19 +99,19 @@
     NSMenuItem *menuItemExit = [menu addItemWithTitle:self.exitTitle action: @selector(quit:) keyEquivalent: @""];
     menuItemExit.target = self;
     
-    NSInteger screenSize = [[NSUserDefaults standardUserDefaults] integerForKey:SCREEN_SIZE_KEY];
+    NSInteger screenSize = [[NSUserDefaults standardUserDefaults] integerForKey:WINDOW_SIZE_KEY];
     
-    if (screenSize == SCREEN_SIZE_SMALL) {
+    if (screenSize == WINDOW_SIZE_SMALL) {
         menuItemSmall.title = self.smallSelectTitle;
         menuItemMedium.title = self.mediumTitle;
         menuItemBig.title = self.largeTitle;
         
-    } else if (screenSize == SCREEN_SIZE_MEDIUM) {
+    } else if (screenSize == WINDOW_SIZE_MEDIUM) {
         menuItemSmall.title = self.smallTitle;
         menuItemMedium.title = self.mediumSelectTitle;
         menuItemBig.title = self.largeTitle;
         
-    } else if (screenSize == SCREEN_SIZE_BIG) {
+    } else if (screenSize == WINDOW_SIZE_BIG) {
         menuItemSmall.title = self.smallTitle;
         menuItemMedium.title = self.mediumTitle;
         menuItemBig.title = self.largeSelectTitle;
@@ -165,7 +121,7 @@
 
 - (void)toSmallSize:(id)sender
 {
-    [[NSUserDefaults standardUserDefaults] setInteger:SCREEN_SIZE_SMALL forKey:SCREEN_SIZE_KEY];
+    [[NSUserDefaults standardUserDefaults] setInteger:WINDOW_SIZE_SMALL forKey:WINDOW_SIZE_KEY];
     
     NSMenuItem *menuItemSmall = self.statusItem.menu.itemArray[0];
     NSMenuItem *menuItemMedium = self.statusItem.menu.itemArray[1];
@@ -175,12 +131,12 @@
     menuItemMedium.title = self.mediumTitle;
     menuItemBig.title = self.largeTitle;
     
-    [self changeScreenSize:SCREEN_SIZE_SMALL];
+    [self changeScreenSize:WINDOW_SIZE_SMALL];
 }
 
 - (void)toMediumSize:(id)sender
 {
-    [[NSUserDefaults standardUserDefaults] setInteger:SCREEN_SIZE_MEDIUM forKey:SCREEN_SIZE_KEY];
+    [[NSUserDefaults standardUserDefaults] setInteger:WINDOW_SIZE_MEDIUM forKey:WINDOW_SIZE_KEY];
     
     NSMenuItem *menuItemSmall = self.statusItem.menu.itemArray[0];
     NSMenuItem *menuItemMedium = self.statusItem.menu.itemArray[1];
@@ -190,12 +146,12 @@
     menuItemMedium.title = self.mediumSelectTitle;
     menuItemBig.title = self.largeTitle;
     
-    [self changeScreenSize:SCREEN_SIZE_MEDIUM];
+    [self changeScreenSize:WINDOW_SIZE_MEDIUM];
 }
 
 - (void)toBigSize:(id)sender
 {
-    [[NSUserDefaults standardUserDefaults] setInteger:SCREEN_SIZE_BIG forKey:SCREEN_SIZE_KEY];
+    [[NSUserDefaults standardUserDefaults] setInteger:WINDOW_SIZE_BIG forKey:WINDOW_SIZE_KEY];
     
     NSMenuItem *menuItemSmall = self.statusItem.menu.itemArray[0];
     NSMenuItem *menuItemMedium = self.statusItem.menu.itemArray[1];
@@ -205,7 +161,7 @@
     menuItemMedium.title = self.mediumTitle;
     menuItemBig.title = self.largeSelectTitle;
     
-    [self changeScreenSize:SCREEN_SIZE_BIG];
+    [self changeScreenSize:WINDOW_SIZE_BIG];
 }
 
 - (void)quit:(id)sender
@@ -213,70 +169,14 @@
     exit(0);
 }
 
-- (void)changeScreenSize:(NSInteger)screenSize
+- (void)changeScreenSize:(NSInteger)windowSize
 {
-    NSLog(@"changeScreenSize:%ld", screenSize);
-    if (screenSize > SCREEN_SIZE_BIG || screenSize < SCREEN_SIZE_SMALL) {
+    NSLog(@"changeScreenSize:%ld", windowSize);
+    if (windowSize > WINDOW_SIZE_BIG || windowSize < WINDOW_SIZE_SMALL) {
         return;
     }
     
-    [self sendMessage2Unity2:screenSize];
+    [[TrayMsgMgr shared] changeWindowSize:windowSize];
     return;
-    
-//    NSString *data = [NSString stringWithFormat:@"%ld", (long)screenSize];
-//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-//        NSDictionary *dic = @{@"version":@"1.0",
-//                              @"screenSize":data};
-//        
-//        [self sendMessage2Unity:dic];
-//    });
-}
-
-- (void)sendMessage2Unity:(NSDictionary*)data
-{
-    NSError *error;
-    if (@available(macOS 10.15, *)) {
-        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data
-                                                           options:NSJSONWritingWithoutEscapingSlashes
-                                                             error:&error];
-        
-        // Check for errors during conversion
-        if (jsonData) {
-            // Convert the JSON data to an NSString
-            NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-            NSLog(@"JSON output:\n%@", jsonString);
-            
-        }
-    } else {
-        // Fallback on earlier versions
-    }
-}
-
-- (void)sendMessage2Unity2:(NSInteger)screenSize {
-    NSString *strScreenSize = [NSString stringWithFormat:@"%ld", screenSize];
-    
-    NSDictionary *data = @{@"msg":SCREEN_SIZE_KEY, @"data":strScreenSize};
-    [self.wormhole passMessageObject:data identifier:NOTIFY_OC_2_UNITY_MSG];
-}
-
-- (void)myCustomQuitRoutine {
-    exit(0);
-}
-
-- (void)clientConnectNetwork {
-    NSLog(@"clientConnectNetwork");
-    return;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        NSInteger screenSize = [[NSUserDefaults standardUserDefaults] integerForKey:SCREEN_SIZE_KEY];
-        
-        NSScreen *screen = [[NSApplication sharedApplication] keyWindow].screen;
-        //        self.backingScaleFactor = screen.backingScaleFactor;
-        //        if (self.backingScaleFactor == 1.0) {
-        //            screenSize /= 2;
-        //        }
-        
-        [[TrayManager shared] changeScreenSize:screenSize];
-    });
-    
 }
 @end

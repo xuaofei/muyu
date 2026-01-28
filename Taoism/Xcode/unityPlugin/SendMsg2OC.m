@@ -8,8 +8,8 @@
 
 #import "UnityPluginDefine.h"
 #import "SendMsg2OC.h"
-#import "CursorManager.h"
 #import "ScreenManager.h"
+#import "PluginMsgMgr.h"
 #import "NSView+hook.h"
 
 
@@ -25,6 +25,7 @@ extern "C" {
     
     void UnityStartd(void) {
         [ScreenManager shared];
+        [PluginMsgMgr shared];
 //        [CursorManager shared];
     }
     

@@ -10,15 +10,11 @@
 #import "define.h"
 #import "LaunchChildManager.h"
 #import "PathHelper.h"
+#import "TrayMsgMgr.h"
 #import <AppKit/AppKit.h>
 
-@import MMWormhole;
-
 void processWillExit(void) {
-    MMWormhole *wormhole = [[MMWormhole alloc] initWithApplicationGroupIdentifier:APP_GROUP
-                                                         optionalDirectory:@"wormhole"];
-    [wormhole passMessageObject:@{} identifier:NOTIFY_EXIT_SUB_APP];
-    
+    [[TrayMsgMgr shared] processWillExit];
 }
 
 

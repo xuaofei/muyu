@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ScreenManager : NSObject
 + (instancetype)shared;
+
+- (void)resizeWindow:(CGSize)size;
 @end
 
 NS_ASSUME_NONNULL_END
