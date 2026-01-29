@@ -16,6 +16,7 @@
 
 @interface TrayManager()
 @property(nonatomic, retain) NSStatusItem *statusItem;
+@property(nonatomic, retain) NSMenu *sizeSubMenu;
 @property(nonatomic, assign) float backingScaleFactor;
 
 @property(nonatomic, retain) NSString *smallTitle;
@@ -62,6 +63,7 @@
     return self;
 }
 
+
 -(void)showTray
 {
     // 获取系统状态栏并创建状态项
@@ -78,25 +80,31 @@
         [self.statusItem.button.cell setHighlightsBy:NSContentsCellMask];
     }
     
-    // 设置鼠标悬停提示文字
-    //    self.statusItem.button.toolTip = @"我的托盘应用";
-    
     // 3. 创建菜单
-    NSMenu *menu = [[NSMenu alloc] init];
+    NSMenu *mainMenu = [[NSMenu alloc] init];
+
+    // 一级菜单: 尺寸
+    NSMenuItem *menuItemSize = [[NSMenuItem alloc] initWithTitle:@"尺寸" action:nil keyEquivalent:@""];
+    [mainMenu addItem:menuItemSize];
+    // 关键：创建并设置二级菜单
+    self.sizeSubMenu = [[NSMenu alloc] initWithTitle:@"尺寸"];
+    menuItemSize.submenu = self.sizeSubMenu;
+    // 可选：避免被自动置灰
+    menuItemSize.enabled = YES;
     
-    NSMenuItem *menuItemSmall = [menu addItemWithTitle:self.smallTitle action: @selector(toSmallSize:) keyEquivalent: @""];
+    NSMenuItem *menuItemSmall = [self.sizeSubMenu addItemWithTitle:self.smallTitle action: @selector(toSmallSize:) keyEquivalent: @""];
     menuItemSmall.target = self;
     
     
-    NSMenuItem *menuItemMedium = [menu addItemWithTitle:self.mediumTitle action: @selector(toMediumSize:) keyEquivalent: @""];
+    NSMenuItem *menuItemMedium = [self.sizeSubMenu addItemWithTitle:self.mediumTitle action: @selector(toMediumSize:) keyEquivalent: @""];
     menuItemMedium.target = self;
     
     
-    NSMenuItem *menuItemBig = [menu addItemWithTitle:self.largeTitle action: @selector(toBigSize:) keyEquivalent: @""];
+    NSMenuItem *menuItemBig = [self.sizeSubMenu addItemWithTitle:self.largeTitle action: @selector(toBigSize:) keyEquivalent: @""];
     menuItemBig.target = self;
     
-    [menu addItem: [NSMenuItem separatorItem]]; // 添加一个分割线
-    NSMenuItem *menuItemExit = [menu addItemWithTitle:self.exitTitle action: @selector(quit:) keyEquivalent: @""];
+    [mainMenu addItem: [NSMenuItem separatorItem]]; // 添加一个分割线
+    NSMenuItem *menuItemExit = [mainMenu addItemWithTitle:self.exitTitle action: @selector(quit:) keyEquivalent: @""];
     menuItemExit.target = self;
     
     NSInteger screenSize = [[NSUserDefaults standardUserDefaults] integerForKey:WINDOW_SIZE_KEY];
@@ -116,16 +124,16 @@
         menuItemMedium.title = self.mediumTitle;
         menuItemBig.title = self.largeSelectTitle;
     }
-    self.statusItem.menu = menu;
+    self.statusItem.menu = mainMenu;
 }
 
 - (void)toSmallSize:(id)sender
 {
     [[NSUserDefaults standardUserDefaults] setInteger:WINDOW_SIZE_SMALL forKey:WINDOW_SIZE_KEY];
     
-    NSMenuItem *menuItemSmall = self.statusItem.menu.itemArray[0];
-    NSMenuItem *menuItemMedium = self.statusItem.menu.itemArray[1];
-    NSMenuItem *menuItemBig = self.statusItem.menu.itemArray[2];
+    NSMenuItem *menuItemSmall = self.sizeSubMenu.itemArray[0];
+    NSMenuItem *menuItemMedium = self.sizeSubMenu.itemArray[1];
+    NSMenuItem *menuItemBig = self.sizeSubMenu.itemArray[2];
     
     menuItemSmall.title = self.smallSelectTitle;
     menuItemMedium.title = self.mediumTitle;
@@ -138,9 +146,9 @@
 {
     [[NSUserDefaults standardUserDefaults] setInteger:WINDOW_SIZE_MEDIUM forKey:WINDOW_SIZE_KEY];
     
-    NSMenuItem *menuItemSmall = self.statusItem.menu.itemArray[0];
-    NSMenuItem *menuItemMedium = self.statusItem.menu.itemArray[1];
-    NSMenuItem *menuItemBig = self.statusItem.menu.itemArray[2];
+    NSMenuItem *menuItemSmall = self.sizeSubMenu.itemArray[0];
+    NSMenuItem *menuItemMedium = self.sizeSubMenu.itemArray[1];
+    NSMenuItem *menuItemBig = self.sizeSubMenu.itemArray[2];
     
     menuItemSmall.title = self.smallTitle;
     menuItemMedium.title = self.mediumSelectTitle;
@@ -153,9 +161,9 @@
 {
     [[NSUserDefaults standardUserDefaults] setInteger:WINDOW_SIZE_BIG forKey:WINDOW_SIZE_KEY];
     
-    NSMenuItem *menuItemSmall = self.statusItem.menu.itemArray[0];
-    NSMenuItem *menuItemMedium = self.statusItem.menu.itemArray[1];
-    NSMenuItem *menuItemBig = self.statusItem.menu.itemArray[2];
+    NSMenuItem *menuItemSmall = self.sizeSubMenu.itemArray[0];
+    NSMenuItem *menuItemMedium = self.sizeSubMenu.itemArray[1];
+    NSMenuItem *menuItemBig = self.sizeSubMenu.itemArray[2];
     
     menuItemSmall.title = self.smallTitle;
     menuItemMedium.title = self.mediumTitle;
