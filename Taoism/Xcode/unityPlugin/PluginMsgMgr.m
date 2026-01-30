@@ -32,14 +32,21 @@
     [self.wormhole listenForMessageWithIdentifier:NOTIFY_TRAY_2_PLUGON_MSG
                                          listener:^(id userInfo) {
         NSString *msg = [userInfo objectForKey:@"msg"];
-        NSLog(@"xaflog unityReceivedNotification msg:%@", msg);
+        NSLog(@"plugin recv msg:%@", msg);
         
         if ([msg isEqualToString:WINDOW_SIZE_KEY]) {
             NSString *data = [userInfo objectForKey:@"data"];
-            NSLog(@"xaflog PluginMsg:%@ data:%@", WINDOW_SIZE_KEY, data);
+            NSLog(@"plugin Msg:%@ size:%@", WINDOW_SIZE_KEY, data);
             
             NSInteger screenSize = [data integerValue];
             [[ScreenManager shared] resizeWindow:CGSizeMake(screenSize, screenSize)];
+        } else if ([msg isEqualToString:PRAY_KEY]) {
+            
+        } else if ([msg isEqualToString:EXORCISM_KEY]) {
+            
+        } else if ([msg isEqualToString:MUTE_KEY]) {
+            BOOL mute = [[userInfo objectForKey:@"data"] boolValue];
+            NSLog(@"plugin Msg mute:%d", mute);
             
         } else if ([msg isEqualToString:EXIT_SUB_APP_KEY]) {
             exit(0);

@@ -10,3 +10,5 @@
 
 // 烧香
 void BurnIncense(void);
+// 是否静音
+void Mute(bool mute);

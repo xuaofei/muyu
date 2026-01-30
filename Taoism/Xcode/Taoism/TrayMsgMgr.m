@@ -57,6 +57,21 @@
     [self.wormhole passMessageObject:data identifier:NOTIFY_TRAY_2_PLUGON_MSG];
 }
 
+- (void)pray {
+    NSDictionary *data = @{@"msg":PRAY_KEY, @"data":@""};
+    [self.wormhole passMessageObject:data identifier:NOTIFY_TRAY_2_PLUGON_MSG];
+}
+
+- (void)exorcism {
+    NSDictionary *data = @{@"msg":EXORCISM_KEY, @"data":@""};
+    [self.wormhole passMessageObject:data identifier:NOTIFY_TRAY_2_PLUGON_MSG];
+}
+
+- (void)setMute:(BOOL)mute {
+    NSDictionary *data = @{@"msg":MUTE_KEY, @"data":@(mute)};
+    [self.wormhole passMessageObject:data identifier:NOTIFY_TRAY_2_PLUGON_MSG];
+}
+
 - (void)processWillExit {
     NSDictionary *data = @{@"msg":EXIT_SUB_APP_KEY, @"data":@""};
     

@@ -7,10 +7,15 @@
 */
 
 // 菜单栏
+"tray_pray_title" = "祈福";
+"tray_exorcism_title" = "消灾";
 "tray_screen_size_small_title" = "小";
 "tray_screen_size_medium_title" = "中";
 "tray_screen_size_large_title" = "大";
 "tray_screen_size_small_select_title" = "小          ✓";
 "tray_screen_size_medium_select_title" = "中          ✓";
 "tray_screen_size_large_select_title" = "大          ✓";
+"tray_size_title" = "尺寸";
+"tray_mute_off_title" = "静音";
+"tray_mute_on_title" = "静音 ✓";
 "tray_exit_title" = "退出";

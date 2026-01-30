@@ -10,7 +10,6 @@
 #import "SendMsg2OC.h"
 #import "ScreenManager.h"
 #import "PluginMsgMgr.h"
-#import "NSView+hook.h"
 
 
 #if defined (__cplusplus)

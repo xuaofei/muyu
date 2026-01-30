@@ -7,10 +7,17 @@
 */
 
 // 菜单栏
+"tray_pray_title" = "Pray";
+"tray_exorcism_title" = "Exorcism";
 "tray_screen_size_small_title" = "Small";
 "tray_screen_size_medium_title" = "Medium";
 "tray_screen_size_large_title" = "Large";
 "tray_screen_size_small_select_title" = "Small          ✓";
 "tray_screen_size_medium_select_title" = "Medium          ✓";
 "tray_screen_size_large_select_title" = "Large          ✓";
+"tray_size_title" = "Size";
+"tray_mute_off_title" = "Mute";
+"tray_mute_on_title" = "Mute ✓";
 "tray_exit_title" = "Exit";
+
+

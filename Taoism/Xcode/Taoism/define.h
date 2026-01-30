@@ -19,7 +19,11 @@
 #define NOTIFY_PLUGIN_2_TRAY_MSG        @"plugin_2_tray.msg"
 
 // NOTIFY KEY
+#define FRIST_SETUP_KEY                 @"key.frist.setup"
 #define WINDOW_SIZE_KEY                 @"key.window.size"
+#define PRAY_KEY                        @"key.pray"
+#define EXORCISM_KEY                    @"key.exorcism"
+#define MUTE_KEY                        @"key.mute"
 #define EXIT_SUB_APP_KEY                @"key.exit.sub.app"
 
 #define MSG_UNITY_START                 @"unity.start"

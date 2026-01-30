@@ -1,8 +1,8 @@
 //
-//  TrayMsgMgr.h
+//  SetupMgr.h
 //  Taoism
 //
-//  Created by xuaofei on 2026/1/27.
+//  Created by xuaofei on 2026/1/30.
 //  Copyright © 2026 Unity Technologies. All rights reserved.
 //
 
@@ -10,18 +10,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TrayMsgMgr : NSObject
+@interface SetupMgr : NSObject
 + (instancetype)shared;
 
-- (void)changeWindowSize:(NSInteger)windowSize;
-// 祈祷
-- (void)pray;
-// 消灾
-- (void)exorcism;
+// 窗口大小
+- (void)setWindowSize:(NSInteger)windowSize;
+- (NSInteger)getWindowSize;
+
 // 是否静音
 - (void)setMute:(BOOL)mute;
-// 退出程序
-- (void)processWillExit;
+- (BOOL)getMute;
 @end
 
 NS_ASSUME_NONNULL_END

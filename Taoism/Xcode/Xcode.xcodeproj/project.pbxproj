@@ -30,6 +30,7 @@
 		C8ADC6142F29021A0020B4F8 /* SendMsg2Unity.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ADC6132F29021A0020B4F8 /* SendMsg2Unity.m */; };
 		C8ADC6182F290EAB0020B4F8 /* PluginMsgMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ADC6172F290EAB0020B4F8 /* PluginMsgMgr.m */; };
 		C8ADC61B2F29117F0020B4F8 /* TrayMsgMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ADC61A2F29117F0020B4F8 /* TrayMsgMgr.m */; };
+		C8ADC61E2F2CE8610020B4F8 /* SetupMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ADC61D2F2CE8610020B4F8 /* SetupMgr.m */; };
 		C8C1FD672F17C415009F6021 /* MMWormhole.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8C1FD652F17C38F009F6021 /* MMWormhole.framework */; };
 		C8C1FD682F17C415009F6021 /* MMWormhole.framework in Embed Libraries */ = {isa = PBXBuildFile; fileRef = C8C1FD652F17C38F009F6021 /* MMWormhole.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C8C991B12EC38CAF0014DEE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8C991B02EC38CAF0014DEE5 /* Foundation.framework */; };
@@ -157,6 +158,8 @@
 		C8ADC6172F290EAB0020B4F8 /* PluginMsgMgr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PluginMsgMgr.m; sourceTree = "<group>"; };
 		C8ADC6192F29117F0020B4F8 /* TrayMsgMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrayMsgMgr.h; sourceTree = "<group>"; };
 		C8ADC61A2F29117F0020B4F8 /* TrayMsgMgr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrayMsgMgr.m; sourceTree = "<group>"; };
+		C8ADC61C2F2CE8610020B4F8 /* SetupMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetupMgr.h; sourceTree = "<group>"; };
+		C8ADC61D2F2CE8610020B4F8 /* SetupMgr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetupMgr.m; sourceTree = "<group>"; };
 		C8C1FD652F17C38F009F6021 /* MMWormhole.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MMWormhole.framework; sourceTree = "<group>"; };
 		C8C991B02EC38CAF0014DEE5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C8C991B22EC38EC10014DEE5 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -261,6 +264,8 @@
 				C8652B6C2F20F8C600FEDA19 /* LocalizedStringManager.m */,
 				C8ADC6192F29117F0020B4F8 /* TrayMsgMgr.h */,
 				C8ADC61A2F29117F0020B4F8 /* TrayMsgMgr.m */,
+				C8ADC61C2F2CE8610020B4F8 /* SetupMgr.h */,
+				C8ADC61D2F2CE8610020B4F8 /* SetupMgr.m */,
 			);
 			path = Taoism;
 			sourceTree = "<group>";
@@ -453,6 +458,7 @@
 			files = (
 				752CA83E2149E6C400295EFC /* Main.mm in Sources */,
 				C86318CA2EF82DF90061EFAE /* LaunchAgentManager.m in Sources */,
+				C8ADC61E2F2CE8610020B4F8 /* SetupMgr.m in Sources */,
 				C8C991B92EC4BBAC0014DEE5 /* TrayManager.m in Sources */,
 				C8652B6D2F20F8C600FEDA19 /* LocalizedStringManager.m in Sources */,
 				C836471A2F129FA40090B2F6 /* PathHelper.m in Sources */,
