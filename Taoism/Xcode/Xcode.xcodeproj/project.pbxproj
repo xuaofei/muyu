@@ -168,18 +168,10 @@
 		C8E3B00F2EFEAD0D006F02AF /* SendMsg2OC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SendMsg2OC.m; sourceTree = "<group>"; };
 		C8E3B0112EFEB6C7006F02AF /* CursorManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CursorManager.h; sourceTree = "<group>"; };
 		C8E3B0122EFEB6C7006F02AF /* CursorManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CursorManager.m; sourceTree = "<group>"; };
-		C8E3B0182EFEC39D006F02AF /* NSObject+hook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+hook.h"; sourceTree = "<group>"; };
-		C8E3B0192EFEC39D006F02AF /* NSObject+hook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+hook.m"; sourceTree = "<group>"; };
 		C8E3B01B2EFECFAB006F02AF /* pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pressed.png; sourceTree = "<group>"; };
 		C8E3B01C2EFECFAB006F02AF /* normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = normal.png; sourceTree = "<group>"; };
-		C8E3B0222F00EAE8006F02AF /* NSView+hook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSView+hook.h"; sourceTree = "<group>"; };
-		C8E3B0232F00EAE8006F02AF /* NSView+hook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSView+hook.m"; sourceTree = "<group>"; };
-		C8E3B0542F0173BC006F02AF /* NSWindow+Hook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSWindow+Hook.h"; sourceTree = "<group>"; };
-		C8E3B0552F0173BC006F02AF /* NSWindow+Hook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSWindow+Hook.m"; sourceTree = "<group>"; };
 		C8E3B05A2F02C7E8006F02AF /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
 		C8E3B05B2F02C7E8006F02AF /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
-		C8E3B05D2F02DBD7006F02AF /* NSCursor+hook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSCursor+hook.h"; sourceTree = "<group>"; };
-		C8E3B05E2F02DBD7006F02AF /* NSCursor+hook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSCursor+hook.m"; sourceTree = "<group>"; };
 		C8E9F7FB2EEC6EEE009BE387 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C8E9F7FC2EEC6EEE009BE387 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CDD5792B240E027400DEA632 /* MainMenu.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = MainMenu.nib; path = Taoism/Resources/MainMenu.nib; sourceTree = "<group>"; };
@@ -309,14 +301,6 @@
 				C8ADC6132F29021A0020B4F8 /* SendMsg2Unity.m */,
 				C8E3B0112EFEB6C7006F02AF /* CursorManager.h */,
 				C8E3B0122EFEB6C7006F02AF /* CursorManager.m */,
-				C8E3B0182EFEC39D006F02AF /* NSObject+hook.h */,
-				C8E3B0192EFEC39D006F02AF /* NSObject+hook.m */,
-				C8E3B0222F00EAE8006F02AF /* NSView+hook.h */,
-				C8E3B0232F00EAE8006F02AF /* NSView+hook.m */,
-				C8E3B0542F0173BC006F02AF /* NSWindow+Hook.h */,
-				C8E3B0552F0173BC006F02AF /* NSWindow+Hook.m */,
-				C8E3B05D2F02DBD7006F02AF /* NSCursor+hook.h */,
-				C8E3B05E2F02DBD7006F02AF /* NSCursor+hook.m */,
 				C8ADC6162F290EAB0020B4F8 /* PluginMsgMgr.h */,
 				C8ADC6172F290EAB0020B4F8 /* PluginMsgMgr.m */,
 			);
