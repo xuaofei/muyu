@@ -22,8 +22,6 @@ public class MuyuController : MonoBehaviour
     public Texture2D tapCursor450;
 
     private bool isKnockCompleted = true;
-
-    private string muyuAnimationName = "01";
     private string animationNameMuYu02 = "muyu02";
     private string muyuAudioName = "muyu0_1";
 
@@ -40,21 +38,11 @@ public class MuyuController : MonoBehaviour
     Vector2 tapHotspot;
 
     public static MuyuController Instance { get; private set; }
-
-
-
 #if !UNITY_EDITOR && UNITY_STANDALONE_OSX
-    private delegate void UnityCallback(IntPtr utf8);
-    private static UnityCallback unityCallback; // 必须静态持有，防止被 GC 回收
-
     [DllImport("unityPlugin")]
     private static extern void MouseUp();
     [DllImport("unityPlugin")]
     private static extern void MouseDown();
-    [DllImport("unityPlugin")]
-    private static extern void UnityStartd();
-    [DllImport("unityPlugin")]
-    private static extern void SetUnityMsgCallback(UnityCallback cb);
 #endif
 
     private void Awake()
@@ -69,13 +57,6 @@ public class MuyuController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-
-#if !UNITY_EDITOR && UNITY_STANDALONE_OSX
-        unityCallback = OnMsgFromOC;
-        SetUnityMsgCallback(unityCallback);
-#endif
-
     }
 
     private void OnApplicationFocus(bool hasFocus)
@@ -108,10 +89,6 @@ public class MuyuController : MonoBehaviour
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.outputAudioMixerGroup = GameManager.Instance.mainMixer.FindMatchingGroups("Master")[0];
 
-#if !UNITY_EDITOR && UNITY_STANDALONE_OSX
-        UnityStartd();
-#endif
-
     }
 
     // Update is called once per frame
@@ -129,23 +106,6 @@ public class MuyuController : MonoBehaviour
                  isKnockCompleted = true;
             }
         }
-    }
-
-    private static string PtrToStringUtf8(IntPtr p)
-    {
-        if (p == IntPtr.Zero) return "";
-        int len = 0;
-        while (Marshal.ReadByte(p, len) != 0) len++;
-        var bytes = new byte[len];
-        Marshal.Copy(p, bytes, 0, len);
-        return Encoding.UTF8.GetString(bytes);
-    }
-
-    private static void OnMsgFromOC(IntPtr p)
-    {
-        // 注意：可能来自非主线程，这里不要直接调用 Unity API
-        var s = PtrToStringUtf8(p);
-        LoggerManager.Instance.InfoLog("OnMsgFromOC:" + s);
     }
 
     public void changeCursorSize(int width)
@@ -262,9 +222,6 @@ public class MuyuController : MonoBehaviour
         {
             Cursor.SetCursor(normalCursor450, normalHotspot, CursorMode.Auto);
         }
-
-        //CustomCursorController.Instance.OnCursorUp();
-
         LoggerManager.Instance.InfoLog("Screen.width：" + Screen.width);
         LoggerManager.Instance.InfoLog("Screen.height：" + Screen.height);
 
@@ -280,11 +237,6 @@ public class MuyuController : MonoBehaviour
         {
             return;
         }
-
-
-#if !UNITY_EDITOR && UNITY_STANDALONE_OSX
-        //MouseDown();
-#endif
 
         isKnockCompleted = false;
 
