@@ -18,4 +18,12 @@
 "tray_size_title" = "尺寸";
 "tray_mute_off_title" = "静音";
 "tray_mute_on_title" = "静音 ✓";
+"tray_feedback_title" = "反馈";
 "tray_exit_title" = "退出";
+
+"feedback_win_title" = "问题反馈";
+"feedback_title" = "标题";
+"feedback_title_placeholder" = "例如：闪退 / 卡顿 / 功能建议…";
+"feedback_content" = "内容";
+"feedback_submit" = "提交";
+"feedback_cancle" = "取消";

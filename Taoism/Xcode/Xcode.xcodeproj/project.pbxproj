@@ -31,6 +31,7 @@
 		C8ADC6182F290EAB0020B4F8 /* PluginMsgMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ADC6172F290EAB0020B4F8 /* PluginMsgMgr.m */; };
 		C8ADC61B2F29117F0020B4F8 /* TrayMsgMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ADC61A2F29117F0020B4F8 /* TrayMsgMgr.m */; };
 		C8ADC61E2F2CE8610020B4F8 /* SetupMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ADC61D2F2CE8610020B4F8 /* SetupMgr.m */; };
+		C8ADC6212F3CB2430020B4F8 /* FeedbackPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8ADC6202F3CB2430020B4F8 /* FeedbackPanelController.m */; };
 		C8C1FD672F17C415009F6021 /* MMWormhole.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8C1FD652F17C38F009F6021 /* MMWormhole.framework */; };
 		C8C1FD682F17C415009F6021 /* MMWormhole.framework in Embed Libraries */ = {isa = PBXBuildFile; fileRef = C8C1FD652F17C38F009F6021 /* MMWormhole.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		C8C991B12EC38CAF0014DEE5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8C991B02EC38CAF0014DEE5 /* Foundation.framework */; };
@@ -160,6 +161,8 @@
 		C8ADC61A2F29117F0020B4F8 /* TrayMsgMgr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrayMsgMgr.m; sourceTree = "<group>"; };
 		C8ADC61C2F2CE8610020B4F8 /* SetupMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetupMgr.h; sourceTree = "<group>"; };
 		C8ADC61D2F2CE8610020B4F8 /* SetupMgr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetupMgr.m; sourceTree = "<group>"; };
+		C8ADC61F2F3CB2430020B4F8 /* FeedbackPanelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedbackPanelController.h; sourceTree = "<group>"; };
+		C8ADC6202F3CB2430020B4F8 /* FeedbackPanelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedbackPanelController.m; sourceTree = "<group>"; };
 		C8C1FD652F17C38F009F6021 /* MMWormhole.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MMWormhole.framework; sourceTree = "<group>"; };
 		C8C991B02EC38CAF0014DEE5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C8C991B22EC38EC10014DEE5 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -266,6 +269,8 @@
 				C8ADC61A2F29117F0020B4F8 /* TrayMsgMgr.m */,
 				C8ADC61C2F2CE8610020B4F8 /* SetupMgr.h */,
 				C8ADC61D2F2CE8610020B4F8 /* SetupMgr.m */,
+				C8ADC61F2F3CB2430020B4F8 /* FeedbackPanelController.h */,
+				C8ADC6202F3CB2430020B4F8 /* FeedbackPanelController.m */,
 			);
 			path = Taoism;
 			sourceTree = "<group>";
@@ -464,6 +469,7 @@
 				C836471A2F129FA40090B2F6 /* PathHelper.m in Sources */,
 				C8ADC61B2F29117F0020B4F8 /* TrayMsgMgr.m in Sources */,
 				C8A930402EEC5E6E0043EA1A /* LaunchChildManager.m in Sources */,
+				C8ADC6212F3CB2430020B4F8 /* FeedbackPanelController.m in Sources */,
 				C8E9F7FD2EEC6EEE009BE387 /* AppDelegate.m in Sources */,
 				C8E3B07F2F0EA644006F02AF /* JRSwizzle.m in Sources */,
 			);

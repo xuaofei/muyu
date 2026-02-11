@@ -18,6 +18,13 @@
 "tray_size_title" = "Size";
 "tray_mute_off_title" = "Mute";
 "tray_mute_on_title" = "Mute ✓";
+"tray_feedback_title" = "Feedback";
 "tray_exit_title" = "Exit";
 
+"feedback_win_title" = "Feedback";
+"feedback_title" = "Title";
+"feedback_title_placeholder" = "e.g., crash / lag / feature request…";
+"feedback_content" = "Content";
+"feedback_submit" = "Commit";
+"feedback_cancle" = "Cancle";
 

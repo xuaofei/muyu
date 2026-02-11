@@ -12,6 +12,7 @@
 #import "SetupMgr.h"
 #import "LaunchChildManager.h"
 #import "LocalizedStringManager.h"
+#import "FeedbackPanelController.h"
 #import <Cocoa/Cocoa.h>
 #import <Foundation/Foundation.h>
 
@@ -32,6 +33,7 @@
 @property(nonatomic, retain) NSString *sizeTitle;
 @property(nonatomic, retain) NSString *muteOffTitle;
 @property(nonatomic, retain) NSString *muteOnTitle;
+@property(nonatomic, retain) NSString *feedbackTitle;
 @property(nonatomic, retain) NSString *exitTitle;
 
 
@@ -64,6 +66,7 @@
         self.sizeTitle = [LocalizedStringManager localizedStringForKey:@"tray_size_title"];
         self.muteOffTitle = [LocalizedStringManager localizedStringForKey:@"tray_mute_off_title"];
         self.muteOnTitle = [LocalizedStringManager localizedStringForKey:@"tray_mute_on_title"];
+        self.feedbackTitle = [LocalizedStringManager localizedStringForKey:@"tray_feedback_title"];
         self.exitTitle = [LocalizedStringManager localizedStringForKey:@"tray_exit_title"];
     }
     
@@ -128,6 +131,9 @@
     
     NSMenuItem *menuItemBig = [self.sizeSubMenu addItemWithTitle:self.largeTitle action: @selector(toBigSize:) keyEquivalent: @""];
     menuItemBig.target = self;
+    
+    NSMenuItem *menuItemFeedback = [mainMenu addItemWithTitle:self.feedbackTitle action: @selector(toFeedback:) keyEquivalent: @""];
+    menuItemFeedback.target = self;
     
     [mainMenu addItem: [NSMenuItem separatorItem]]; // 添加一个分割线
     NSMenuItem *menuItemExit = [mainMenu addItemWithTitle:self.exitTitle action: @selector(quit:) keyEquivalent: @""];
@@ -210,6 +216,11 @@
     menuItemBig.title = self.largeSelectTitle;
     
     [self changeScreenSize:WINDOW_SIZE_BIG];
+}
+
+- (void)toFeedback:(id)sender
+{
+    [[FeedbackPanelController shared] show];
 }
 
 - (void)quit:(id)sender
