@@ -10,6 +10,8 @@
 #import "SendMsg2OC.h"
 #import "ScreenManager.h"
 #import "PluginMsgMgr.h"
+#import "SendMsg2Unity.h"
+
 
 
 #if defined (__cplusplus)
@@ -25,15 +27,10 @@ extern "C" {
     void UnityStartd(void) {
         [ScreenManager shared];
         [PluginMsgMgr shared];
-//        [CursorManager shared];
     }
     
-    void MouseUp(void) {
-        //        [[CursorManager shared] mouseUp];
-    }
-    
-    void MouseDown(void){
-        //        [[CursorManager shared] mouseDown];
+    void PrayFinished(void) {
+        ShowMuyu();
     }
     
 #if defined (__cplusplus)

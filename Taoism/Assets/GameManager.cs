@@ -62,7 +62,35 @@ public class GameManager : MonoBehaviour
     private static void OnMsgFromOC(IntPtr p)
     {
         // 注意：可能来自非主线程，这里不要直接调用 Unity API
-        var s = PtrToStringUtf8(p);
-        LoggerManager.Instance.InfoLog("OnMsgFromOC:" + s);
+        var msg = PtrToStringUtf8(p);
+        LoggerManager.Instance.InfoLog("OnMsgFromOC:" + msg);
+
+        if (msg == "Mute")
+        {
+            GameManager.Instance.SetMute(true);
+        }
+        else if (msg == "Unmute")
+        {
+            GameManager.Instance.SetMute(false);
+        }
+        else if (msg == "Pray")
+        {
+            XiangluController.Instance.gameObject.SetActive(true);
+            XiangluController.Instance.ResetAnimation();
+            
+            MuyuController.Instance.gameObject.SetActive(false);
+            MuyuController.Instance.enabled = false;
+        }
+        else if (msg == "ShowMuyu")
+        {
+            XiangluController.Instance.gameObject.SetActive(false);
+            MuyuController.Instance.gameObject.SetActive(true);
+            MuyuController.Instance.enabled = true;
+        }
+    }
+
+    public void SetMute(bool mute)
+    {
+        AudioListener.volume = mute ? 0f : 1f;
     }
 }

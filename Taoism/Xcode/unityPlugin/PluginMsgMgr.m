@@ -9,6 +9,7 @@
 #import "define.h"
 #import "PluginMsgMgr.h"
 #import "ScreenManager.h"
+#import "SendMsg2Unity.h"
 @import MMWormhole;
 
 @interface PluginMsgMgr ()
@@ -41,12 +42,14 @@
             NSInteger screenSize = [data integerValue];
             [[ScreenManager shared] resizeWindow:CGSizeMake(screenSize, screenSize)];
         } else if ([msg isEqualToString:PRAY_KEY]) {
-            
+            Pray();
         } else if ([msg isEqualToString:EXORCISM_KEY]) {
             
         } else if ([msg isEqualToString:MUTE_KEY]) {
             BOOL mute = [[userInfo objectForKey:@"data"] boolValue];
             NSLog(@"plugin Msg mute:%d", mute);
+            
+            Mute(mute);
             
         } else if ([msg isEqualToString:EXIT_SUB_APP_KEY]) {
             exit(0);

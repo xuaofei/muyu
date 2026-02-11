@@ -95,9 +95,9 @@
     menuItemPray.target = self;
     
     // 一级菜单: 消灾
-    NSMenuItem *menuItemExorcism = [[NSMenuItem alloc] initWithTitle:self.exorcismTitle action:@selector(toExorcism:) keyEquivalent:@""];
-    [mainMenu addItem:menuItemExorcism];
-    menuItemExorcism.target = self;
+//    NSMenuItem *menuItemExorcism = [[NSMenuItem alloc] initWithTitle:self.exorcismTitle action:@selector(toExorcism:) keyEquivalent:@""];
+//    [mainMenu addItem:menuItemExorcism];
+//    menuItemExorcism.target = self;
     
     [mainMenu addItem: [NSMenuItem separatorItem]]; 
     
@@ -167,11 +167,10 @@
 - (void)mute:(id)sender {
     BOOL mute = [[SetupMgr shared] getMute];
     mute = !mute;
+    self.menuItemMute.title = mute?self.muteOnTitle:self.muteOffTitle;
     
     [[SetupMgr shared] setMute:mute];
     [[TrayMsgMgr shared] setMute:mute];
-    
-    self.menuItemMute.title = mute?self.muteOnTitle:self.muteOffTitle;
 }
 
 - (void)toSmallSize:(id)sender

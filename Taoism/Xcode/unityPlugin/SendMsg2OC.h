@@ -14,8 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 extern "C" {
 #endif
 void UnityStartd(void);
-void MouseUp(void);
-void MouseDown(void);
+// 祈祷完成
+void PrayFinished(void);
 
 #if defined (__cplusplus)
 }

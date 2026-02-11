@@ -8,6 +8,7 @@
 
 #import "define.h"
 #import "TrayMsgMgr.h"
+#import "SetupMgr.h"
 @import MMWormhole;
 
 @interface TrayMsgMgr ()
@@ -44,6 +45,11 @@
             NSInteger screenSize = [[NSUserDefaults standardUserDefaults] integerForKey:WINDOW_SIZE_KEY];
         
             [self changeWindowSize:screenSize];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                BOOL mute = [[SetupMgr shared] getMute];
+                [self setMute:mute];
+
+            });
         }
     }];
     

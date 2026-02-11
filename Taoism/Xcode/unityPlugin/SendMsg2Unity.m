@@ -11,14 +11,25 @@
 
 extern UnityMsgCallback g_unityMsgCallback;
 
-void BurnIncense(void) {
+void Pray(void) {
     if (!g_unityMsgCallback) {
         NSLog(@"unityMsgCallback is nil");
         return;
     }
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        g_unityMsgCallback("BurnIncense");
+        g_unityMsgCallback("Pray");
+    });
+}
+
+void ShowMuyu(void) {
+    if (!g_unityMsgCallback) {
+        NSLog(@"unityMsgCallback is nil");
+        return;
+    }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        g_unityMsgCallback("ShowMuyu");
     });
 }
 

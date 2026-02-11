@@ -29,7 +29,6 @@
     [[TrayManager shared] showTray];
     
     [[LaunchChildManager shared] launchSelfWithChildParameter];
-    
     [LaunchAgentManager addAppToLaunchAgents];
 }
 
