@@ -163,15 +163,15 @@
 - (void)onSubmit:(id)sender {
     NSString *title = self.titleField.stringValue ?: @"";
     NSString *content = self.contentTextView.string ?: @"";
+    
+    if (title.length == 0) {
+        return;
+    }
 
     [self sc_sendText:title desp:content completion:^(NSString *resp, NSError *err) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (err) {
                 NSLog(@"Feedback send failed: %@", err);
-                NSAlert *alert = [[NSAlert alloc] init];
-                alert.messageText = @"提交失败";
-                alert.informativeText = err.localizedDescription ?: @"未知错误";
-                [alert runModal];
                 return;
             }
 
