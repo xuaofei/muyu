@@ -9,3 +9,13 @@
 -c:a aac -b:a 192k -ar 48000 -ac 2 \
 -movflags +faststart \
 output_preview_1920x1080_30fps.mp4
+
+
+统计视频帧数
+ffprobe -v error -select_streams v:0 -count_frames \
+  -show_entries stream=nb_read_frames \
+  -of default=nokey=1:noprint_wrappers=1 input.mp4
+
+
+抽取最后一帧
+ffmpeg -i input.mp4 -vf "select=eq(n\,1233)" -frames:v 1 -vsync 0 last.png
