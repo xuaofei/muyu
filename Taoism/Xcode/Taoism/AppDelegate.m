@@ -46,24 +46,4 @@
     return YES;
 }
 
-// AppDelegate.m
-- (void)application:(NSApplication *)application openURLs:(NSArray<NSURL *> *)urls {
-    for (NSURL *url in urls) {
-        [self handleIncomingURL:url];
-    }
-}
-- (void)handleIncomingURL:(NSURL *)url {
-    NSURLComponents *c = [NSURLComponents componentsWithURL:url resolvingAgainstBaseURL:NO];
-    NSString *action = c.host ?: @""; // 例如 myapp://open?token=xxx -> action=open
-    if ([action containsString:@"childUnity"]) {
-        
-    }
-    
-//    NSString *token = nil;
-//    for (NSURLQueryItem *item in c.queryItems) {
-//        if ([item.name isEqualToString:@"token"]) { token = item.value; break; }
-//    }
-//    NSLog(@"action=%@ token=%@ url=%@", action, token, url.absoluteString);
-//    // TODO: 根据 action/token 执行业务
-}
 @end
